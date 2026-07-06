@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Woman Mastery HQ Membership</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700;9..40,800;9..40,900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --deep-red:#660810;
+    --dark-red:#270707;
+    --merlot:#3D0A10;
+    --cherry:#A2122A;
+    --blush:#F2C6D0;
+    --stone:#f1ebeb;
+    --off-white:#f2f2f2;
+    --satin:#FAF6F0;
+    --champagne:#EDE8DF;
+    --ink:#1a0a0a;
+    --ink-light:#3d1a1a;
+    --muted:#7a5a5a;
+    --border:rgba(102,8,16,0.15);
+    --border-strong:rgba(102,8,16,0.3);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'DM Sans',sans-serif;
+    background:var(--satin);
+    color:var(--ink);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1100px;margin:0 auto;padding:0 40px;}
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:var(--dark-red);
+    border-bottom:1px solid rgba(242,198,208,0.12);
+  }
+  .nav-inner{
+    max-width:1100px;margin:0 auto;padding:16px 40px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .logo{
+    font-weight:900;font-size:15px;letter-spacing:0.04em;
+    color:var(--stone);text-transform:uppercase;
+  }
+  .logo span{color:var(--blush);}
+  .nav-cta{
+    background:var(--blush);color:var(--merlot);
+    font-weight:800;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;
+    padding:12px 26px;border-radius:100px;text-decoration:none;
+    transition:transform .2s ease;
+  }
+  .nav-cta:hover{transform:translateY(-1px);}
+
+  /* ---------- SHARED ---------- */
+  section{padding:88px 0;}
+  .eyebrow{
+    font-size:10px;font-weight:800;letter-spacing:0.2em;text-transform:uppercase;
+    color:var(--cherry);margin-bottom:18px;display:block;
+  }
+  h1,h2{letter-spacing:-0.02em;line-height:1.05;font-weight:900;}
+  h2{font-size:clamp(28px,4vw,46px);}
+  .lead{font-size:clamp(16px,2vw,19px);line-height:1.7;color:var(--ink-light);max-width:640px;}
+
+  .btn{
+    display:inline-block;text-decoration:none;font-weight:800;
+    font-size:13px;letter-spacing:0.08em;text-transform:uppercase;
+    padding:18px 40px;border-radius:100px;transition:transform .2s ease,box-shadow .2s ease;
+  }
+  .btn-blush{background:var(--blush);color:var(--merlot);}
+  .btn-blush:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(242,198,208,0.25);}
+  .btn-ghost{
+    background:transparent;border:2px solid rgba(242,198,208,0.5);color:var(--blush);
+  }
+  .btn-ghost:hover{border-color:var(--blush);transform:translateY(-2px);}
+  .dm-link{
+    display:inline-block;margin-top:20px;font-size:13px;font-weight:700;
+    color:var(--muted);text-decoration:none;border-bottom:1px solid var(--border-strong);
+    padding-bottom:2px;
+  }
+  .dm-link.on-dark{color:rgba(242,198,208,0.85);border-color:rgba(242,198,208,0.4);}
+  .dm-link:hover{color:var(--cherry);}
+  .dm-link.on-dark:hover{color:var(--blush);}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background-image:
+      linear-gradient(rgba(39,7,7,0.46),rgba(39,7,7,0.62)),
+      url('https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/sites/2147575052/images/4e63d1-50f0-bb80-b0c8-2de036883cf_Kajabi_Website_1_.png');
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    color:var(--stone);
+    text-align:center;
+    padding:120px 0 108px;
+    position:relative;overflow:hidden;
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(ellipse at 50% 0%,rgba(162,18,42,0.28),transparent 60%);
+    pointer-events:none;
+  }
+  .hero .wrap{position:relative;z-index:1;}
+  .hero-tag{
+    display:inline-block;font-size:10px;font-weight:800;letter-spacing:0.2em;text-transform:uppercase;
+    color:var(--blush);background:rgba(242,198,208,0.1);
+    padding:8px 18px;border-radius:100px;margin-bottom:32px;
+  }
+  .hero-eyebrow{
+    font-size:clamp(15px,2vw,20px);font-weight:800;letter-spacing:0.12em;text-transform:uppercase;
+    color:var(--blush);margin-bottom:22px;
+  }
+  .hero h1{
+    font-size:clamp(30px,4.6vw,52px);
+    margin-bottom:26px;
+  }
+  .hero h1 .line2{color:var(--blush);}
+  .hero-sub{
+    font-size:clamp(18px,2.4vw,22px);line-height:1.5;font-weight:800;
+    color:var(--stone);max-width:640px;margin:0 auto 22px;
+  }
+  .hero-checks{
+    list-style:none;max-width:500px;margin:0 auto 40px;
+    display:flex;flex-direction:column;gap:12px;text-align:left;
+  }
+  .hero-checks li{
+    display:flex;gap:12px;align-items:flex-start;
+    font-size:clamp(15px,1.7vw,17px);color:rgba(241,235,235,0.9);line-height:1.5;
+  }
+  .hero-checks .hc{color:var(--blush);font-weight:900;flex-shrink:0;}
+  .hero-cta-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;align-items:center;}
+  .hero-note{
+    margin-top:26px;font-size:13px;letter-spacing:0.02em;
+    color:rgba(241,235,235,0.55);
+  }
+
+  /* ---------- REPEATED MESSAGE BAND ---------- */
+  .band{
+    background:var(--blush);text-align:center;padding:52px 0;
+  }
+  .band p{
+    font-weight:800;letter-spacing:-0.01em;
+    font-size:clamp(22px,3.2vw,32px);color:var(--merlot);line-height:1.3;
+    max-width:840px;margin:0 auto;
+  }
+
+  /* ---------- WHO IT'S FOR ---------- */
+  .who{background:var(--off-white);}
+  .who-grid{display:grid;grid-template-columns:0.9fr 1.1fr;gap:64px;align-items:start;}
+  .who-grid h2{margin-bottom:20px;}
+  .checklist{list-style:none;display:flex;flex-direction:column;gap:2px;}
+  .checklist li{
+    display:flex;gap:16px;align-items:flex-start;
+    padding:20px 0;border-bottom:1px solid var(--border);
+    font-size:16px;color:var(--ink-light);
+  }
+  .checklist li:last-child{border-bottom:none;}
+  .check{
+    flex-shrink:0;width:22px;height:22px;margin-top:2px;
+    border-radius:50%;background:var(--cherry);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .check svg{width:12px;height:12px;}
+
+  /* ---------- INCLUSIONS ---------- */
+  .receive{background:var(--merlot);color:var(--stone);}
+  .receive .head{text-align:center;margin-bottom:56px;}
+  .receive .head .eyebrow{color:var(--blush);}
+  .receive .head h2{color:var(--stone);}
+  .inc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .inc-card{
+    background:var(--dark-red);
+    border:1px solid rgba(242,198,208,0.1);
+    border-radius:16px;padding:30px 26px;
+    transition:transform .2s ease,border-color .2s ease;
+  }
+  .inc-card:hover{transform:translateY(-4px);border-color:rgba(242,198,208,0.35);}
+  .inc-num{
+    font-size:11px;font-weight:800;letter-spacing:0.15em;
+    color:var(--blush);opacity:0.7;margin-bottom:14px;
+  }
+  .inc-card h3{font-size:18px;font-weight:800;color:var(--stone);line-height:1.3;}
+
+  /* ---------- RESULTS ---------- */
+  .results{background:var(--off-white);}
+  .results .head{text-align:center;margin-bottom:56px;}
+  .test-grid{display:grid;grid-template-columns:repeat(3,1fr);}
+  .test-cell{padding:38px 34px;border-right:1px solid var(--border);border-bottom:1px solid var(--border);display:flex;flex-direction:column;}
+  .test-cell:nth-child(3n){border-right:none;}
+  .test-cell:nth-child(n+4){border-bottom:none;}
+  .result-pill{
+    display:inline-block;align-self:flex-start;
+    background:rgba(242,198,208,0.45);color:var(--deep-red);
+    font-size:13px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;
+    padding:12px 24px;border-radius:100px;margin-bottom:28px;
+  }
+  .quote-card{
+    flex-grow:1;display:flex;align-items:center;margin-bottom:24px;
+  }
+  .quote-card img{
+    display:block;width:100%;height:auto;border-radius:14px;
+    box-shadow:0 10px 26px rgba(38,7,7,0.06);
+  }
+  .test-author{font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);}
+
+  /* ---------- PROOF STRIP ---------- */
+  .proof-strip{background:var(--off-white);}
+  .proof-grid{display:grid;grid-template-columns:1fr;gap:28px;max-width:1000px;margin:0 auto;}
+  .proof-card{
+    background:#fff;border:1px solid var(--border);
+    border-radius:16px;overflow:hidden;box-shadow:0 10px 26px rgba(38,7,7,0.05);
+  }
+  .proof-card img{display:block;width:100%;height:auto;}
+
+  /* ---------- PRICING ---------- */
+  .pricing{background:var(--dark-red);color:var(--stone);}
+  .pricing .head{text-align:center;margin-bottom:56px;}
+  .pricing .head .eyebrow{color:var(--blush);}
+  .pricing .head h2{color:var(--stone);}
+  .cur-toggle{
+    display:inline-flex;margin-top:26px;padding:5px;gap:2px;
+    background:rgba(242,198,208,0.12);border:1px solid rgba(242,198,208,0.25);border-radius:100px;
+  }
+  .cur-btn{
+    font-family:'DM Sans',sans-serif;cursor:pointer;border:none;background:transparent;
+    color:rgba(241,235,235,0.6);font-size:13px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;
+    padding:10px 26px;border-radius:100px;transition:background .2s ease,color .2s ease;
+  }
+  .cur-btn.active{background:var(--blush);color:var(--merlot);}
+  .cur-note{margin-top:16px;font-size:12px;color:rgba(241,235,235,0.5);letter-spacing:0.02em;}
+  .price-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:900px;margin:0 auto;}
+  .price-card{
+    background:var(--merlot);border:1px solid rgba(242,198,208,0.14);
+    border-radius:16px;padding:44px 40px;display:flex;flex-direction:column;
+    position:relative;
+  }
+  .price-card.vip{border-color:rgba(242,198,208,0.4);}
+  .price-badge{
+    position:absolute;top:24px;right:24px;
+    background:var(--blush);color:var(--merlot);
+    font-size:9px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;
+    padding:6px 14px;border-radius:100px;
+  }
+  .price-name{font-size:13px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:var(--blush);margin-bottom:20px;}
+  .price-amt{font-size:clamp(48px,6vw,64px);font-weight:900;line-height:1;letter-spacing:-0.03em;}
+  .price-amt .price-per{font-size:18px;font-weight:700;color:rgba(241,235,235,0.6);letter-spacing:0;}
+  .price-term{font-size:13px;color:rgba(241,235,235,0.6);margin:12px 0 30px;}
+  .price-incl-label{font-size:10px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:var(--blush);margin-bottom:16px;}
+  .price-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:36px;flex-grow:1;}
+  .price-list li{display:flex;gap:12px;font-size:14px;color:rgba(241,235,235,0.9);line-height:1.45;}
+  .price-list li::before{content:"";flex-shrink:0;width:6px;height:6px;margin-top:8px;border-radius:50%;background:var(--blush);}
+  .price-card .btn{text-align:center;}
+  .price-dm{text-align:center;margin-top:16px;}
+
+  /* ---------- JESS ---------- */
+  .jess{background:var(--merlot);color:var(--stone);}
+  .jess-grid{display:grid;grid-template-columns:0.8fr 1.2fr;gap:56px;align-items:center;}
+  .jess-photo img{
+    display:block;width:100%;height:auto;border-radius:16px;
+    border:1px solid rgba(242,198,208,0.2);
+  }
+  .jess-grid .eyebrow{color:var(--blush);}
+  .jess-grid h2{color:var(--stone);margin-bottom:22px;}
+  .jess-grid p{color:rgba(241,235,235,0.85);font-size:16px;line-height:1.75;margin-bottom:18px;}
+  .signoff{
+    font-weight:800;font-size:20px;color:var(--blush);margin-top:8px;letter-spacing:-0.01em;
+  }
+  .signoff .welcome{display:block;color:var(--stone);margin-bottom:4px;}
+
+  /* ---------- FAQ ---------- */
+  .faq{background:var(--satin);}
+  .faq .head{text-align:center;margin-bottom:52px;}
+  .faq-list{max-width:780px;margin:0 auto;}
+  .faq-item{border-bottom:1px solid var(--border);}
+  .faq-q{
+    width:100%;text-align:left;background:none;border:none;cursor:pointer;
+    padding:26px 0;display:flex;justify-content:space-between;align-items:center;gap:20px;
+    font-family:'DM Sans',sans-serif;font-size:17px;font-weight:700;color:var(--ink);
+  }
+  .faq-q .icon{flex-shrink:0;font-size:22px;color:var(--cherry);transition:transform .25s ease;line-height:1;}
+  .faq-item.open .faq-q .icon{transform:rotate(45deg);}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;}
+  .faq-a p{margin:0 0 14px;font-size:15px;color:var(--ink-light);line-height:1.7;max-width:700px;}
+  .faq-a ul{margin:0 0 14px;padding-left:20px;max-width:700px;}
+  .faq-a li{font-size:15px;color:var(--ink-light);line-height:1.65;margin-bottom:6px;}
+  .faq-a a{color:var(--cherry);font-weight:700;text-decoration:none;border-bottom:1px solid rgba(162,18,42,0.35);}
+  .faq-a a:hover{border-color:var(--cherry);}
+  .faq-a > :last-child{margin-bottom:26px;}
+
+  /* ---------- FINAL CTA ---------- */
+  .final{background:var(--dark-red);color:var(--stone);text-align:center;padding:104px 0;}
+  .final h2{color:var(--stone);margin-bottom:20px;font-size:clamp(32px,5vw,56px);}
+  .final p{
+    font-weight:700;
+    font-size:clamp(19px,2.4vw,24px);color:rgba(242,198,208,0.92);
+    max-width:660px;margin:0 auto 40px;line-height:1.4;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--ink);color:rgba(241,235,235,0.6);padding:48px 0;text-align:center;}
+  .foot-socials{display:flex;gap:24px;justify-content:center;margin-bottom:24px;flex-wrap:wrap;}
+  .foot-socials a{color:rgba(241,235,235,0.6);font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;}
+  .foot-socials a:hover{color:var(--blush);}
+  .foot-copy{font-size:12px;letter-spacing:0.05em;}
+  .foot-links{margin-top:12px;font-size:11px;}
+  .foot-links a{color:rgba(241,235,235,0.5);text-decoration:none;margin:0 8px;}
+  .foot-links a:hover{color:var(--blush);}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:1000px){
+    .test-grid{grid-template-columns:repeat(2,1fr);}
+    .test-cell,
+    .test-cell:nth-child(3n),
+    .test-cell:nth-child(n+4){border-right:none;border-bottom:none;padding:32px 24px;}
+  }
+  @media(max-width:860px){
+    .wrap{padding:0 20px;}
+    .nav-inner{padding:14px 20px;}
+    section{padding:60px 0;}
+    .hero{padding:88px 0 76px;background-attachment:scroll;}
+    .who-grid,.jess-grid{grid-template-columns:1fr;gap:36px;}
+    .inc-grid,.price-grid{grid-template-columns:1fr;}
+    .jess-photo{max-width:340px;}
+    .hero-cta-row{flex-direction:column;}
+    .hero-cta-row .btn{width:100%;text-align:center;}
+  }
+  @media(max-width:600px){ .test-grid,.proof-grid{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="logo">WOMAN MASTERY <span>HQ</span></div>
+    <a href="#pricing" class="nav-cta">Join Now</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <p class="hero-eyebrow">Join Jess Pinili's Woman Mastery HQ Membership</p>
+    <h1>Scale Your Business. <span class="line2">Increase Your Profit.</span></h1>
+    <p class="hero-sub">A membership with everything you need to grow your online business.</p>
+    <ul class="hero-checks">
+      <li><span class="hc">&#10003;</span>Personal audits: content, offers, messaging and subconscious patterns.</li>
+      <li><span class="hc">&#10003;</span>Private community of women scaling their income.</li>
+      <li><span class="hc">&#10003;</span>Weekly live coaching and masterclasses.</li>
+    </ul>
+    <div class="hero-cta-row">
+      <a href="#pricing" class="btn btn-blush">Join WMHQ, $450/month</a>
+      <a href="https://ig.me/m/jesspinili" class="btn btn-ghost">Questions? DM Jess</a>
+    </div>
+    <p class="hero-note">6 months of access, then continues month-to-month.</p>
+  </div>
+</header>
+
+<!-- REPEATED MESSAGE BAND -->
+<div class="band">
+  <div class="wrap">
+    <p>Personalised business coaching for female founders who want to scale and become more profitable.</p>
+  </div>
+</div>
+
+<!-- WHO IT'S FOR -->
+<section class="who">
+  <div class="wrap">
+    <div class="who-grid">
+      <div>
+        <span class="eyebrow">Who It Is For</span>
+        <h2>Female founders at any stage, ready to scale.</h2>
+        <p class="lead">You have built something real. Now you want the support to make it consistent, profitable, and built to hold more.</p>
+      </div>
+      <ul class="checklist">
+        <li><span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.5 9L10 3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>You are making $12K to $35K months, but it swings wildly.</li>
+        <li><span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.5 9L10 3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Your content gets love, saves and DMs, but not consistent sales.</li>
+        <li><span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.5 9L10 3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>You have built the offer, the testimonials, the proof, and you are still hustling for every launch.</li>
+        <li><span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.5 9L10 3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>You know you need bigger visibility and higher prices, but your body tightens every time you think about it.</li>
+        <li><span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.5 9L10 3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>You hit a big month, then pull back, get sick, ghost prospects, or lower your prices.</li>
+        <li><span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6.5L4.5 9L10 3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>You have outgrown DIY, but you are not yet fully leading.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT MEMBERS RECEIVE -->
+<section class="receive" id="included">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">What Members Receive</span>
+      <h2>Everything You Need to Scale</h2>
+    </div>
+    <div class="inc-grid">
+      <div class="inc-card"><div class="inc-num">01</div><h3>Weekly live calls for business and subconscious work. Replays available.</h3></div>
+      <div class="inc-card"><div class="inc-num">02</div><h3>Personalised feedback on four things: your content, your messaging, your offers, and the subconscious patterns.</h3></div>
+      <div class="inc-card"><div class="inc-num">03</div><h3>Monthly WMHQ Signature Masterclasses</h3></div>
+      <div class="inc-card"><div class="inc-num">04</div><h3>WMHQ training and resource vault</h3></div>
+      <div class="inc-card"><div class="inc-num">05</div><h3>Private WMHQ personal Portal to track, review and audit your business.</h3></div>
+      <div class="inc-card"><div class="inc-num">06</div><h3>A community of female founders growing alongside you</h3></div>
+    </div>
+  </div>
+</section>
+
+<!-- MEMBER RESULTS -->
+<section class="results">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Member Results</span>
+      <h2>The proof is in the portfolio.</h2>
+    </div>
+    <div class="test-grid">
+      <div class="test-cell">
+        <span class="result-pill">100% Retention Rate</span>
+        <div class="quote-card"><img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/sites/2147575052/images/c38ca84-47-efd4-f25-14c1d0a037e_Testimonials.png" alt="WMHQ member result" loading="lazy"></div>
+        <div class="test-author">A · Service Provider</div>
+      </div>
+      <div class="test-cell">
+        <span class="result-pill">$42K Month in 5 Months</span>
+        <div class="quote-card"><img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/sites/2147575052/images/ec0a35-b861-3347-d314-d820ecef17_149.png" alt="WMHQ member result" loading="lazy"></div>
+        <div class="test-author">I · Style &amp; Fashion Director</div>
+      </div>
+      <div class="test-cell">
+        <span class="result-pill">Stopped the Sabotage Cycle</span>
+        <div class="quote-card"><img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/sites/2147575052/images/f77615b-ad-e028-6e7f-052cecf1b8_153.png" alt="WMHQ member result" loading="lazy"></div>
+        <div class="test-author">V · Activewear Brand Founder</div>
+      </div>
+      <div class="test-cell">
+        <span class="result-pill">$1,000+ Weeks</span>
+        <div class="quote-card"><img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/sites/2147575052/images/5c02a8b-81cd-1bdf-2106-b73db2ab317_150.png" alt="WMHQ member result" loading="lazy"></div>
+        <div class="test-author">M · Product Founder</div>
+      </div>
+      <div class="test-cell">
+        <span class="result-pill">Sales on Holiday</span>
+        <div class="quote-card"><img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/sites/2147575052/images/08e47c5-21a7-b1f6-fbe6-ced3c5c6fbd8_Testimonials_1_.png" alt="WMHQ member result" loading="lazy"></div>
+        <div class="test-author">E · Manifestation Coach</div>
+      </div>
+      <div class="test-cell">
+        <span class="result-pill">Hitting KPIs Consistently</span>
+        <div class="quote-card"><img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/sites/2147575052/images/33a8a84-d102-bae5-a7ef-64f564a2fc4e_148.png" alt="WMHQ member result" loading="lazy"></div>
+        <div class="test-author">J · Skin Boutique Owner</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Membership</span>
+      <h2>Choose Your Level of Support</h2>
+      <div class="cur-toggle">
+        <button type="button" class="cur-btn active" data-cur="AUD">AUD</button>
+        <button type="button" class="cur-btn" data-cur="USD">USD</button>
+        <button type="button" class="cur-btn" data-cur="EUR">EUR</button>
+      </div>
+      <p class="cur-note" hidden>Approximate conversion. Charged in AUD at checkout.</p>
+    </div>
+    <div class="price-grid">
+      <!-- Membership -->
+      <div class="price-card">
+        <div class="price-name">WMHQ Membership</div>
+        <div class="price-amt"><span class="amt" data-aud="450">$450</span><span class="price-per">/mo <span class="ccode">AUD</span></span></div>
+        <div class="price-term">6-month access, then continues month-to-month.</div>
+        <div class="price-incl-label">Includes</div>
+        <ul class="price-list">
+          <li>One 45-minute private onboarding call</li>
+          <li>Weekly live calls for business and subconscious work</li>
+          <li>Personalised audits and feedback from Jess</li>
+          <li>Monthly WMHQ Signature Masterclasses</li>
+          <li>Private WMHQ personal portal and vault access</li>
+          <li>WMHQ community access</li>
+        </ul>
+        <a href="https://www.jessicapinili.com/offers/2xQreoAr" target="_blank" rel="noopener" class="btn btn-blush">Join WMHQ</a>
+        <div class="price-dm"><a href="https://ig.me/m/jesspinili" class="dm-link on-dark">Questions before joining? DM Jess</a></div>
+      </div>
+      <!-- VIP -->
+      <div class="price-card vip">
+        <span class="price-badge">VIP 1:1 Support</span>
+        <div class="price-name">WMHQ VIP</div>
+        <div class="price-amt"><span class="amt" data-aud="3500">$3,500</span><span class="price-per">/mo <span class="ccode">AUD</span></span></div>
+        <div class="price-term">Everything in the membership, plus close private access.</div>
+        <div class="price-incl-label">Everything in the membership, plus</div>
+        <ul class="price-list">
+          <li>One 60-minute private onboarding call</li>
+          <li>Two 90-minute private coaching calls each month</li>
+          <li>Private messaging and implementation support</li>
+          <li>Monday to Thursday chat access during AEST business hours</li>
+        </ul>
+        <a href="https://www.jessicapinili.com/offers/BzEvvzye" target="_blank" rel="noopener" class="btn btn-blush">Join WMHQ VIP</a>
+        <div class="price-dm"><a href="https://ig.me/m/jesspinili" class="dm-link on-dark">Questions before joining? DM Jess</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MORE MEMBER RESULTS -->
+<section class="proof-strip">
+  <div class="wrap">
+    <div class="proof-grid">
+      <div class="proof-card"><img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/sites/2147575052/images/ae81c-baf2-2aa5-545d-7e58c754f57_Testimonials.png" alt="WMHQ member result" loading="lazy"></div>
+      <div class="proof-card"><img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/sites/2147575052/images/3ed1fd1-b652-73e0-811e-ea1b683bb38_Testimonials_1_.png" alt="WMHQ member result" loading="lazy"></div>
+      <div class="proof-card"><img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/sites/2147575052/images/ce4acc-5dbc-5745-65ac-b3d4db45e10_130.png" alt="WMHQ member result" loading="lazy"></div>
+      <div class="proof-card"><img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/sites/2147575052/images/47646b0-585-ff0a-fbd3-56f641f6ae56_Testimonials_3_.png" alt="WMHQ member result" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO BUILT THIS -->
+<section class="jess">
+  <div class="wrap">
+    <div class="jess-grid">
+      <div class="jess-photo">
+        <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/sites/2147575052/images/0db4322-ad6a-4268-57a4-efc0d5860ba6_Kajabi_Website_2_.png" alt="Jessica Pinili">
+      </div>
+      <div>
+        <span class="eyebrow">Who Built This</span>
+        <h2>Hi, I'm Jess.</h2>
+        <p>Every business needs someone who can see what the founder is too close to see.</p>
+        <p>I built WMHQ because I kept watching the same pattern. Women with real businesses, real results, real audiences, who still couldn't consistently hold the revenue their work deserved.</p>
+        <p>Not because they lacked strategy. Because they were inside the business. And when you are inside the business, everything feels connected to your history, your effort, your fear, and the amount of time you have already spent trying to make it work.</p>
+        <p>So you either make the problem too big, or you make it too vague.</p>
+        <p>WMHQ is the room where someone looks at your business properly. The messaging, the sales pathway, the visibility pattern, the subconscious resistance, and the actual constraint stopping momentum from compounding.</p>
+        <p>Not to give you more things to do. To tell you what matters first.</p>
+        <p class="signoff"><span class="welcome">Welcome to WMHQ.</span>Big Love, Jess xo</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Before You Join</span>
+      <h2>Frequently Asked Questions</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q">Who is this actually for?<span class="icon">+</span></button>
+        <div class="faq-a">
+          <p>WMHQ is for female founders who have a business and want personalised support to scale it.</p>
+          <p>You may be newer in business or years in, but you are not here to keep guessing alone. You want clearer strategy, stronger messaging, better offers, more consistent sales, and support with the subconscious patterns that can show up when your business starts holding more.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Do I need to already be making a certain amount of money?<span class="icon">+</span></button>
+        <div class="faq-a">
+          <p>WMHQ is best suited for founders who already have something real to work with, an offer, audience, clients, customers, sales, or proof that people want what they do.</p>
+          <p>You do not need to be at a specific revenue level to join, but you do need to be ready to look at your business honestly, receive feedback, and implement.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Is there a minimum commitment?<span class="icon">+</span></button>
+        <div class="faq-a">
+          <p>Yes. WMHQ is a 6-month commitment at $450/month AUD.</p>
+          <p>After your first 6 months, your membership continues month-to-month unless you choose to cancel.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Why is it a 6-month commitment?<span class="icon">+</span></button>
+        <div class="faq-a">
+          <p>Because scaling a business is not a one-call fix.</p>
+          <p>We need enough time to look at your business properly, identify what is actually holding growth back, refine the strategy, strengthen the way you sell, and support the internal shifts required to hold more visibility, money, and responsibility.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What happens after the first 6 months?<span class="icon">+</span></button>
+        <div class="faq-a">
+          <p>After your initial 6-month commitment, your membership continues month-to-month.</p>
+          <p>You can stay inside WMHQ for ongoing support, refinement, coaching, feedback, and community as your business grows into its next stage.</p>
+          <p>Please make sure you read the details, understand the commitment, and <a href="https://ig.me/m/jesspinili">DM Jess</a> with any questions before joining.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How much time do I need each week?<span class="icon">+</span></button>
+        <div class="faq-a">
+          <p>Plan for around 2 to 4 hours per week.</p>
+          <p>That may include joining a live call, watching a replay, submitting something for feedback, reviewing your portal, or implementing the strategy given to you.</p>
+          <p>This is not about adding more to your plate. It is about knowing what actually matters next.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What can I submit for feedback?<span class="icon">+</span></button>
+        <div class="faq-a">
+          <p>You can submit things like your content, messaging, offers, sales pages, launch plans, buyer journey, visibility blocks, and subconscious patterns showing up in your business.</p>
+          <p>The goal is to help you see what is working, what is unclear, and what needs to shift.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What is the difference between WMHQ Membership and WMHQ VIP?<span class="icon">+</span></button>
+        <div class="faq-a">
+          <p>The WMHQ Membership gives you access to the group coaching experience, audits, masterclasses, portal, vault, and community.</p>
+          <p>WMHQ VIP includes everything inside the membership, plus private 1:1 support with Jess.</p>
+          <p>VIP includes:</p>
+          <ul>
+            <li>One 60-minute private onboarding call</li>
+            <li>Two 90-minute private coaching calls each month</li>
+            <li>Private messaging and implementation support</li>
+            <li>Monday to Thursday chat access during AEST business hours</li>
+          </ul>
+          <p>VIP is for founders who want closer access, deeper support, and more personalised implementation.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Are the calls live?<span class="icon">+</span></button>
+        <div class="faq-a">
+          <p>Yes. WMHQ includes live calls.</p>
+          <p>You will receive weekly live calls for business and subconscious work. Replays are available if you cannot attend live.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What if I cannot attend the live calls?<span class="icon">+</span></button>
+        <div class="faq-a">
+          <p>You can watch the replay and still use the membership.</p>
+          <p>You can also submit for feedback and use the portal, vault, and resources to keep moving even when you cannot attend live.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Is this a course?<span class="icon">+</span></button>
+        <div class="faq-a">
+          <p>No. WMHQ is not just another course to consume.</p>
+          <p>It includes trainings and resources, but the main value is the personalised coaching, feedback, strategy, subconscious support, and the ability to have your actual business looked at properly.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Can I ask questions before joining?<span class="icon">+</span></button>
+        <div class="faq-a">
+          <p>Yes. If you are unsure whether WMHQ or VIP is the right fit, you can <a href="https://ig.me/m/jesspinili">DM Jess</a> before joining.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">When can I join?<span class="icon">+</span></button>
+        <div class="faq-a">
+          <p>You can join now if doors are open.</p>
+          <p>Once you join, you will receive the next steps to access WMHQ and begin your onboarding.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final">
+  <div class="wrap">
+    <h2>Ready to scale?</h2>
+    <p>Personalised business coaching for female founders who want to scale and become more profitable.</p>
+    <div class="hero-cta-row">
+      <a href="#pricing" class="btn btn-blush">Join WMHQ</a>
+      <a href="https://ig.me/m/jesspinili" class="btn btn-ghost">Questions? DM Jess</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-socials">
+      <a href="https://instagram.com/jesspinili">Instagram</a>
+      <a href="https://tiktok.com/@jesspinili">TikTok</a>
+      <a href="https://youtube.com/@jesspinili">YouTube</a>
+      <a href="https://open.spotify.com/show/0dVGnR2Yoh3BhNO1CE7umD">Spotify</a>
+    </div>
+    <div class="foot-copy">© 2026 Jessica Pinili | Woman Mastery HQ</div>
+    <div class="foot-links">
+      <a href="https://jessicapinili.com/jpinili-privacy-statement">Privacy Policy</a>
+      <a href="https://jessicapinili.com/jpinili-terms-conditions">Terms &amp; Conditions</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.faq-q').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var item=btn.parentElement;
+      var ans=item.querySelector('.faq-a');
+      var isOpen=item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(o){
+        o.classList.remove('open');
+        o.querySelector('.faq-a').style.maxHeight=null;
+      });
+      if(!isOpen){
+        item.classList.add('open');
+        ans.style.maxHeight=ans.scrollHeight+'px';
+      }
+    });
+  });
+
+  (function(){
+    var rates={AUD:{s:'$',r:1,c:'AUD'},USD:{s:'$',r:0.65,c:'USD'},EUR:{s:'\u20AC',r:0.60,c:'EUR'}};
+    var btns=document.querySelectorAll('.cur-btn');
+    var note=document.querySelector('.cur-note');
+    function fmt(n){return n.toLocaleString('en-US');}
+    function setCur(cur){
+      var m=rates[cur]||rates.AUD;
+      document.querySelectorAll('.price-amt .amt').forEach(function(a){
+        var aud=parseFloat(a.getAttribute('data-aud'));
+        a.textContent=m.s+fmt(Math.round(aud*m.r));
+      });
+      document.querySelectorAll('.price-amt .ccode').forEach(function(c){c.textContent=m.c;});
+      if(note){ if(cur==='AUD'){note.setAttribute('hidden','');}else{note.removeAttribute('hidden');} }
+      btns.forEach(function(b){b.classList.toggle('active',b.getAttribute('data-cur')===cur);});
+    }
+    btns.forEach(function(b){b.addEventListener('click',function(){setCur(b.getAttribute('data-cur'));});});
+  })();
+</script>
+
+</body>
+</html>

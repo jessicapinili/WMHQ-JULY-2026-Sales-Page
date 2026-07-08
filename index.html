@@ -189,14 +189,20 @@
   .receive .head{text-align:center;margin-bottom:56px;}
   .receive .head .eyebrow{color:var(--blush);}
   .receive .head h2{color:var(--stone);}
-  .inc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .inc-grid{display:flex;flex-wrap:wrap;gap:20px;}
   .inc-card{
+    flex:1 1 calc(50% - 10px);
     background:var(--dark-red);
     border:1px solid rgba(242,198,208,0.1);
     border-radius:16px;padding:30px 26px;
     transition:transform .2s ease,border-color .2s ease;
   }
   .inc-card:hover{transform:translateY(-4px);border-color:rgba(242,198,208,0.35);}
+  .inc-card.has-img{flex:1 1 100%;display:flex;gap:34px;align-items:center;padding:24px;}
+  .inc-card.img-right{flex-direction:row-reverse;}
+  .inc-img{flex:0 0 44%;border-radius:18px;overflow:hidden;}
+  .inc-img img{display:block;width:100%;height:auto;border-radius:18px;}
+  .inc-text{flex:1;}
   .inc-num{
     font-size:11px;font-weight:800;letter-spacing:0.15em;
     color:var(--blush);opacity:0.7;margin-bottom:14px;
@@ -372,7 +378,10 @@
     section{padding:60px 0;}
     .hero{padding:88px 0 76px;background-attachment:scroll;}
     .who-grid,.jess-grid{grid-template-columns:1fr;gap:36px;}
-    .inc-grid,.price-grid{grid-template-columns:1fr;}
+    .price-grid{grid-template-columns:1fr;}
+    .inc-card,.inc-card.has-img{flex-basis:100%;}
+    .inc-card.has-img{flex-direction:column;align-items:stretch;gap:20px;}
+    .inc-img{flex-basis:auto;width:100%;}
     .onboard-checks{grid-template-columns:1fr;}
     .course{grid-template-columns:1fr;gap:6px;}
     .acc-head{padding:22px 20px;gap:14px;}
@@ -450,10 +459,22 @@
     </div>
     <div class="inc-grid">
       <div class="inc-card"><div class="inc-num">01</div><h3>Weekly live coaching calls covering business strategy and subconscious growth work, with replays available when you cannot attend live.</h3></div>
-      <div class="inc-card"><div class="inc-num">02</div><h3>Personalised feedback on four things: your content, your messaging, your offers, and the subconscious patterns.</h3></div>
-      <div class="inc-card"><div class="inc-num">03</div><h3>Monthly WMHQ Signature Masterclasses</h3></div>
-      <div class="inc-card"><div class="inc-num">04</div><h3>WMHQ Training &amp; Resource Vault. Practical trainings, templates, and tools to support your next stage of growth.</h3></div>
-      <div class="inc-card"><div class="inc-num">05</div><h3>Your private WMHQ Personal Portal: a personalised app to track, review, and audit your business so you always know what to focus on next.</h3></div>
+      <div class="inc-card has-img">
+        <div class="inc-img"><img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/sites/2147575052/images/07d0d1a-a202-4523-634-4a441a663d1_Kajabi_Website_9_.png" alt="Personalised feedback" loading="lazy"></div>
+        <div class="inc-text"><div class="inc-num">02</div><h3>Personalised feedback on four things: your content, your messaging, your offers, and the subconscious patterns.</h3></div>
+      </div>
+      <div class="inc-card has-img img-right">
+        <div class="inc-img"><img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/sites/2147575052/images/42806d7-a7d0-50e1-6b26-a37bf050a0f_25.png" alt="Monthly WMHQ Signature Masterclasses" loading="lazy"></div>
+        <div class="inc-text"><div class="inc-num">03</div><h3>Monthly WMHQ Signature Masterclasses</h3></div>
+      </div>
+      <div class="inc-card has-img">
+        <div class="inc-img"><img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/sites/2147575052/images/d71cdc2-072a-ae4b-5f50-08415c05380_24.png" alt="WMHQ Training and Resource Vault" loading="lazy"></div>
+        <div class="inc-text"><div class="inc-num">04</div><h3>WMHQ Training &amp; Resource Vault. Practical trainings, templates, and tools to support your next stage of growth.</h3></div>
+      </div>
+      <div class="inc-card has-img img-right">
+        <div class="inc-img"><img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/sites/2147575052/images/26c0a2c-b16-83a-636c-33b5245a3_27.png" alt="WMHQ Personal Portal" loading="lazy"></div>
+        <div class="inc-text"><div class="inc-num">05</div><h3>Your private WMHQ Personal Portal: a personalised app to track, review, and audit your business so you always know what to focus on next.</h3></div>
+      </div>
       <div class="inc-card"><div class="inc-num">06</div><h3>A community of female founders growing alongside you</h3></div>
     </div>
   </div>

@@ -338,7 +338,8 @@
   .price-list li{display:flex;gap:12px;font-size:14px;color:rgba(241,235,235,0.9);line-height:1.45;}
   .price-list li::before{content:"";flex-shrink:0;width:6px;height:6px;margin-top:8px;border-radius:50%;background:var(--blush);}
   .price-card .btn{text-align:center;}
-  .price-dm{text-align:center;margin-top:16px;}
+  .price-dm{text-align:center;margin-top:16px;display:flex;flex-direction:column;gap:10px;align-items:center;}
+  .price-dm .dm-link{margin-top:0;}
 
   /* ---------- JESS ---------- */
   .jess{background:var(--merlot);color:var(--stone);}
@@ -357,7 +358,17 @@
 
   /* ---------- FAQ ---------- */
   .faq{background:var(--satin);}
-  .faq .head{text-align:center;margin-bottom:52px;}
+  .faq .head{text-align:center;margin-bottom:36px;}
+  .chem-card{
+    max-width:780px;margin:0 auto 40px;
+    background:var(--merlot);color:var(--stone);
+    border-radius:16px;padding:32px 34px;
+    display:flex;flex-direction:column;align-items:flex-start;gap:10px;
+  }
+  .chem-card .chem-eyebrow{font-size:10px;font-weight:800;letter-spacing:0.18em;text-transform:uppercase;color:var(--blush);}
+  .chem-card h3{font-size:clamp(20px,2.4vw,24px);font-weight:800;color:var(--stone);line-height:1.25;}
+  .chem-card p{font-size:15px;line-height:1.6;color:rgba(241,235,235,0.85);margin:0;}
+  .chem-card .btn{margin-top:12px;}
   .faq-list{max-width:780px;margin:0 auto;}
   .faq-item{border-bottom:1px solid var(--border);}
   .faq-q{
@@ -730,7 +741,7 @@
           <li>WMHQ community access</li>
         </ul>
         <a href="https://www.jessicapinili.com/offers/2xQreoAr" target="_blank" rel="noopener" class="btn btn-blush">Join WMHQ</a>
-        <div class="price-dm"><a href="https://ig.me/m/jesspinili" class="dm-link on-dark">Questions before joining? DM Jess</a></div>
+        <div class="price-dm"><a href="https://ig.me/m/jesspinili" class="dm-link on-dark">Questions before joining? DM Jess</a><a href="https://www.jessicapinili.com/wmhq-chemistry-check-quiz" target="_blank" rel="noopener" class="dm-link on-dark">Or, book a 20-min Chemistry Call with Jess.</a></div>
       </div>
       <!-- VIP -->
       <div class="price-card vip">
@@ -746,7 +757,7 @@
           <li>Monday to Thursday chat access during AEST business hours</li>
         </ul>
         <a href="https://www.jessicapinili.com/offers/BzEvvzye" target="_blank" rel="noopener" class="btn btn-blush">Join WMHQ VIP</a>
-        <div class="price-dm"><a href="https://ig.me/m/jesspinili" class="dm-link on-dark">Questions before joining? DM Jess</a></div>
+        <div class="price-dm"><a href="https://ig.me/m/jesspinili" class="dm-link on-dark">Questions before joining? DM Jess</a><a href="https://www.jessicapinili.com/wmhq-chemistry-check-quiz" target="_blank" rel="noopener" class="dm-link on-dark">Or, book a 20-min Chemistry Call with Jess.</a></div>
       </div>
     </div>
   </div>
@@ -824,7 +835,23 @@
       <span class="eyebrow">Before You Join</span>
       <h2>Frequently Asked Questions</h2>
     </div>
+    <div class="chem-card">
+      <span class="chem-eyebrow">Not sure if it's right for you?</span>
+      <h3>Book a 20-minute WMHQ Chemistry Call</h3>
+      <p>A short chemistry and suitability call to understand where your business is stuck, which level of support fits, and whether WMHQ is the right investment.</p>
+      <a href="https://www.jessicapinili.com/wmhq-chemistry-check-quiz" target="_blank" rel="noopener" class="btn btn-blush">Book Your Chemistry Call</a>
+    </div>
     <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q">I'm just starting my business and haven't made any sales yet. Is WMHQ still right for me?<span class="icon">+</span></button>
+        <div class="faq-a">
+          <p>Yes. Around half of the women inside WMHQ are newer to business, while the other half have been building for years.</p>
+          <p>You do not need to already be making consistent sales to join. However, I do recommend having another source of income while your business is still being validated.</p>
+          <p>When your business needs to immediately pay every bill, it can create pressure that leads to rushed offers, inconsistent decisions and trying to force every post to convert.</p>
+          <p>Having income outside the business gives you the space to build your foundations properly, strengthen your messaging, validate your offer and learn how to generate sales without operating from panic.</p>
+          <p>WMHQ will help you build the strategy, skills and internal capacity required to turn your business into a reliable source of income.</p>
+        </div>
+      </div>
       <div class="faq-item">
         <button class="faq-q">Who is this actually for?<span class="icon">+</span></button>
         <div class="faq-a">

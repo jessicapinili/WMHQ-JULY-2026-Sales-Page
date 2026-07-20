@@ -421,8 +421,27 @@
   }
   @media(max-width:600px){ .test-grid,.proof-grid{grid-template-columns:1fr;} }
 </style>
+<!-- Meta Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1200253916991669');
+  fbq('track', 'PageView');
+</script>
+<!-- End Meta Pixel Code -->
 </head>
 <body>
+<noscript>
+  <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1200253916991669&ev=PageView&noscript=1"
+    alt="" />
+</noscript>
 
 <!-- NAV -->
 <nav>
@@ -1019,6 +1038,22 @@
       btns.forEach(function(b){b.classList.toggle('active',b.getAttribute('data-cur')===cur);});
     }
     btns.forEach(function(b){b.addEventListener('click',function(){setCur(b.getAttribute('data-cur'));});});
+  })();
+
+  (function(){
+    document.querySelectorAll('a[href*="jessicapinili.com/offers/"]').forEach(function(a){
+      a.addEventListener('click',function(){
+        if(typeof fbq==='function'){
+          var vip=a.href.indexOf('BzEvvzye')>-1;
+          fbq('track','InitiateCheckout',{content_name:vip?'WMHQ VIP':'WMHQ Membership',currency:'AUD',value:vip?3500:450});
+        }
+      });
+    });
+    document.querySelectorAll('a[href*="wmhq-chemistry-check"]').forEach(function(a){
+      a.addEventListener('click',function(){
+        if(typeof fbq==='function'){ fbq('track','Lead',{content_name:'Chemistry Check'}); }
+      });
+    });
   })();
 </script>
 

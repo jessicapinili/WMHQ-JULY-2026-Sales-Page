@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
+   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-P8KHVCJT83"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -25,7 +25,7 @@
 <meta name="twitter:image" content="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/sites/2147575052/images/3ed6573-4276-7eb3-e5cb-b67a2407de__WMHQ_PP_1_.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700;9..40,800;9..40,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700;9..40,800;9..40,900&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
 
 <!-- Meta Pixel Code -->
 <script>
@@ -94,6 +94,7 @@
     background-size:cover;background-position:center;background-repeat:no-repeat;
     color:var(--stone);padding:70px 0 54px;text-align:center;
   }
+  .hero > .wrap{max-width:1080px;}
   .hero .from-tag{
     display:inline-flex;align-items:center;gap:8px;
     background:rgba(242,198,208,0.14);color:var(--blush);
@@ -101,10 +102,12 @@
     padding:8px 16px;border-radius:100px;margin-bottom:22px;
   }
   .hero .from-tag .dot{width:6px;height:6px;background:var(--blush);border-radius:50%;}
-  .hero h1{font-size:clamp(28px,6.5vw,40px);margin-bottom:18px;color:var(--stone);}
-  .hero h1 span{color:var(--blush);}
+  .hero .wrap{max-width:1240px;}
+  .hero h1{font-size:clamp(22px,3vw,34px);margin-bottom:18px;color:var(--stone);line-height:1.25;max-width:none;letter-spacing:-0.02em;white-space:normal;}
+  .hero h1 span{color:var(--blush);display:block;}
   .hero p{font-size:16.5px;color:rgba(241,235,235,0.9);max-width:520px;margin:0 auto;}
   .hero .cta-row{margin-top:32px;max-width:400px;margin-left:auto;margin-right:auto;}
+  .hero-video{margin:28px auto 30px;max-width:640px;}
   .full-link{margin-top:52px;font-size:13px;color:rgba(241,235,235,0.6);letter-spacing:0.02em;line-height:1.5;text-align:center;}
   .full-link a{color:var(--blush);text-decoration:none;border-bottom:1px solid rgba(242,198,208,0.4);padding-bottom:1px;font-weight:700;white-space:nowrap;}
   .full-link a:hover{border-color:var(--blush);}
@@ -125,8 +128,23 @@
     display:flex;align-items:center;justify-content:center;letter-spacing:-0.02em;
   }
   .qref .txt{font-size:15px;color:var(--ink-light);line-height:1.55;margin:0;}
-  .qref .txt strong{color:var(--ink);}
+  .qref .txt strong{color:var(--ink);font-family:'JetBrains Mono',monospace;font-size:14.5px;font-weight:700;letter-spacing:-0.005em;display:block;margin-bottom:6px;line-height:1.4;}
   .content-hook .bridge{text-align:center;font-size:17px;font-weight:800;color:var(--ink);max-width:520px;margin:36px auto 0;line-height:1.4;}
+
+  /* SCROLL ANIMATIONS */
+  @media (prefers-reduced-motion: no-preference){
+    .qref,.about-checks li,.notfor-list li{
+      opacity:0;transform:translateY(18px);
+      transition:opacity .6s ease,transform .6s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .quote-list.in-view .qref,
+    .about-checks.in-view li,
+    .notfor-list.in-view li{opacity:1;transform:translateY(0);}
+    .quote-list.in-view .qref:nth-child(1),.about-checks.in-view li:nth-child(1),.notfor-list.in-view li:nth-child(1){transition-delay:0s;}
+    .quote-list.in-view .qref:nth-child(2),.about-checks.in-view li:nth-child(2),.notfor-list.in-view li:nth-child(2){transition-delay:0.12s;}
+    .quote-list.in-view .qref:nth-child(3),.about-checks.in-view li:nth-child(3),.notfor-list.in-view li:nth-child(3){transition-delay:0.24s;}
+    .quote-list.in-view .qref:nth-child(4){transition-delay:0.36s;}
+  }
 
   /* BTS VIDEO */
   .video{background:var(--merlot);color:var(--stone);text-align:center;padding:56px 0;}
@@ -151,7 +169,8 @@
     background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px 20px;
   }
   .about-checks .hc{color:var(--cherry);font-weight:900;flex-shrink:0;}
-  .about-checks strong{color:var(--ink);}
+  .about-checks strong{color:var(--ink);display:block;margin-bottom:6px;font-size:16px;}
+  .about-checks .sub{display:block;font-size:14.5px;color:var(--ink-light);font-weight:400;line-height:1.55;}
 
   /* MYTHS (minimal) */
   .myths{background:var(--off-white);}
@@ -181,13 +200,14 @@
   .notfor .lead{text-align:center;color:rgba(241,235,235,0.8);max-width:500px;margin:0 auto 30px;font-size:15.5px;}
   .notfor-list{list-style:none;display:flex;flex-direction:column;gap:14px;max-width:540px;margin:0 auto;}
   .notfor-list li{
-    display:flex;gap:14px;align-items:flex-start;font-size:15.5px;line-height:1.5;
+    display:flex;gap:14px;align-items:flex-start;font-size:14.5px;line-height:1.6;
     color:rgba(241,235,235,0.88);
     background:rgba(242,198,208,0.06);border:1px solid rgba(242,198,208,0.14);
     border-radius:14px;padding:18px 20px;
+    font-family:'JetBrains Mono',monospace;letter-spacing:-0.01em;
   }
   .notfor-list .x{color:var(--blush);font-weight:900;flex-shrink:0;font-size:14px;line-height:1.4;letter-spacing:0.02em;}
-  .notfor-list strong{color:var(--stone);font-weight:800;}
+  .notfor-list strong{color:var(--stone);font-weight:700;font-size:1em;letter-spacing:-0.005em;}
 
   .proof h2{text-align:center;margin-bottom:8px;}
   .proof .sub{text-align:center;color:var(--ink-light);margin-bottom:28px;}
@@ -204,6 +224,147 @@
     margin-top:24px;font-size:13.5px;color:rgba(241,235,235,0.65);
   }
   .chem .alt a{color:var(--blush);text-decoration:none;border-bottom:1px solid rgba(242,198,208,0.4);padding-bottom:2px;}
+
+  /* CHEMISTRY CARD */
+  .chem-card{
+    background:var(--merlot);
+    border:1px solid rgba(242,198,208,0.28);
+    border-radius:20px;
+    padding:44px 32px 38px;
+    max-width:560px;margin:0 auto;
+    box-shadow:0 24px 50px rgba(0,0,0,0.35);
+    text-align:center;position:relative;
+  }
+  .chem-card::before{
+    content:"20 Minutes. Free. No Pressure.";
+    position:absolute;top:-13px;left:50%;transform:translateX(-50%);
+    background:var(--blush);color:var(--merlot);
+    font-size:10.5px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;
+    padding:5px 14px;border-radius:100px;
+    white-space:nowrap;
+  }
+  .chem-card h2{color:var(--stone);font-size:clamp(24px,3.6vw,32px);margin-bottom:20px;letter-spacing:-0.02em;line-height:1.2;}
+  .chem-card .desc{color:rgba(241,235,235,0.9);font-size:15.5px;line-height:1.6;max-width:440px;margin:0 auto 12px;}
+  .chem-card .honest{color:rgba(241,235,235,0.9);font-size:15.5px;line-height:1.6;margin:0 auto 18px;font-weight:700;}
+  .chem-card .beverage{
+    color:var(--blush);font-family:'JetBrains Mono',monospace;
+    font-size:13px;letter-spacing:-0.005em;margin:14px 0 26px;
+  }
+  .chem-card .btn{max-width:340px;margin:0 auto;}
+  .chem-card .divider{
+    height:1px;background:rgba(242,198,208,0.18);
+    margin:26px auto 20px;max-width:200px;
+  }
+  .chem-card .alt-line{
+    font-size:13.5px;color:rgba(241,235,235,0.7);margin:0;
+  }
+  .chem-card .alt-line a{color:var(--blush);text-decoration:none;border-bottom:1px solid rgba(242,198,208,0.4);padding-bottom:1px;font-weight:700;}
+
+  /* ONBOARDING TIMELINE */
+  .onboard{background:var(--satin);padding:80px 0 90px;position:relative;overflow:hidden;}
+  .onboard::before{
+    content:"";position:absolute;top:0;left:0;right:0;height:1px;
+    background:linear-gradient(90deg,transparent,rgba(162,18,42,0.15),transparent);
+  }
+  .onboard .wrap{max-width:720px;position:relative;}
+  .onboard-badge{
+    display:inline-block;background:var(--cherry);color:var(--satin);
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;font-weight:800;letter-spacing:0.16em;text-transform:uppercase;
+    padding:6px 14px;border-radius:4px;margin-bottom:20px;
+    transform:rotate(-1.5deg);
+  }
+  .onboard h2{
+    text-align:left;font-size:clamp(26px,3.8vw,36px);line-height:1.2;
+    letter-spacing:-0.02em;margin-bottom:14px;
+  }
+  .onboard h2 .accent{
+    display:inline-block;background:rgba(179,220,180,0.55);color:var(--ink);
+    padding:2px 10px;border-radius:6px;
+  }
+  .onboard-answer{
+    font-size:18px;color:var(--ink-light);line-height:1.6;
+    margin-bottom:40px;max-width:600px;
+  }
+  .onboard-answer strong{color:var(--ink);font-weight:800;}
+  .timeline{position:relative;padding:8px 0 0;}
+  .timeline::before{
+    content:"";position:absolute;left:24px;top:20px;bottom:20px;width:2px;
+    background:linear-gradient(180deg,var(--cherry),var(--blush));
+  }
+  .step{
+    position:relative;padding:0 0 30px 68px;
+  }
+  .step:last-child{padding-bottom:0;}
+  .step-num{
+    position:absolute;left:0;top:-2px;
+    width:50px;height:50px;border-radius:50%;
+    background:var(--merlot);color:var(--blush);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'JetBrains Mono',monospace;
+    font-size:15px;font-weight:800;letter-spacing:-0.02em;
+    border:3px solid var(--satin);
+    box-shadow:0 4px 14px rgba(38,7,7,0.15);
+    z-index:2;
+  }
+  .step-title{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;
+    color:var(--cherry);margin-bottom:6px;
+  }
+  .step-body{
+    font-size:16px;color:var(--ink);line-height:1.6;margin:0;
+  }
+  .step-body strong{color:var(--merlot);font-weight:800;}
+  .step .highlight-pill{
+    display:inline-block;margin-top:8px;
+    background:rgba(242,198,208,0.55);color:var(--merlot);
+    font-size:12px;font-weight:800;letter-spacing:0.06em;text-transform:uppercase;
+    padding:4px 10px;border-radius:4px;
+  }
+  .onboard-cta{
+    margin-top:36px;text-align:center;
+    padding:22px 24px;
+    background:var(--merlot);color:var(--stone);border-radius:14px;
+    font-size:15px;line-height:1.55;
+  }
+  .onboard-cta strong{color:var(--blush);font-weight:800;display:block;font-size:16px;margin-bottom:2px;}
+
+  /* TIMELINE FADE-IN */
+  @media (prefers-reduced-motion: no-preference){
+    .timeline .step{
+      opacity:0;transform:translateY(20px);
+      transition:opacity .65s ease,transform .65s cubic-bezier(0.22,0.68,0.35,1);
+    }
+    .timeline.in-view .step{opacity:1;transform:translateY(0);}
+    .timeline.in-view .step:nth-child(1){transition-delay:0s;}
+    .timeline.in-view .step:nth-child(2){transition-delay:0.15s;}
+    .timeline.in-view .step:nth-child(3){transition-delay:0.3s;}
+    .timeline.in-view .step:nth-child(4){transition-delay:0.45s;}
+  }
+
+  /* PRICING CARD */
+  .pricing-card{
+    background:var(--merlot);
+    border:1px solid rgba(242,198,208,0.28);
+    border-radius:20px;
+    padding:44px 32px 40px;
+    max-width:600px;margin:0 auto;
+    box-shadow:0 24px 50px rgba(0,0,0,0.35);
+    text-align:center;position:relative;
+  }
+  .pricing-alt{
+    text-align:center;margin:20px 0 0;font-size:13px;color:rgba(241,235,235,0.6);
+  }
+  .pricing-alt a{color:var(--blush);text-decoration:none;border-bottom:1px solid rgba(242,198,208,0.4);padding-bottom:1px;font-weight:700;}
+  .pricing-card::before{
+    content:"Ready to join the WMHQ women?";
+    position:absolute;top:-13px;left:50%;transform:translateX(-50%);
+    background:var(--blush);color:var(--merlot);
+    font-size:10.5px;font-weight:800;letter-spacing:0.16em;text-transform:uppercase;
+    padding:5px 16px;border-radius:100px;
+    white-space:nowrap;
+  }
 
   /* PRICING */
   .pricing{background:var(--merlot);color:var(--stone);text-align:center;padding:64px 0;}
@@ -225,6 +386,25 @@
     font-size:15px;line-height:1.5;color:rgba(241,235,235,0.9);
   }
   .price-features .hc{color:var(--blush);font-weight:900;flex-shrink:0;}
+  .price-features li.feature-plus{
+    margin-top:16px;
+    border:1px solid rgba(242,198,208,0.35);
+    background:rgba(242,198,208,0.06);
+    border-radius:14px;
+    padding:16px 18px;
+    color:var(--blush);font-weight:700;
+    position:relative;
+  }
+  .price-features li.feature-plus::before{
+    content:"Included";
+    position:absolute;top:-9px;left:16px;
+    background:var(--merlot);
+    color:var(--blush);
+    font-size:9.5px;font-weight:800;letter-spacing:0.16em;text-transform:uppercase;
+    padding:2px 10px;border-radius:100px;
+    border:1px solid rgba(242,198,208,0.35);
+  }
+  .price-features li.feature-plus .hc{color:var(--blush);}
 
   /* FAQ */
   .faq{background:var(--satin);}
@@ -248,6 +428,18 @@
 
   footer{background:var(--ink);color:rgba(241,235,235,0.55);padding:34px 0 96px;text-align:center;font-size:12px;}
   footer a{color:rgba(241,235,235,0.55);text-decoration:none;margin:0 6px;}
+
+  /* SCROLL FADE-IN */
+  @media (prefers-reduced-motion: no-preference){
+    .anim-fade{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s cubic-bezier(0.22,0.68,0.35,1);}
+    .anim-fade.in-view{opacity:1;transform:translateY(0);}
+    .anim-fade .qref,.anim-fade .about-checks li{opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s cubic-bezier(0.34,1.56,0.64,1);}
+    .anim-fade.in-view .qref,.anim-fade.in-view .about-checks li{opacity:1;transform:translateY(0);}
+    .anim-fade.in-view .qref:nth-child(1),.anim-fade.in-view .about-checks li:nth-child(1){transition-delay:0.1s;}
+    .anim-fade.in-view .qref:nth-child(2),.anim-fade.in-view .about-checks li:nth-child(2){transition-delay:0.22s;}
+    .anim-fade.in-view .qref:nth-child(3),.anim-fade.in-view .about-checks li:nth-child(3){transition-delay:0.34s;}
+    .anim-fade.in-view .qref:nth-child(4){transition-delay:0.46s;}
+  }
 
   /* DM POP-OUT (mid page, right-anchored) */
   .dm-pop{
@@ -279,6 +471,129 @@
       max-width:none;transform:translateY(20px);
     }
     .dm-pop.show{transform:translateY(0);}
+  }
+
+  /* JESS LETTER */
+  .letter{background:var(--satin);padding:70px 0 76px;}
+  .letter .wrap{max-width:720px;}
+  .letter-portrait{
+    width:120px;height:120px;border-radius:50%;overflow:hidden;
+    margin:0 auto 22px;box-shadow:0 12px 30px rgba(38,7,7,0.12);
+    border:3px solid #fff;
+  }
+  .letter-portrait img{display:block;width:100%;height:100%;object-fit:cover;}
+  .letter h2{
+    text-align:center;font-size:clamp(28px,4.4vw,38px);margin-bottom:38px;letter-spacing:-0.02em;
+  }
+  .letter-creds{
+    text-align:center;
+    max-width:520px;margin:-24px auto 40px;
+    display:flex;flex-direction:column;gap:6px;
+    font-size:13.5px;color:var(--muted);line-height:1.5;
+  }
+  .letter-creds .row{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;
+  }
+  .letter-creds .row .dot{
+    display:inline-block;width:3px;height:3px;border-radius:50%;background:var(--muted);opacity:0.5;
+  }
+  .letter-creds .astro{
+    font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.02em;
+    color:var(--cherry);font-weight:700;
+  }
+  .letter-creds .role{
+    font-style:italic;color:var(--ink-light);
+  }
+  .letter-creds .stat{
+    font-weight:800;color:var(--ink);font-size:14px;
+  }
+  .letter-body{font-size:17px;line-height:1.7;color:var(--ink);}
+  .letter-body p{margin:0 0 18px;}
+  .letter-body .indent{margin-left:24px;}
+  .letter-body .center{text-align:center;font-weight:800;font-size:19px;margin:24px 0;}
+  .letter-body em.big{font-style:normal;font-weight:800;font-size:20px;display:block;text-align:center;margin:28px 0;color:var(--merlot);}
+  .letter-body .signoff{
+    text-align:left;font-size:17px;margin-top:32px;color:var(--ink);
+  }
+  .letter-body .signoff .name{
+    font-family:'JetBrains Mono',monospace;font-weight:800;color:var(--merlot);letter-spacing:-0.01em;
+  }
+  .letter .hl{background:rgba(242,198,208,0.55);font-weight:800;color:var(--ink);padding:2px 6px;border-radius:5px;box-decoration-break:clone;-webkit-box-decoration-break:clone;}
+  .hl{background:rgba(242,198,208,0.55);font-weight:800;color:var(--ink);padding:3px 8px;border-radius:5px;box-decoration-break:clone;-webkit-box-decoration-break:clone;line-height:1.6;}
+  .hl.yellow{background:rgba(252,232,155,0.55);}
+
+  /* LETTER BODY FADE-IN */
+  @media (prefers-reduced-motion: no-preference){
+    .letter-body p,.letter-body em.big{
+      opacity:0;transform:translateY(14px);
+      transition:opacity .6s ease,transform .6s cubic-bezier(0.22,0.68,0.35,1);
+    }
+    .letter-body p.in-view,.letter-body em.big.in-view{
+      opacity:1;transform:translateY(0);
+    }
+  }
+
+  /* TESTIMONIAL WALL (after letter) */  .tw{background:var(--off-white);padding:70px 0 80px;}
+  .tw .wrap{max-width:900px;}
+  .tw h2{text-align:center;font-size:clamp(22px,3.2vw,32px);margin-bottom:12px;letter-spacing:-0.02em;line-height:1.2;}
+  .tw .lead{text-align:center;color:var(--ink-light);max-width:560px;margin:0 auto 42px;font-size:16px;line-height:1.6;}
+  .tw .lead strong{color:var(--ink);font-weight:800;display:inline;}
+  .tw-item{margin-bottom:44px;}
+  .tw-item:last-of-type{margin-bottom:36px;}
+  .tw-img{
+    border-radius:16px;overflow:hidden;box-shadow:0 12px 30px rgba(38,7,7,0.09);
+    background:#fff;border:1px solid var(--border);
+  }
+  .tw-img img{display:block;width:100%;height:auto;}
+  .tw-pull{
+    margin-top:18px;text-align:center;font-size:16.5px;line-height:1.5;
+    color:var(--ink);font-weight:800;
+    max-width:520px;margin-left:auto;margin-right:auto;
+  }
+  .tw-pull .hl{background:rgba(242,198,208,0.55);padding:4px 10px;border-radius:6px;box-decoration-break:clone;-webkit-box-decoration-break:clone;}
+  .tw-cta{text-align:center;margin-top:14px;}
+  .tw-cta .btn{max-width:340px;margin:0 auto;}
+  .tw-cta .sub{margin-top:14px;font-size:13.5px;color:var(--muted);}
+  .tw-cta .sub a{color:var(--cherry);font-weight:700;text-decoration:none;border-bottom:1px solid rgba(162,18,42,0.3);padding-bottom:1px;}
+
+  /* MOBILE TUNING */
+  @media (max-width:480px){
+    .chem-card{padding:38px 22px 32px;}
+    .chem-card::before{font-size:9.5px;letter-spacing:0.1em;padding:5px 10px;}
+    .pricing-card{padding:38px 22px 34px;}
+    .pricing-card::before{font-size:9.5px;letter-spacing:0.08em;padding:5px 12px;white-space:normal;text-align:center;max-width:80vw;line-height:1.3;}
+    .letter{padding:56px 0 60px;}
+    .letter .wrap{max-width:100%;}
+    .letter-portrait{width:96px;height:96px;}
+    .letter-body{font-size:16px;line-height:1.65;}
+    .letter-body p{margin:0 0 16px;}
+    .letter-body em.big{font-size:17px;margin:22px 0;}
+    .letter-body .center{font-size:16.5px;}
+    .letter-creds{font-size:12.5px;margin:-16px auto 32px;}
+    .letter-creds .astro{font-size:11px;}
+    .letter-creds .stat{font-size:13px;}
+    .tw{padding:56px 0 62px;}
+    .tw h2{font-size:22px;}
+    .tw .wrap{max-width:100%;}
+    .tw-item{margin-bottom:32px;}
+    .tw-pull{font-size:15px;}
+    .price-features .head{font-size:15px;}
+    .price-features li{font-size:14.5px;}
+    .hero h1{font-size:21px;line-height:1.28;}
+    .hero > .wrap{max-width:100%;}
+    .from-tag{font-size:10px;}
+    .full-link{font-size:12px;margin-top:26px;}
+    .qref{padding:18px 20px;}
+    .qref .txt{font-size:14.5px;}
+    .qref .txt strong{font-size:13.5px;}
+    .about-checks li{padding:16px 18px;font-size:14.5px;}
+    .about-checks strong{font-size:15px;}
+    .about-checks .sub{font-size:13.5px;}
+    .notfor-list li{padding:16px 18px;font-size:13.5px;}
+    .myths-intro{font-size:14.5px;padding:0 8px;}
+    .faq-q{font-size:15px;padding:18px 0;}
+    .faq-a p{font-size:14px;}
+    .final h2{font-size:24px;}
   }
 
   /* STICKY */
@@ -316,7 +631,12 @@
 <!-- HERO -->
 <header class="hero on-dark">
   <div class="wrap">
-    <h1>If you've been watching my content,<br><span>this is where it goes next.</span></h1>
+    <h1>If you've been watching my content, <span>Woman Mastery HQ is where it goes next.</span></h1>
+    <div class="hero-video">
+      <div class="video-shell">
+        <iframe src="https://share.descript.com/embed/OYyC7wiBEI1" allow="autoplay; fullscreen" allowfullscreen title="WMHQ behind the scenes"></iframe>
+      </div>
+    </div>
     <p>You liked the videos. You saved the ones about sabotage and decision-making content. This is the room where I actually work with women on exactly that. Welcome in.</p>
     <div class="cta-row">
       <a href="#chem" class="btn btn-blush" data-track="chem-hero">Book a Chemistry Call</a>
@@ -326,25 +646,13 @@
   </div>
 </header>
 
-<!-- BTS VIDEO -->
-<section class="video on-dark">
-  <div class="wrap">
-    <span class="eyebrow">Behind The Scenes</span>
-    <h2>See inside Woman Mastery HQ.</h2>
-    <p>A walkthrough of what actually happens inside, what a week looks like, and who it's for.</p>
-    <div class="video-shell">
-      <iframe src="https://share.descript.com/embed/OYyC7wiBEI1" allow="autoplay; fullscreen" allowfullscreen title="WMHQ behind the scenes"></iframe>
-    </div>
-  </div>
-</section>
 
 
 <!-- IF YOU'VE BEEN WATCHING -->
-<section class="content-hook">
+<section class="content-hook anim-fade">
   <div class="wrap">
-    <span class="eyebrow" style="display:block;text-align:center;">If any of these hit</span>
-    <h2>The content you kept saving was the diagnosis.</h2>
-    <p class="lead">These are the videos most of you found me through. If you nodded along to any of them, keep reading, because they were the invitation.</p>
+    <h2>The content you kept saving was showing you exactly why your business still feels harder than it should.</h2>
+    <p class="lead">These are the videos most of you found me through. The ones that made you think, "That's exactly what I'm doing." If you saw yourself in any of them, keep reading. They were not just relatable. They were showing you what needs to change.</p>
     <div class="quote-list">
       <div class="qref">
         <div class="num">1</div>
@@ -368,15 +676,13 @@
 </section>
 
 <!-- WHAT IT IS -->
-<section class="about">
+<section class="about anim-fade">
   <div class="wrap">
-    <span class="eyebrow" style="display:block;text-align:center;">What It Is</span>
-    <h2>WMHQ, in three lines.</h2>
-    <p class="lead">A coaching membership for female founders who are done consuming content and want their business actually looked at.</p>
+    <h2>Woman Mastery HQ Membership, in three lines.</h2>
     <ul class="about-checks">
-      <li><span class="hc">&#10003;</span><span><strong>Personal audits</strong> on your content, offers, messaging, and the subconscious patterns capping you.</span></li>
-      <li><span class="hc">&#10003;</span><span><strong>Weekly live coaching</strong> and monthly masterclasses. Replays if you can't attend live.</span></li>
-      <li><span class="hc">&#10003;</span><span><strong>Private community</strong> of women scaling alongside you. Not another content feed. A room.</span></li>
+      <li><span class="hc">&#10003;</span><span><strong>Personal audits on your actual business</strong><span class="sub">Your content, offers, messaging, sales process and the patterns making you overthink, pull back or keep changing direction.</span></span></li>
+      <li><span class="hc">&#10003;</span><span><strong>Weekly live coaching and monthly masterclasses</strong><span class="sub">Bring the thing you are stuck on, get direct support and leave knowing exactly what to do next. Replays are available when you cannot attend live.</span></span></li>
+      <li><span class="hc">&#10003;</span><span><strong>A private room of women building alongside you</strong><span class="sub">Not another group full of noise, passive scrolling and generic advice. A room where your business gets seen, supported and strengthened.</span></span></li>
     </ul>
   </div>
 </section>
@@ -395,26 +701,53 @@
   </div>
 </section>
 
-<!-- PROOF -->
-<section class="proof">
-  <div class="wrap">
-    <h2>What members are saying inside.</h2>
-    <p class="sub">Real messages, in their words.</p>
-    <div class="proof-img"><img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/sites/2147575052/images/ae81c-baf2-2aa5-545d-7e58c754f57_Testimonials.png" alt="WMHQ member results" loading="lazy"></div>
-    <div class="proof-img"><img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/sites/2147575052/images/ce4acc-5dbc-5745-65ac-b3d4db45e10_130.png" alt="WMHQ member results" loading="lazy"></div>
-  </div>
-</section>
-
 <!-- CHEMISTRY -->
 <section class="chem on-dark" id="chem">
   <div class="wrap">
-    <span class="eyebrow">Not Sure Yet?</span>
-    <h2>Book a 20-min Chemistry Call.</h2>
-    <p>20 minutes with me on Zoom. We'll look at where your business is, whether WMHQ is the right level of support for you right now, and if it's not, I'll tell you honestly.</p>
-    <p style="color:rgba(241,235,235,0.72);font-size:15px;">Bring your fav beverage.</p>
-    <a href="https://www.jessicapinili.com/wmhq-chemistry-check-quiz" target="_blank" rel="noopener" class="btn btn-blush" data-track="chem-main">Book Your Chemistry Call</a>
-    <div class="alt">
-      Prefer to ask a quick question first? <a href="https://ig.me/m/jesspinili" target="_blank" rel="noopener" data-track="dm">DM me</a>.
+    <div class="chem-card">
+      <h2>Book a Chemistry Call with me.</h2>
+      <p class="desc">We'll jump on Zoom, look at where your business is right now and work out whether WMHQ is the right room for you.</p>
+      <p class="honest">And if it is not, I'll tell you honestly.</p>
+      <p class="beverage">Bring your favourite beverage.</p>
+      <a href="https://www.jessicapinili.com/wmhq-chemistry-check-quiz" target="_blank" rel="noopener" class="btn btn-blush" data-track="chem-main">Book Your Chemistry Call</a>
+      <div class="divider"></div>
+      <p class="alt-line">Prefer to ask a quick question first? <a href="https://ig.me/m/jesspinili" target="_blank" rel="noopener" data-track="dm">DM me</a>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ONBOARDING TIMELINE -->
+<section class="onboard">
+  <div class="wrap">
+    <span class="onboard-badge">Frequently asked</span>
+    <h2>"When do I get my <span class="accent">first audit</span>?"</h2>
+    <p class="onboard-answer">Short answer: <strong>the minute you sign up.</strong> Here's exactly what happens the second you become a WMHQ Woman.</p>
+    <div class="timeline">
+      <div class="step">
+        <div class="step-num">00</div>
+        <div class="step-title">You Join</div>
+        <p class="step-body">You click join. Payment goes through. <strong>Instant access</strong> to the portal, vault, community and your onboarding form.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-title">You Fill Out The Onboarding</div>
+        <p class="step-body">You tell me exactly where your business is right now, what's working, what's not, and what you want to move first. This is your first audit brief. <strong>Nothing generic. Everything personal.</strong></p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-title">Your 45-Minute Onboarding Call</div>
+        <p class="step-body">We jump on Zoom, just you and me. I look at your actual business, your content, your offer, your messaging and your sales process. You leave with a personalised dashboard mapping out exactly what to focus on first.</p>
+        <div class="highlight-pill">This is Audit #1</div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-title">Weekly Coaching Begins</div>
+        <p class="step-body">Every week from here, you bring what you're working on. I audit it live. Sales pages, launch plans, content, offers, DMs, the pattern showing up when things start converting. <strong>Personalised. Every week. Forever.</strong></p>
+      </div>
+    </div>
+    <div class="onboard-cta">
+      <strong>No waiting rooms. No 6-week onboarding drip.</strong>
+      The minute you sign up, you are inside the room.
     </div>
   </div>
 </section>
@@ -422,20 +755,22 @@
 <!-- PRICING -->
 <section class="pricing" id="pricing">
   <div class="wrap">
-    <span class="eyebrow">If You're Ready</span>
-    <h2>Join Woman Mastery HQ Membership.</h2>
-    <p style="color:rgba(241,235,235,0.85);max-width:500px;margin:0 auto;">Everything I talk about on Instagram, delivered as a personalised coaching membership.</p>
-    <div class="amt">$450<span>/mo AUD</span></div>
-    <div class="term">6-month commitment, then continues month-to-month.</div>
-    <div class="price-features">
-      <div class="head">A membership with everything you need to grow your online business.</div>
-      <li><span class="hc">&#10003;</span>Personal audits: content, offers, messaging and subconscious patterns.</li>
-      <li><span class="hc">&#10003;</span>Private community of women scaling their income.</li>
-      <li><span class="hc">&#10003;</span>Weekly live coaching and masterclasses.</li>
-    </div>
-    <div class="cta-row">
-      <a href="https://www.jessicapinili.com/offers/2xQreoAr" target="_blank" rel="noopener" class="btn btn-blush" data-track="join-main">Join WMHQ</a>
-      <a href="https://www.jessicapinili.com/wmhq-chemistry-check-quiz" target="_blank" rel="noopener" class="btn btn-ghost" data-track="chem-pricing">Chemistry Call First</a>
+    <div class="pricing-card">
+      <h2>Join Woman Mastery HQ Membership.</h2>
+      <p style="max-width:520px;margin:0 auto 22px;"><span class="hl yellow">Everything I talk about on Instagram, delivered as a personalised coaching membership.</span></p>
+      <div class="amt">$450<span>/mo AUD</span></div>
+      <div class="term">6-month commitment, then continues month-to-month.</div>
+      <div class="price-features">
+        <div class="head">A membership with everything you need to grow your online business.</div>
+        <li><span class="hc">&#10003;</span>Personal audits: content, offers, messaging and subconscious patterns.</li>
+        <li><span class="hc">&#10003;</span>Private community of women scaling their income.</li>
+        <li><span class="hc">&#10003;</span>Weekly live coaching and masterclasses.</li>
+        <li class="feature-plus"><span class="hc">&#10003;</span><span>A 45-minute onboarding call and personalised dashboard that maps out exactly what to focus on first.</span></li>
+      </div>
+      <div class="cta-row">
+        <a href="https://www.jessicapinili.com/offers/2xQreoAr" target="_blank" rel="noopener" class="btn btn-blush" data-track="join-main">Join WMHQ</a>
+      </div>
+      <p class="pricing-alt">Read the full <a href="https://womanmasteryhq.com" data-track="full-page-pricing">WMHQ Breakdown</a>.</p>
     </div>
   </div>
 </section>
@@ -476,6 +811,14 @@
       <div class="faq-a"><p>Because meaningful change isn't a one-call fix. Six months gives us time to actually audit, rebuild, and see the change hold. Anything shorter and you leave right before it compounds.</p></div>
     </div>
     <div class="faq-item">
+      <button class="faq-q">I don't have time to add another thing to my week.<span class="icon">+</span></button>
+      <div class="faq-a"><p>Most members spend around 2 to 4 focused hours a week. Calls and trainings are recorded so you work around your schedule. WMHQ is not designed to add to your list. It is designed to help you stop wasting time on the wrong things. Most members find they get their time back within the first month because they finally know where to focus.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">I have invested in coaching and courses before and it didn't work. Why is this different?<span class="icon">+</span></button>
+      <div class="faq-a"><p>Because most courses and group programs teach you information. WMHQ diagnoses your business. You do not get generic strategy or another framework to squeeze yourself into. You get personalised eyes on your actual content, offer, messaging, sales process and the subconscious patterns capping you. If previous investments didn't work, it is usually because no one was looking at the specific reasons your business wasn't converting. That is what we do here.</p></div>
+    </div>
+    <div class="faq-item">
       <button class="faq-q">Can I DM you first?<span class="icon">+</span></button>
       <div class="faq-a"><p>Yes. DM me at @jesspinili on Instagram. Or book the Chemistry Call if you'd rather talk it through properly.</p></div>
     </div>
@@ -492,6 +835,157 @@
       <a href="#pricing" class="btn btn-ghost" data-track="join-final">Join WMHQ</a>
     </div>
     <p class="signoff">Big Love, Jess xo</p>
+  </div>
+</section>
+
+<!-- JESS LETTER -->
+<section class="letter">
+  <div class="wrap">
+    <div class="letter-portrait">
+      <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/sites/2147575052/images/0db4322-ad6a-4268-57a4-efc0d5860ba6_Kajabi_Website_2_.png" alt="Jess Pinili" loading="lazy">
+    </div>
+    <h2>Hi, I'm Jess.</h2>
+    <div class="letter-creds">
+      <div class="row"><span class="astro">&#9728; Gemini Sun &nbsp;&middot;&nbsp; &#9790; Virgo Moon &nbsp;&middot;&nbsp; <span style="color:var(--cherry);">&#9650;</span> Capricorn Rising</span></div>
+      <div class="row"><span class="role">Eldest daughter</span></div>
+      <div class="row"><span>Bachelor of Business &middot; Bachelor of Arts (Writing Major)</span></div>
+      <div class="row"><span class="stat">7 years &middot; 500+ women coached &middot; 2000+ coaching hours</span></div>
+    </div>
+    <div class="letter-body">
+      <p>And there is a good chance you found me because <strong>one of my reels</strong> made you feel <span class="hl">slightly exposed</span>.</p>
+
+      <p>Maybe it was the one about hitting your biggest month, then <span class="hl">disappearing from your own business</span>.</p>
+
+      <p>Or the one about <span class="hl">changing your offer the second sales slow down</span>.</p>
+
+      <p>Or the one about posting constantly, getting plenty of likes, replies and praise, yet still wondering:</p>
+
+      <em class="big">Why is nobody buying?</em>
+
+      <p>You saved it because it finally put words to something you had been feeling for months.</p>
+
+      <p><span class="hl">Something was not working.</span></p>
+
+      <p>But you could not see exactly what it was.</p>
+
+      <p>And that is the problem with trying to diagnose your own business.</p>
+
+      <p><span class="hl">You are simply too close to it.</span></p>
+
+      <p>Your messaging sounds clear to you because you already know what you mean.</p>
+
+      <p>Your offer feels valuable because you know how much thought, experience and work went into creating it.</p>
+
+      <p>Your content feels consistent because you remember every post you have published.</p>
+
+      <p>And your sales process seems fine because people are watching, replying and telling you how much they love what you do.</p>
+
+      <p class="center">But here is the uncomfortable truth:</p>
+
+      <p><span class="hl">Attention is not the same as demand.</span></p>
+
+      <p><span class="hl">Engagement is not the same as buying intent.</span></p>
+
+      <p>And working harder will not fix a business that is <span class="hl">leaking sales in places you cannot yet see</span>.</p>
+
+      <p><strong>I created WMHQ</strong> because I kept watching brilliant women with real audiences, proven offers and exceptional client results <span class="hl">blame themselves for inconsistent revenue</span>.</p>
+
+      <p>They thought they needed more discipline.</p>
+      <p>More content.</p>
+      <p>A new offer.</p>
+      <p>Another funnel.</p>
+      <p>Another strategy to add to the seventeen strategies they were already trying to follow.</p>
+
+      <p>But most of the time, the problem was not a lack of effort.</p>
+
+      <p><span class="hl">You kept changing things because no one had shown you the real problem.</span></p>
+
+      <p>They needed someone outside the business to spot what they could not.</p>
+
+      <p>The <span class="hl">message that sounds powerful but is still too broad</span>.</p>
+
+      <p>The <span class="hl">content that teaches people everything except why they should buy</span>.</p>
+
+      <p>The <span class="hl">offer that feels valuable but gives buyers no reason to act now</span>.</p>
+
+      <p>The <span class="hl">sales process that expects strangers to connect ten different dots by themselves</span>.</p>
+
+      <p>And the <span class="hl">subconscious pattern that makes them pull back the moment the visibility, money or responsibility starts increasing</span>.</p>
+
+      <p class="center">That is what we look at inside WMHQ.</p>
+
+      <p>The strategy.<br>The messaging.<br>The offer.<br>The content.<br>The sales pathway.<br>And <span class="hl">the woman behind all of it</span>.</p>
+
+      <p>Not so you leave with another giant list of things to fix.</p>
+
+      <p>But so you can finally answer the questions that have been costing you sales:</p>
+
+      <p class="indent"><span class="hl">What is actually slowing this business down?</span></p>
+      <p class="indent"><span class="hl">What needs to change first?</span></p>
+      <p class="indent"><span class="hl">And what can I stop wasting my time on?</span></p>
+
+      <p>Because another month spent solving the wrong problem is not harmless.</p>
+
+      <p>It costs you money.</p>
+      <p>It costs you momentum.</p>
+      <p>And eventually, it starts costing you <span class="hl">belief in a business that was never broken in the first place</span>.</p>
+
+      <p>It simply needed the right eyes on it.</p>
+
+      <em class="big">I can't wait to welcome you into Woman Mastery HQ Membership.</em>
+
+      <p class="signoff">
+        Big love,<br>
+        <span class="name">Jess xo</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL WALL -->
+<section class="tw">
+  <div class="wrap">
+    <h2>WMHQ Love Notes.</h2>
+
+    <div class="tw-item">
+      <div class="tw-img"><img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/sites/2147575052/images/c38ca84-47-efd4-f25-14c1d0a037e_Testimonials.png" alt="WMHQ member testimonial" loading="lazy"></div>
+      <p class="tw-pull"><span class="hl">"Cohort 1 officially wrapped this week, and it exceeded my expectations. 100% continuation rate."</span></p>
+    </div>
+
+    <div class="tw-item">
+      <div class="tw-img"><img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/sites/2147575052/images/ec0a35-b861-3347-d314-d820ecef17_149.png" alt="WMHQ member testimonial" loading="lazy"></div>
+      <p class="tw-pull"><span class="hl">"2025 closed on a very high note. I closed it with a $42k month in a business only 5 months young."</span></p>
+    </div>
+
+    <div class="tw-item">
+      <div class="tw-img"><img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/sites/2147575052/images/f77615b-ad-e028-6e7f-052cecf1b8_153.png" alt="WMHQ member testimonial" loading="lazy"></div>
+      <p class="tw-pull"><span class="hl">"With Jess's guidance I can 10000% say it was a subconscious thing. I had a fear of being seen."</span></p>
+    </div>
+
+    <div class="tw-item">
+      <div class="tw-img"><img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/sites/2147575052/images/5c02a8b-81cd-1bdf-2106-b73db2ab317_150.png" alt="WMHQ member testimonial" loading="lazy"></div>
+      <p class="tw-pull"><span class="hl">"20 new customers, 22 sales and over $2100 in 5hrs of set up."</span></p>
+    </div>
+
+    <div class="tw-item">
+      <div class="tw-img"><img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/sites/2147575052/images/33a8a84-d102-bae5-a7ef-64f564a2fc4e_148.png" alt="WMHQ member testimonial" loading="lazy"></div>
+      <p class="tw-pull"><span class="hl">"I'm finally hitting my KPIs over 2-3 weeks now, which feels insane."</span></p>
+    </div>
+
+    <div class="tw-item">
+      <div class="tw-img"><img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/sites/2147575052/images/08e47c5-21a7-b1f6-fbe6-ced3c5c6fbd8_Testimonials_1_.png" alt="WMHQ member testimonial" loading="lazy"></div>
+      <p class="tw-pull"><span class="hl">"I actually enjoyed my holidays, I didn't touch my laptop all weekend, and I made sales while on holidays."</span></p>
+    </div>
+
+    <div class="tw-item">
+      <div class="tw-img"><img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/sites/2147575052/images/016764e-eb7e-6d0d-aac3-33c484be6ba6_Testimonials_1_.png" alt="WMHQ member testimonial" loading="lazy"></div>
+      <p class="tw-pull"><span class="hl">"In the past 4 months my confidence and results in my content have flown."</span></p>
+    </div>
+
+    <div class="tw-cta">
+      <a href="https://www.jessicapinili.com/offers/2xQreoAr" target="_blank" rel="noopener" class="btn btn-blush" data-track="join-testimonials">Join WMHQ</a>
+      <div class="sub">Or <a href="https://www.jessicapinili.com/wmhq-chemistry-check-quiz" target="_blank" rel="noopener" data-track="chem-testimonials">book a free Chemistry Call first</a>.</div>
+    </div>
   </div>
 </section>
 
@@ -567,6 +1061,37 @@
       if(window.scrollY>200){ show(); window.removeEventListener('scroll',onScroll); }
     }
     window.addEventListener('scroll',onScroll,{passive:true});
+  })();
+
+  (function(){
+    if(!('IntersectionObserver' in window)) return;
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(reduce) return;
+    ['.quote-list','.about-checks','.notfor-list','.timeline'].forEach(function(sel){
+      var el=document.querySelector(sel);
+      if(!el) return;
+      new IntersectionObserver(function(entries,obs){
+        entries.forEach(function(e){
+          if(e.isIntersecting){ el.classList.add('in-view'); obs.unobserve(e.target); }
+        });
+      },{threshold:0.15}).observe(el);
+    });
+    document.querySelectorAll('.anim-fade').forEach(function(el){
+      new IntersectionObserver(function(entries,obs){
+        entries.forEach(function(e){
+          if(e.isIntersecting){ el.classList.add('in-view'); obs.unobserve(e.target); }
+        });
+      },{threshold:0.12}).observe(el);
+    });
+
+    // Letter body: fade each paragraph/pull-quote in individually
+    document.querySelectorAll('.letter-body p, .letter-body em.big').forEach(function(el){
+      new IntersectionObserver(function(entries,obs){
+        entries.forEach(function(e){
+          if(e.isIntersecting){ el.classList.add('in-view'); obs.unobserve(e.target); }
+        });
+      },{threshold:0.2,rootMargin:'0px 0px -60px 0px'}).observe(el);
+    });
   })();
 
   (function(){

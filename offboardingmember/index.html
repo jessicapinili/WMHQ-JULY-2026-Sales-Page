@@ -891,26 +891,36 @@ a.btn-blush { display: inline-block; text-decoration: none; padding: 17px 40px; 
   }
   function buildOtherOptions() {
     var el = document.getElementById('other-opts');
-    var one = isVIP()
+    var notUsing = state.reason.indexOf('not using') > -1;
+
+    var money = isVIP()
       ? { k: 'vip', tag: 'Start here', t: 'Come down to WMHQ Standard',
           s: 'A smaller tier with a fresh onboarding call included, so the plan gets rebuilt for this season instead of the one you joined in.' }
       : { k: 'coupon', tag: 'Start here', t: 'Take $100 off the next three months',
           s: '$100 off every payment for three months at your current rate. Nothing else changes and you keep full access.' };
 
-    el.innerHTML =
-      '<button type="button" class="opt opt-1" onclick="renderOffer(\'' + one.k + '\'); show(3);">' +
-        '<span class="opt-tag">' + one.tag + '</span>' +
-        '<span class="opt-title">' + one.t + '</span>' +
-        '<small>' + one.s + '</small>' +
-      '</button>' +
-      '<button type="button" class="opt opt-2" onclick="renderOffer(\'call\'); show(3);">' +
-        '<span class="opt-title">Twenty minutes with Jess first</span>' +
-        '<small>A direct conversation before you decide anything. Free, and you can still cancel afterwards.</small>' +
-      '</button>' +
-      '<button type="button" class="opt opt-3" onclick="renderOffer(\'room\'); show(3);">' +
-        '<span class="opt-title">Move me to WMHQ The Room</span>' +
-        '<small>A much smaller monthly commitment instead of leaving entirely.</small>' +
+    var pause = { k: 'pause',
+      t: 'Pause for three months instead',
+      s: 'Step out for a season with no payments, then come back to the exact membership you have now at the rate you have now.' };
+
+    var call = { k: 'call',
+      t: 'Twenty minutes with Jess first',
+      s: 'A direct conversation before you decide anything. Free, and you can still cancel afterwards.' };
+
+    /* If she is not using it, pause is the strongest save, so it leads. */
+    var order = notUsing ? [pause, money, call] : [money, pause, call];
+
+    var html = '';
+    var cls = ['opt-1', 'opt-2', 'opt-3'];
+    for (var i = 0; i < order.length; i++) {
+      var o = order[i];
+      html += '<button type="button" class="opt ' + cls[i] + '" onclick="renderOffer(\'' + o.k + '\'); show(3);">' +
+        (o.tag && i === 0 ? '<span class="opt-tag">' + o.tag + '</span>' : (i === 0 ? '<span class="opt-tag">Start here</span>' : '')) +
+        '<span class="opt-title">' + o.t + '</span>' +
+        '<small>' + o.s + '</small>' +
       '</button>';
+    }
+    el.innerHTML = html;
   }
 
   /* ---------- offers ---------- */
@@ -975,6 +985,21 @@ a.btn-blush { display: inline-block; text-decoration: none; padding: 17px 40px; 
         '<div class="linkrow"><button class="btn-underline" onclick="show(10)">Or read the Executive Advisory details first</button></div>' +
         '</div>' +
         '<div class="quiet-row"><button class="btn-underline soft" onclick="goExit()">No, I still want to cancel</button></div>';
+
+    } else if (kind === 'pause') {
+      el.innerHTML =
+        '<div class="card"><div class="dark-panel">' +
+        '<p class="card-num">Step out, do not step off</p>' +
+        '<h2>Pause for three months.</h2>' +
+        '<p class="card-sub">' + greet('Not using it right now is a timing problem, and cancelling is a permanent answer to a temporary one.') + ' Pause instead. Your membership goes on hold for three months with no payments, then picks back up exactly where it is now.</p>' +
+        '<ul class="ticks">' +
+        '<li><strong>Three months on hold</strong>, with no payments taken</li>' +
+        '<li>You come back to the <strong>exact membership</strong> you have now, nothing downgraded</li>' +
+        '<li>Your <strong>current rate is locked</strong> for when you return</li>' +
+        '<li>Cancel now and that rate is gone. If the membership price has gone up by the time you want back in, you pay the new one</li>' +
+        '</ul>' +
+        '<button class="btn-blush" onclick="accept(\'pause-requested\')">Pause my membership for three months</button>' +
+        '</div></div>' + otherLinks();
 
     } else if (kind === 'room') {
       el.innerHTML =
@@ -1067,6 +1092,11 @@ a.btn-blush { display: inline-block; text-decoration: none; padding: 17px 40px; 
         t: 'Good. You stay in the room, one tier down.',
         s: greet('Standard is the right home for this season.') + ' Your move from VIP is logged and your onboarding call is included.',
         n: 'Your billing is changed to WMHQ Standard from your next payment date, so you are never charged VIP and Standard in the same month. You will get an email within one business day with the link to book your onboarding call.'
+      },
+      'pause-requested': {
+        t: 'Done. Paused for three months.',
+        s: greet('That is the sensible call.') + ' Your membership goes on hold, no payments, and your current rate is held for you.',
+        n: 'Your pause is applied within one business day and billing stops for three months. You will get a confirmation email with your exact return date. Nothing is downgraded, you come back to the same membership at the same rate you have now.'
       },
       'moved-to-room': {
         t: 'Good. You stay in the room.',

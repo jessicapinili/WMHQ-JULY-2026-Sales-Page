@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WMHQ First Birthday Hotline</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --dark-red:#270707; --merlot:#3D0A10; --cherry:#A2122A; --cta:#7b1d1d;
+  --blush:#F2C6D0; --satin:#FAF6F0; --stone:#f1ebeb; --page:#f2f2f2;
+  --ink:#1c0b0b; --muted:#6b5a5c; --line:rgba(39,7,7,.14);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--page);color:var(--ink);font-family:"DM Sans",system-ui,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.mono{font-family:"JetBrains Mono",monospace}
+
+/* ticker */
+.ticker{background:var(--blush);color:var(--dark-red);overflow:hidden;white-space:nowrap;padding:10px 0;font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.04em}
+.ticker span{display:inline-block;padding-right:2.5em;animation:tick 28s linear infinite}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.ticker span{animation:none}}
+
+/* hero */
+.hero{position:relative;background:var(--dark-red);color:var(--satin);padding:72px 24px 96px;text-align:center;overflow:hidden}
+.hero:before{content:"";position:absolute;inset:0;background-image:linear-gradient(90deg,rgba(250,246,240,.06) 1px,transparent 1px);background-size:56px 100%;pointer-events:none}
+.hero>*{position:relative}
+.eyebrow{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.06em;color:var(--blush);margin-bottom:18px}
+.hero h1{font-weight:600;font-size:clamp(34px,6vw,58px);line-height:1.05;letter-spacing:-.02em;max-width:720px;margin:0 auto 20px}
+.hero p{max-width:560px;margin:0 auto;color:rgba(250,246,240,.82);font-size:17px}
+
+/* content */
+.wrap{max-width:720px;margin:-48px auto 80px;padding:0 20px;position:relative}
+.card{background:var(--satin);border-radius:16px;padding:40px 36px;box-shadow:0 30px 60px -30px rgba(39,7,7,.35)}
+@media (max-width:600px){.card{padding:28px 20px}}
+
+.details{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:8px}
+@media (max-width:600px){.details{grid-template-columns:1fr}}
+.detail{background:var(--stone);border-radius:14px;padding:18px 20px}
+.detail .k{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.05em;color:var(--cherry);margin-bottom:6px}
+.detail .v{font-weight:600;font-size:15px;line-height:1.4}
+.detail .v small{display:block;font-weight:400;color:var(--muted);font-size:13px;margin-top:2px}
+.note{padding:20px 4px 8px;color:var(--muted);font-size:15px}
+.note strong{color:var(--ink);font-weight:600}
+.deadline{margin:18px 0 32px;padding:14px 18px;border:1px solid var(--cherry);border-radius:14px;font-size:15px;color:var(--merlot);background:#fff}
+.deadline b{font-weight:600}
+
+hr{border:0;border-top:1px solid var(--line);margin:8px 0 32px}
+
+.q{margin-bottom:30px}
+.q .n{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.05em;color:var(--cherry);margin-bottom:8px}
+.q label.t{display:block;font-weight:600;font-size:17px;margin-bottom:6px}
+.q .help{font-size:14px;color:var(--muted);margin-bottom:12px}
+input[type=text],input[type=email]{width:100%;font:inherit;font-size:16px;padding:14px 16px;border:1px solid var(--line);border-radius:14px;background:#fff;color:var(--ink);transition:border-color .15s,box-shadow .15s}
+input[type=text]:focus,input[type=email]:focus{outline:none;border-color:var(--cherry);box-shadow:0 0 0 3px rgba(162,18,42,.15)}
+
+.choice{display:flex;align-items:flex-start;gap:14px;padding:16px 18px;border:1px solid var(--line);border-radius:14px;background:#fff;cursor:pointer;margin-bottom:10px;transition:border-color .15s,background .15s}
+.choice:has(input:checked){border-color:var(--cherry);background:#fff8f9}
+.choice:has(input:focus-visible){box-shadow:0 0 0 3px rgba(162,18,42,.15)}
+.choice input{appearance:none;flex:0 0 20px;width:20px;height:20px;margin-top:2px;border:1.5px solid var(--merlot);background:#fff;position:relative;cursor:pointer}
+.choice input[type=radio]{border-radius:50%}
+.choice input[type=checkbox]{border-radius:6px}
+.choice input:checked{background:var(--cherry);border-color:var(--cherry)}
+.choice input[type=radio]:checked:after{content:"";position:absolute;inset:5px;border-radius:50%;background:#fff}
+.choice input[type=checkbox]:checked:after{content:"";position:absolute;left:6px;top:2px;width:5px;height:10px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+.choice span{font-size:15px;line-height:1.5}
+.choice.big span{font-weight:600;font-size:16px}
+
+.err{display:none;font-size:13px;color:var(--cherry);margin-top:8px}
+.q.invalid .err{display:block}
+.q.invalid input[type=text],.q.invalid input[type=email]{border-color:var(--cherry)}
+
+button{width:100%;font:inherit;font-weight:600;font-size:16px;padding:18px 24px;border:0;border-radius:100px;background:var(--cta);color:var(--satin);cursor:pointer;margin-top:8px;transition:background .15s,transform .15s}
+button:hover{background:var(--cherry)}
+button:active{transform:translateY(1px)}
+button:disabled{opacity:.6;cursor:wait}
+button:focus-visible{outline:3px solid var(--blush);outline-offset:3px}
+.fine{text-align:center;font-size:13px;color:var(--muted);margin-top:14px}
+
+/* success */
+.done{display:none;text-align:center;padding:24px 0 8px}
+.done .cake{font-size:44px;margin-bottom:12px}
+.done h2{font-weight:600;font-size:28px;letter-spacing:-.01em;margin-bottom:10px}
+.done p{color:var(--muted);max-width:460px;margin:0 auto 6px;font-size:15px}
+.done .sig{margin-top:22px;font-weight:600;color:var(--merlot)}
+
+footer{text-align:center;padding:0 20px 48px;font-size:13px;color:var(--muted)}
+footer a{color:var(--muted);text-decoration:none;margin:0 8px}
+footer a:hover{color:var(--cherry)}
+</style>
+</head>
+<body>
+
+<div class="ticker" aria-hidden="true"><span>WMHQ Membership is turning ONE 🥳 &nbsp; Birthday Hotline 🎂 &nbsp; Private 1:1 access with Jess ✦ &nbsp; Begins Monday 7 September ✦ &nbsp; WMHQ Membership is turning ONE 🥳 &nbsp; Birthday Hotline 🎂 &nbsp; Private 1:1 access with Jess ✦ &nbsp; Begins Monday 7 September ✦ &nbsp; WMHQ Membership is turning ONE 🥳 &nbsp; Birthday Hotline 🎂 &nbsp; Private 1:1 access with Jess ✦ &nbsp; Begins Monday 7 September ✦ &nbsp;</span></div>
+
+<section class="hero">
+  <div class="eyebrow">Birthday Week / Members only</div>
+  <h1>WMHQ First Birthday Hotline 🎂</h1>
+  <p>Complete this form so I know which email address to use to create your private 1:1 Google Chat with me.</p>
+</section>
+
+<main class="wrap">
+  <div class="card">
+    <div id="formview">
+      <div class="details">
+        <div class="detail"><div class="k">Support begins</div><div class="v">Monday 7 September</div></div>
+        <div class="detail"><div class="k">Support hours</div><div class="v">9am to 3pm AEST<small>Monday to Thursday</small></div></div>
+        <div class="detail"><div class="k">WMHQ Members</div><div class="v">Mon 7 Sept to Thu 10 Sept<small>One week of access</small></div></div>
+        <div class="detail"><div class="k">WMHQ VIP Members</div><div class="v">Monday to Thursday<small>Two consecutive weeks</small></div></div>
+      </div>
+      <p class="note">This is <strong>asynchronous support</strong>. Send your questions, voice notes, screenshots and messages during the support window and I'll respond throughout the day. This is not instant or live-response support.</p>
+      <div class="deadline">Please submit this form by <b>Sunday 6 September</b> so I can set up your private chat before we begin.</div>
+
+      <form id="hotline" novalidate>
+        <div class="q" id="q1">
+          <div class="n">01</div>
+          <label class="t" for="name">Full name</label>
+          <input type="text" id="name" name="name" autocomplete="name" required>
+          <div class="err">Enter your full name.</div>
+        </div>
+
+        <div class="q" id="q2">
+          <div class="n">02</div>
+          <label class="t" for="email">Email address you will use for Google Chat</label>
+          <div class="help">Please enter the exact email address you'll be signed into when using Google Chat.</div>
+          <input type="email" id="email" name="email" autocomplete="email" inputmode="email" required>
+          <div class="err">Enter a valid email address.</div>
+        </div>
+
+        <div class="q" id="q3">
+          <div class="n">03</div>
+          <label class="t">Membership type</label>
+          <label class="choice"><input type="radio" name="membership" value="WMHQ Member"><span>WMHQ Member</span></label>
+          <label class="choice"><input type="radio" name="membership" value="WMHQ VIP Member"><span>WMHQ VIP Member</span></label>
+          <div class="err">Select your membership type.</div>
+        </div>
+
+        <div class="q" id="q4">
+          <div class="n">04</div>
+          <label class="t">Please acknowledge the Birthday Hotline support hours and boundaries</label>
+          <label class="choice"><input type="checkbox" name="ack_hours" value="Yes"><span>I understand that support is available Monday to Thursday between 9am and 3pm AEST during my allocated access period. I understand this is asynchronous support and replies are provided throughout the day rather than instantly.</span></label>
+          <div class="err">This acknowledgement is required.</div>
+        </div>
+
+        <div class="q" id="q5">
+          <div class="n">05</div>
+          <label class="t">Please acknowledge your responsibility for access</label>
+          <label class="choice"><input type="checkbox" name="ack_access" value="Yes"><span>I understand that I need to submit the correct email address, make sure I can access Google Chat, and have everything set up before support begins. Access will not be extended if I join or set up late.</span></label>
+          <div class="err">This acknowledgement is required.</div>
+        </div>
+
+        <div class="q" id="q6">
+          <div class="n">06</div>
+          <label class="t">I'm ready for private JP access 🎂</label>
+          <label class="choice big"><input type="checkbox" name="ready" value="Yes. Let's go."><span>Yes. Let's go.</span></label>
+          <div class="err">Tick to confirm you're ready.</div>
+        </div>
+
+        <button type="submit" id="submit">Set up my private chat</button>
+        <p class="fine">Your details go straight to Jess and are used only to create your Google Chat.</p>
+      </form>
+    </div>
+
+    <div class="done" id="done">
+      <div class="cake">🎂</div>
+      <h2>You're in.</h2>
+      <p>Your private Google Chat will be set up before support begins on Monday 7 September. Watch for the invite at the email address you submitted.</p>
+      <p>Make sure you can sign in to Google Chat with that address before Monday.</p>
+      <div class="sig">Big Love, Jess xo</div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  © 2026 Jessica Pinili. All rights reserved.<br>
+  <a href="https://www.jessicapinili.com/terms-and-conditions">Terms &amp; Conditions</a> <a href="https://www.jessicapinili.com/privacy-policy">Privacy Policy</a>
+</footer>
+
+<script>
+(function(){
+  var ENDPOINT = "https://script.google.com/macros/s/AKfycbyGHfyaa0mwUP59R8yjXwFHLLSn8jOncfgZWNtWRQQOHahsg9PJgxNIgluNEBQjvgH-ag/exec";
+  var form = document.getElementById('hotline');
+  var btn = document.getElementById('submit');
+
+  function flag(id, bad){ document.getElementById(id).classList.toggle('invalid', bad); return bad; }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = form.name.value.trim();
+    var email = form.email.value.trim();
+    var membership = (form.querySelector('input[name=membership]:checked')||{}).value || '';
+    var bad = false;
+    bad = flag('q1', !name) || bad;
+    bad = flag('q2', !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) || bad;
+    bad = flag('q3', !membership) || bad;
+    bad = flag('q4', !form.ack_hours.checked) || bad;
+    bad = flag('q5', !form.ack_access.checked) || bad;
+    bad = flag('q6', !form.ready.checked) || bad;
+    if (bad) { document.querySelector('.q.invalid').scrollIntoView({behavior:'smooth',block:'center'}); return; }
+
+    btn.disabled = true; btn.textContent = 'Sending';
+    var payload = {
+      name: name, email: email, membership: membership,
+      ack_hours: 'Yes', ack_access: 'Yes', ready: 'Yes',
+      submitted: new Date().toISOString()
+    };
+    fetch(ENDPOINT, { method:'POST', mode:'no-cors', headers:{'Content-Type':'text/plain'}, body: JSON.stringify(payload) })
+      .catch(function(){})
+      .finally(function(){
+        document.getElementById('formview').style.display = 'none';
+        document.getElementById('done').style.display = 'block';
+        window.scrollTo({top:0, behavior:'smooth'});
+      });
+  });
+})();
+</script>
+</body>
+</html>

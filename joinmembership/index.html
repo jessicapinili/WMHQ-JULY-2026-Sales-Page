@@ -302,6 +302,21 @@ nav{
 }
 .leadline p em{font-style:normal;color:var(--deep-red)}
 .leadline-second{margin-top:26px}
+.lead-testi{margin-top:26px}
+.lead-testi-frame{
+  border:2px dashed rgba(102,8,16,0.28);
+  border-radius:14px;padding:6px;background:#fff;
+  max-width:440px;overflow:hidden;
+}
+.lead-testi-frame img{
+  width:100%;display:block;border-radius:9px;
+  /* crop out the surrounding white space: show the message region */
+  aspect-ratio:16/7;object-fit:cover;object-position:50% 42%;
+}
+@media(max-width:880px){
+  .lead-testi-frame{max-width:100%;margin:0 auto}
+  .lead-testi-frame img{aspect-ratio:16/8}
+}
 
 /* ============ WHO FOR ============ */
 .whofor{background:var(--satin);padding:92px 0}
@@ -1440,7 +1455,12 @@ src="https://www.facebook.com/tr?id=1200253916991669&ev=PageView&noscript=1"
     <div class="leadline-copy">
       <p>You already proved you can make money. <em>Now you want to make more of it, without doing more of everything.</em></p>
       <p class="leadline-second">You want more income. More impact. Better opportunities. <em>And you want all of it from a business that gives you more room to live.</em></p>
-      <div class="btn-row" style="margin-top:32px">
+      <div class="lead-testi reveal">
+        <div class="lead-testi-frame">
+          <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/sites/2147575052/images/ad4bcda-bcb7-327d-d7d8-57eb5e8d047_Kajabi_Website_10_.png" alt="WMHQ member testimonial" loading="lazy" decoding="async">
+        </div>
+      </div>
+      <div class="btn-row" style="margin-top:28px">
         <a href="#pricing" class="btn btn-red btn-jiggle">Yes, I am ready to join</a>
         <a href="https://www.jessicapinili.com/wmhq-chemistry-check-quiz" target="_blank" rel="noopener" class="btn btn-ghost-thin">Book a Chemistry Call &rarr;</a>
       </div>

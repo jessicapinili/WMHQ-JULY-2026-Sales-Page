@@ -936,6 +936,49 @@ details.ex-card summary::after{content:none}
 .p-foot a{color:var(--deep-red);font-weight:700}
 @media(max-width:600px){.p-card{padding:34px 26px 30px}}
 
+/* ============ TL;DR TEASER + ACCORDION ============ */
+.tldr-teaser{background:var(--off-white);text-align:center;padding:14px 20px}
+.tldr-link{
+  font-family:'JetBrains Mono',ui-monospace,monospace;
+  font-size:13px;font-weight:500;letter-spacing:0.02em;color:var(--ink);
+  text-decoration:none;display:inline-block;
+}
+.tldr-hl{
+  background:rgba(242,198,208,0.6);color:var(--dark-red);
+  padding:2px 7px;border-radius:4px;transition:background .2s;
+}
+.tldr-link:hover .tldr-hl{background:var(--blush)}
+
+.tldr{background:var(--off-white);padding:40px 0 64px}
+.tldr-acc{max-width:760px;margin:0 auto;border-top:1px solid rgba(102,8,16,0.16);border-bottom:1px solid rgba(102,8,16,0.16)}
+.tldr-acc summary{
+  list-style:none;cursor:pointer;padding:22px 40px 22px 0;position:relative;
+  font-family:'JetBrains Mono',ui-monospace,monospace;
+  font-size:14px;font-weight:500;letter-spacing:0.01em;color:var(--ink);
+  -webkit-tap-highlight-color:transparent;
+}
+.tldr-acc summary::-webkit-details-marker{display:none}
+.tldr-acc summary::after{content:'+';position:absolute;right:6px;top:50%;transform:translateY(-50%);font-size:20px;color:var(--deep-red);line-height:1}
+.tldr-acc[open] summary::after{content:'\2013'}
+.tldr-open{background:rgba(242,198,208,0.6);color:var(--dark-red);padding:2px 7px;border-radius:4px}
+.tldr-body{padding:4px 0 28px}
+.tldr-head{font-size:13px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:var(--deep-red);margin-bottom:16px}
+.tldr-list{list-style:none;display:flex;flex-direction:column;gap:11px;margin:0}
+.tldr-list > li{position:relative;padding-left:20px;font-size:14.5px;line-height:1.6;color:var(--ink)}
+.tldr-list > li::before{content:'';position:absolute;left:0;top:11px;width:7px;height:1.5px;background:var(--bright-red)}
+.tldr-list > li strong{font-weight:800;color:var(--ink)}
+.tldr-list ul{list-style:none;margin:8px 0 0;display:flex;flex-direction:column;gap:6px}
+.tldr-list ul li{position:relative;padding-left:18px;font-size:14px;line-height:1.55;color:var(--muted)}
+.tldr-list ul li::before{content:'';position:absolute;left:0;top:10px;width:5px;height:5px;border-radius:50%;background:rgba(141,0,4,0.4)}
+.tldr-last{margin-top:22px}
+.tldr-last-hl{
+  background:rgba(242,198,208,0.55);color:var(--dark-red);
+  font-weight:800;font-size:15px;line-height:1.7;
+  padding:4px 8px;border-radius:5px;
+  box-decoration-break:clone;-webkit-box-decoration-break:clone;
+}
+@media(max-width:600px){.tldr-acc summary{font-size:13px}}
+
 /* ============ RAPID FIRE FAQ ============ */
 .rapid{
   position:relative;padding:88px 0;border-top:1px solid var(--border);
@@ -1487,6 +1530,11 @@ src="https://www.facebook.com/tr?id=1200253916991669&ev=PageView&noscript=1"
     <div class="strip-item"><div class="strip-pic sp5" role="img" aria-label="WMHQ member moment"></div></div>
     <div class="strip-item"><div class="strip-pic sp6" role="img" aria-label="WMHQ member moment"></div></div>
   </div>
+</section>
+
+<!-- TLDR TEASER -->
+<section class="tldr-teaser">
+  <a href="#tldr" class="tldr-link">TL;DR? <span class="tldr-hl">Click me.</span></a>
 </section>
 
 <!-- LEAD LINE + VSL -->
@@ -2166,6 +2214,62 @@ src="https://www.facebook.com/tr?id=1200253916991669&ev=PageView&noscript=1"
     <div class="cap-visual">
       <img class="cap-img pop-scroll" src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/sites/2147575052/images/35078c5-623-d51f-572a-f01260261e54_masterclass-cover.jpg" alt="Become The CEO free masterclass with Jess Pinili" loading="lazy" decoding="async">
     </div>
+  </div>
+</section>
+
+<!-- TLDR ACCORDION -->
+<section class="tldr" id="tldr">
+  <div class="wrap-narrow">
+    <details class="tldr-acc">
+      <summary><span class="tldr-sum">Too long, didn't read.</span> <span class="tldr-open">Open me.</span></summary>
+      <div class="tldr-body">
+        <p class="tldr-head">TL;DR: the simple version</p>
+        <ul class="tldr-list">
+          <li><strong>WMHQ is an online business + mindset membership.</strong></li>
+          <li><strong>Calls are in Brisbane time (AEST).</strong> Wednesday PM or Thursday AM.</li>
+          <li><strong>Can't make a call? No problem.</strong> Replays are uploaded within 48 hours.</li>
+          <li><strong>You can submit your question before the call.</strong> If you attend live, pre-submitting also puts you first in line for a hot seat.</li>
+          <li><strong>Ask JP is where you get your weekly personalised audits.</strong></li>
+          <li><strong>You can submit as many Ask JP posts as you need.</strong></li>
+          <li><strong>Audits can cover:</strong>
+            <ul>
+              <li>Messaging + positioning</li>
+              <li>Content + marketing</li>
+              <li>Offers + sales</li>
+              <li>Your business systems + sales ecosystem</li>
+              <li>Mindset, identity + subconscious patterns</li>
+            </ul>
+          </li>
+          <li><strong>I reply with written or video feedback within 1 to 3 business days.</strong></li>
+          <li><strong>The WMHQ Vault holds all trainings, tools + resources.</strong></li>
+          <li><strong>You do NOT need to complete the WMHQ Vault from start to finish.</strong> I'll point you to the right training or tool when you need it.</li>
+          <li><strong>You can consume the Vault at your own pace, at any time.</strong></li>
+          <li><strong>Allow at least 2 to 4 hours per week</strong> to work on your business.</li>
+          <li><strong>This is hands-on support,</strong> not "JP builds my business for me."</li>
+          <li><strong>I will give you strategy, feedback, direction, audits and support.</strong> You still need to make decisions and do the work.</li>
+          <li><strong>The women who get the most from WMHQ show up, ask questions and implement.</strong></li>
+          <li><strong>You need to be willing to:</strong>
+            <ul>
+              <li>Learn</li>
+              <li>Be challenged</li>
+              <li>Take feedback</li>
+              <li>Make decisions</li>
+              <li>Implement</li>
+              <li>Ask for support when you need it</li>
+            </ul>
+          </li>
+          <li><strong>WMHQ is built on proven business fundamentals.</strong> Sales psychology, messaging, content, marketing, offers, sales systems, business structure and subconscious mastery.</li>
+          <li><strong>We build the foundations before chasing more tactics.</strong> Clear message. Strong content. Simple sales process. Stable business. Capacity to handle growth.</li>
+          <li><strong>WMHQ can support different stages of business.</strong> From women with a validated offer making their first consistent $1K+ months to established founders making $100K+ months.</li>
+          <li><strong>Want more 1:1 access? Choose VIP.</strong></li>
+          <li><strong>VIP includes WMHQ + 2 x 90-minute private calls every month.</strong></li>
+          <li><strong>VIP also includes the JP Hotline Monday to Thursday.</strong></li>
+          <li><strong>The Hotline is async voice + message support for quicker decisions.</strong> Think: "Can you check this hook?", "Which option would you choose?" or "Am I overcomplicating this?"</li>
+          <li><strong>The Hotline is NOT for full audits.</strong> Bigger messaging, content, funnel, sales or business reviews go through Ask JP.</li>
+        </ul>
+        <p class="tldr-last"><span class="tldr-last-hl">You will be supported. You will also be challenged. The goal is not to make you dependent on me. It is to make you a stronger business owner.</span></p>
+      </div>
+    </details>
   </div>
 </section>
 

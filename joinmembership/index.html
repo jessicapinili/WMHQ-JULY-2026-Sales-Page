@@ -936,6 +936,46 @@ details.ex-card summary::after{content:none}
 .p-foot a{color:var(--deep-red);font-weight:700}
 @media(max-width:600px){.p-card{padding:34px 26px 30px}}
 
+/* ============ RAPID FIRE FAQ ============ */
+.rapid{
+  position:relative;padding:88px 0;border-top:1px solid var(--border);
+  background-color:#fbf8f5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+}
+.rapid > .wrap{position:relative;z-index:1}
+.rapid-grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:54px;align-items:center;max-width:1040px;margin:0 auto;text-align:center}
+@media(max-width:880px){.rapid-grid{grid-template-columns:1fr;gap:36px}}
+.rapid-vid{max-width:300px;width:100%;margin:0 auto}
+.rapid-vid-frame{position:relative;padding-bottom:177.7778%;height:0;border-radius:18px;overflow:hidden;background:#000;
+  border:3px solid var(--blush);
+  box-shadow:0 0 0 0 rgba(242,198,208,0.55),0 18px 44px rgba(39,7,7,0.14);
+  animation:rapidGlow 3.2s ease-in-out infinite;}
+@keyframes rapidGlow{
+  0%,100%{box-shadow:0 0 0 0 rgba(242,198,208,0.55),0 18px 44px rgba(39,7,7,0.14);transform:translateY(0)}
+  50%{box-shadow:0 0 0 10px rgba(242,198,208,0),0 22px 50px rgba(39,7,7,0.18);transform:translateY(-4px)}
+}
+.rapid-vid-frame{width:100%}
+.rapid-vid-frame iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+.rapid-eyebrow{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--dark-red);background:rgba(242,198,208,0.55);display:inline-block;padding:4px 9px;border-radius:4px;margin-bottom:16px}
+.rapid h2{font-size:clamp(28px,3.6vw,44px);font-weight:800;line-height:1.08;letter-spacing:-0.03em;color:var(--ink);margin-bottom:26px}
+.rapid h2 em{font-style:normal;color:var(--deep-red)}
+.rapid-list{list-style:none;display:flex;flex-direction:column;gap:14px;align-items:center}
+.rapid-list li{display:flex;gap:13px;align-items:flex-start;justify-content:center;font-size:16px;line-height:1.45;color:var(--ink);font-weight:500;text-align:left}
+.rapid-list li::before{content:'\2713';flex-shrink:0;width:22px;height:22px;border-radius:50%;background:rgba(141,0,4,0.09);color:var(--bright-red);font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.rapid-list li:nth-child(1){transition-delay:.0s}
+.rapid-list li:nth-child(2){transition-delay:.08s}
+.rapid-list li:nth-child(3){transition-delay:.16s}
+.rapid-list li:nth-child(4){transition-delay:.24s}
+.rapid-list li:nth-child(5){transition-delay:.32s}
+.rapid-list li:nth-child(6){transition-delay:.40s}
+@media(max-width:880px){
+  .rapid-grid{text-align:center}
+  .rapid-eyebrow{margin-left:auto;margin-right:auto}
+  .rapid-list li{justify-content:center;text-align:left}
+}
+@media(max-width:600px){.rapid{padding:60px 0}}
+@media(prefers-reduced-motion:reduce){.rapid-vid-frame{animation:none}}
+
 /* ============ FAQ ============ */
 /* Adverse is a licensed sans. Self-host it and uncomment the block below,
    or add it via your Adobe Fonts / Kajabi custom font embed.
@@ -1968,6 +2008,27 @@ src="https://www.facebook.com/tr?id=1200253916991669&ev=PageView&noscript=1"
 
     <p class="cur-note" id="curNote"></p>
     <p class="p-foot">Questions before joining? <a href="https://ig.me/m/jesspinili" target="_blank" rel="noopener">DM Jess</a> or <a href="https://www.jessicapinili.com/wmhq-chemistry-check-quiz" target="_blank" rel="noopener">book a 20-minute Chemistry Call</a>.</p>
+  </div>
+</section>
+
+<!-- RAPID FIRE FAQ -->
+<section class="rapid">
+  <div class="wrap rapid-grid">
+    <div class="rapid-vid reveal">
+      <div class="rapid-vid-frame"><iframe src="https://www.loom.com/embed/192a2d0d10a64aa4b3e0125b9a3bd44b" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>
+    </div>
+    <div>
+      <div class="rapid-eyebrow">60 seconds with Jess</div>
+      <h2>Rapid Fire <em>FAQ</em></h2>
+      <ul class="rapid-list">
+        <li class="pop-scroll">When are the calls?</li>
+        <li class="pop-scroll">Are replays available?</li>
+        <li class="pop-scroll">How do weekly audits work?</li>
+        <li class="pop-scroll">Is there a program to follow?</li>
+        <li class="pop-scroll">Who can join?</li>
+        <li class="pop-scroll">How much time do I need each week?</li>
+      </ul>
+    </div>
   </div>
 </section>
 

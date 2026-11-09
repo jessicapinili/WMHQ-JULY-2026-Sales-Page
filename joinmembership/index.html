@@ -936,88 +936,113 @@ details.ex-card summary::after{content:none}
 .p-foot a{color:var(--deep-red);font-weight:700}
 @media(max-width:600px){.p-card{padding:34px 26px 30px}}
 
-/* ============ TL;DR TEASER + ACCORDION ============ */
-.tldr-teaser{background:var(--off-white);text-align:center;padding:14px 20px}
-.tldr-link{
-  font-family:'JetBrains Mono',ui-monospace,monospace;
-  font-size:13px;font-weight:500;letter-spacing:0.02em;color:var(--ink);
-  text-decoration:none;display:inline-block;
+/* ============ DM QUESTIONS VIDEO ============ */
+.dmq{background:var(--stone);padding:88px 0;border-top:1px solid var(--border)}
+.dmq-grid{
+  display:grid;grid-template-columns:minmax(0,0.85fr) minmax(0,1.15fr);
+  gap:48px;align-items:center;max-width:1000px;margin:0 auto;
 }
-.tldr-hl{
-  background:rgba(242,198,208,0.6);color:var(--dark-red);
-  padding:2px 7px;border-radius:4px;transition:background .2s;
+.dmq-video{max-width:340px;width:100%}
+.dmq-ph{
+  position:relative;width:100%;aspect-ratio:9/16;
+  background:#000;border-radius:16px;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
 }
-.tldr-link:hover .tldr-hl{background:var(--blush)}
-
-.tldr{background:var(--off-white);padding:40px 0 64px}
-.tldr-acc{max-width:760px;margin:0 auto;border-top:1px solid rgba(102,8,16,0.16);border-bottom:1px solid rgba(102,8,16,0.16)}
-.tldr-acc summary{
-  list-style:none;cursor:pointer;padding:22px 40px 22px 0;position:relative;
-  font-family:'JetBrains Mono',ui-monospace,monospace;
-  font-size:14px;font-weight:500;letter-spacing:0.01em;color:var(--ink);
-  -webkit-tap-highlight-color:transparent;
+.dmq-ph iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.dmq-ph .dmq-cover{
+  position:absolute;inset:0;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(39,7,7,0.18);transition:opacity .3s ease,background .3s ease;
 }
-.tldr-acc summary::-webkit-details-marker{display:none}
-.tldr-acc summary::after{content:'+';position:absolute;right:6px;top:50%;transform:translateY(-50%);font-size:20px;color:var(--deep-red);line-height:1}
-.tldr-acc[open] summary::after{content:'\2013'}
-.tldr-open{background:rgba(242,198,208,0.6);color:var(--dark-red);padding:2px 7px;border-radius:4px}
-.tldr-body{padding:4px 0 28px}
-.tldr-head{font-size:13px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:var(--deep-red);margin-bottom:16px}
-.tldr-list{list-style:none;display:flex;flex-direction:column;gap:11px;margin:0}
-.tldr-list > li{position:relative;padding-left:20px;font-size:14.5px;line-height:1.6;color:var(--ink)}
-.tldr-list > li::before{content:'';position:absolute;left:0;top:11px;width:7px;height:1.5px;background:var(--bright-red)}
-.tldr-list > li strong{font-weight:800;color:var(--ink)}
-.tldr-list ul{list-style:none;margin:8px 0 0;display:flex;flex-direction:column;gap:6px}
-.tldr-list ul li{position:relative;padding-left:18px;font-size:14px;line-height:1.55;color:var(--muted)}
-.tldr-list ul li::before{content:'';position:absolute;left:0;top:10px;width:5px;height:5px;border-radius:50%;background:rgba(141,0,4,0.4)}
-.tldr-last{margin-top:22px}
-.tldr-last-hl{
-  background:rgba(242,198,208,0.55);color:var(--dark-red);
-  font-weight:800;font-size:15px;line-height:1.7;
-  padding:4px 8px;border-radius:5px;
-  box-decoration-break:clone;-webkit-box-decoration-break:clone;
+.dmq-ph.playing .dmq-cover{opacity:0;pointer-events:none}
+.dmq-play{
+  width:66px;height:66px;border-radius:50%;
+  background:rgba(250,246,240,0.94);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 10px 30px rgba(39,7,7,0.35);
+  transition:transform .25s ease;
 }
-@media(max-width:600px){.tldr-acc summary{font-size:13px}}
-
-/* ============ RAPID FIRE FAQ ============ */
-.rapid{
-  position:relative;padding:88px 0;border-top:1px solid var(--border);
-  background-color:#fbf8f5;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+.dmq-cover:hover .dmq-play{transform:scale(1.07)}
+.dmq-play svg{width:22px;height:22px;fill:var(--deep-red);margin-left:3px}
+.dmq-muted{
+  position:absolute;bottom:14px;left:50%;transform:translateX(-50%);
+  font-family:var(--font-faq);font-size:10px;font-weight:700;letter-spacing:0.14em;
+  text-transform:uppercase;color:rgba(250,246,240,0.9);
+  background:rgba(39,7,7,0.55);padding:6px 12px;border-radius:100px;white-space:nowrap;
 }
-.rapid > .wrap{position:relative;z-index:1}
-.rapid-grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:54px;align-items:center;max-width:1040px;margin:0 auto;text-align:center}
-@media(max-width:880px){.rapid-grid{grid-template-columns:1fr;gap:36px}}
-.rapid-vid{max-width:300px;width:100%;margin:0 auto}
-.rapid-vid-frame{position:relative;padding-bottom:177.7778%;height:0;border-radius:18px;overflow:hidden;background:#000;
-  border:3px solid var(--blush);
-  box-shadow:0 0 0 0 rgba(242,198,208,0.55),0 18px 44px rgba(39,7,7,0.14);
-  animation:rapidGlow 3.2s ease-in-out infinite;}
-@keyframes rapidGlow{
-  0%,100%{box-shadow:0 0 0 0 rgba(242,198,208,0.55),0 18px 44px rgba(39,7,7,0.14);transform:translateY(0)}
-  50%{box-shadow:0 0 0 10px rgba(242,198,208,0),0 22px 50px rgba(39,7,7,0.18);transform:translateY(-4px)}
+.dmq-controls{
+  display:none;align-items:center;gap:10px;margin-top:12px;
+  font-family:var(--font-faq);
 }
-.rapid-vid-frame{width:100%}
-.rapid-vid-frame iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
-.rapid-eyebrow{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--dark-red);background:rgba(242,198,208,0.55);display:inline-block;padding:4px 9px;border-radius:4px;margin-bottom:16px}
-.rapid h2{font-size:clamp(28px,3.6vw,44px);font-weight:800;line-height:1.08;letter-spacing:-0.03em;color:var(--ink);margin-bottom:26px}
-.rapid h2 em{font-style:normal;color:var(--deep-red)}
-.rapid-list{list-style:none;display:flex;flex-direction:column;gap:14px;align-items:center}
-.rapid-list li{display:flex;gap:13px;align-items:flex-start;justify-content:center;font-size:16px;line-height:1.45;color:var(--ink);font-weight:500;text-align:left}
-.rapid-list li::before{content:'\2713';flex-shrink:0;width:22px;height:22px;border-radius:50%;background:rgba(141,0,4,0.09);color:var(--bright-red);font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:1px}
-.rapid-list li:nth-child(1){transition-delay:.0s}
-.rapid-list li:nth-child(2){transition-delay:.08s}
-.rapid-list li:nth-child(3){transition-delay:.16s}
-.rapid-list li:nth-child(4){transition-delay:.24s}
-.rapid-list li:nth-child(5){transition-delay:.32s}
-.rapid-list li:nth-child(6){transition-delay:.40s}
-@media(max-width:880px){
-  .rapid-grid{text-align:center}
-  .rapid-eyebrow{margin-left:auto;margin-right:auto}
-  .rapid-list li{justify-content:center;text-align:left}
+.dmq-ph.playing ~ .dmq-controls{display:flex}
+.dmq-btn{
+  flex:none;width:30px;height:30px;border-radius:50%;border:none;cursor:pointer;
+  background:var(--deep-red);color:var(--satin);
+  display:flex;align-items:center;justify-content:center;padding:0;
 }
-@media(max-width:600px){.rapid{padding:60px 0}}
-@media(prefers-reduced-motion:reduce){.rapid-vid-frame{animation:none}}
+.dmq-btn svg{width:11px;height:11px;fill:currentColor}
+.dmq-track{
+  flex:1 1 auto;height:5px;border-radius:100px;cursor:pointer;
+  background:rgba(102,8,16,0.18);position:relative;overflow:hidden;
+}
+.dmq-fill{position:absolute;left:0;top:0;bottom:0;width:0%;background:var(--deep-red);border-radius:100px}
+.dmq-time{
+  flex:none;font-size:11px;font-weight:700;color:var(--muted);
+  font-variant-numeric:tabular-nums;letter-spacing:0.02em;
+}
+.dmq-speed{
+  flex:none;border:1px solid var(--border);background:transparent;cursor:pointer;
+  font-family:var(--font-faq);font-size:11px;font-weight:800;color:var(--deep-red);
+  padding:5px 9px;border-radius:100px;min-width:40px;
+}
+.dmq-speed:hover{background:var(--deep-red);color:var(--satin);border-color:var(--deep-red)}
+.dmq-copy h2{
+  font-family:var(--font-faq);font-size:clamp(26px,3.4vw,40px);font-weight:800;
+  line-height:1.12;letter-spacing:-0.025em;color:var(--ink);margin-bottom:22px;
+}
+.dmq-copy h2 em{
+  font-style:normal;position:relative;z-index:1;
+  box-shadow:inset 0 -0.62em 0 rgba(242,198,208,0.75);
+  padding:0 2px;border-radius:2px;
+}
+.dmq-copy h2 .ch{opacity:0}
+.dmq-copy h2.typing .ch.on,.dmq-copy h2.done .ch{opacity:1}
+.dmq-copy h2.typing::after{
+  content:'';display:inline-block;width:2px;height:0.88em;
+  background:var(--deep-red);vertical-align:-0.1em;margin-left:2px;
+  animation:caretBlink 1s step-end infinite;
+}
+.dmq-list{list-style:none;margin:0;padding:0}
+.dmq-list li{
+  font-family:var(--font-faq);font-size:16px;line-height:1.5;color:var(--ink);
+  font-weight:600;padding:13px 0 13px 38px;position:relative;
+  border-bottom:1px solid var(--border);
+}
+.dmq-list li:last-child{border-bottom:none}
+.dmq-list li::before{
+  content:'?';position:absolute;left:0;top:14px;
+  width:24px;height:24px;border-radius:50%;
+  background:var(--deep-red);color:var(--satin);
+  font-family:var(--font-faq);font-size:13px;font-weight:800;line-height:24px;
+  text-align:center;
+}
+@media(max-width:900px){
+  .dmq-grid{grid-template-columns:1fr;gap:30px;max-width:520px}
+  .dmq-video{max-width:300px;margin:0 auto}
+  .dmq-copy h2{font-size:clamp(23px,5.6vw,30px);margin-bottom:18px;text-align:center}
+  .dmq-list li{font-size:15px;padding:12px 0 12px 34px}
+  .dmq-list li::before{top:13px;width:22px;height:22px;line-height:22px;font-size:12px}
+}
+@media(max-width:560px){
+  .dmq{padding:60px 0}
+  .dmq-video{max-width:260px}
+  .dmq-controls{gap:8px}
+  .dmq-time{font-size:10px}
+  .dmq-speed{font-size:10px;padding:5px 8px;min-width:36px}
+  .dmq-copy h2{font-size:clamp(21px,6.2vw,26px)}
+  .dmq-list li{font-size:14.5px;padding:11px 0 11px 31px;line-height:1.45}
+  .dmq-list li::before{top:12px;width:20px;height:20px;line-height:20px;font-size:11px}
+}
 
 /* ============ FAQ ============ */
 /* Adverse is a licensed sans. Self-host it and uncomment the block below,
@@ -1179,6 +1204,15 @@ footer{background:var(--dark-red);padding:52px 0 40px;text-align:center}
   color:rgba(241,235,235,0.5);text-decoration:none;
 }
 .f-links a:hover{color:var(--stone)}
+.f-social{display:flex;gap:14px;justify-content:center;margin-bottom:22px}
+.f-social a{
+  width:36px;height:36px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  border:1px solid rgba(241,235,235,0.25);color:rgba(241,235,235,0.6);
+  transition:background .25s ease,color .25s ease,border-color .25s ease;
+}
+.f-social a:hover{background:var(--stone);color:var(--dark-red);border-color:var(--stone)}
+.f-social svg{width:17px;height:17px;fill:currentColor;display:block}
 .f-copy{font-size:11.5px;color:rgba(241,235,235,0.35);letter-spacing:0.05em}
 
 /* ============ EXIT INTENT MODAL ============ */
@@ -1530,11 +1564,6 @@ src="https://www.facebook.com/tr?id=1200253916991669&ev=PageView&noscript=1"
     <div class="strip-item"><div class="strip-pic sp5" role="img" aria-label="WMHQ member moment"></div></div>
     <div class="strip-item"><div class="strip-pic sp6" role="img" aria-label="WMHQ member moment"></div></div>
   </div>
-</section>
-
-<!-- TLDR TEASER -->
-<section class="tldr-teaser">
-  <a href="#tldr" class="tldr-link">TL;DR? <span class="tldr-hl">Click me.</span></a>
 </section>
 
 <!-- LEAD LINE + VSL -->
@@ -1898,7 +1927,7 @@ src="https://www.facebook.com/tr?id=1200253916991669&ev=PageView&noscript=1"
       <div class="ex-grid">
         <details class="ex-card reveal" open>
           <summary>"I'm not sure if this is actually for me."</summary>
-          <div class="ex-body">WMHQ supports women at different stages of business, from those with a validated offer making their first consistent $1K+ months to established founders making $100K+ months. What matters is that you have something real to work with, an offer, audience or proof that people want what you do. If you're pre revenue or still validating your first offer, this probably isn't the right fit yet. If you're not sure, <a href="https://www.jessicapinili.com/wmhq-chemistry-check-quiz" target="_blank" rel="noopener">book a Chemistry Call</a> and I'll tell you honestly.</div>
+          <div class="ex-body">WMHQ is for female online business owners making inconsistent $12K to $35K months with a proven offer and real client results. If you're pre revenue or still validating your first offer, this isn't the right fit yet. If you're not sure, <a href="https://www.jessicapinili.com/wmhq-chemistry-check-quiz" target="_blank" rel="noopener">book a Chemistry Call</a> and I'll tell you honestly.</div>
         </details>
         <details class="ex-card reveal">
           <summary>"I don't have the time."</summary>
@@ -1941,7 +1970,7 @@ src="https://www.facebook.com/tr?id=1200253916991669&ev=PageView&noscript=1"
       <ul class="vip-list reveal">
         <li><span>One 60-minute private onboarding call</span></li>
         <li><span>Two 90-minute private coaching calls each month</span></li>
-        <li><span>Access to JP Hotline (M to T private chat)</span></li>
+        <li><span>Private messaging and implementation support</span></li>
         <li><span>A private shared working document with Jess</span></li>
         <li><span>Everything inside the WMHQ Membership</span></li>
       </ul>
@@ -2046,7 +2075,7 @@ src="https://www.facebook.com/tr?id=1200253916991669&ev=PageView&noscript=1"
         <ul class="p-list">
           <li>One 60-minute private onboarding call</li>
           <li>Two 90-minute private coaching calls each month</li>
-          <li>Access to JP Hotline (M to T private chat)</li>
+          <li>Private messaging and implementation support</li>
           <li>A private shared working document with Jess</li>
         </ul>
         <p class="p-fine">You can downgrade to the standard $450/m membership after your 3-month VIP period.</p>
@@ -2059,23 +2088,46 @@ src="https://www.facebook.com/tr?id=1200253916991669&ev=PageView&noscript=1"
   </div>
 </section>
 
-<!-- RAPID FIRE FAQ -->
-<section class="rapid">
-  <div class="wrap rapid-grid">
-    <div class="rapid-vid reveal">
-      <div class="rapid-vid-frame"><iframe src="https://www.loom.com/embed/192a2d0d10a64aa4b3e0125b9a3bd44b" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>
-    </div>
-    <div>
-      <div class="rapid-eyebrow">60 seconds with Jess</div>
-      <h2>Rapid Fire <em>FAQ</em></h2>
-      <ul class="rapid-list">
-        <li class="pop-scroll">When are the calls?</li>
-        <li class="pop-scroll">Are replays available?</li>
-        <li class="pop-scroll">How do weekly audits work?</li>
-        <li class="pop-scroll">Is there a program to follow?</li>
-        <li class="pop-scroll">Who can join?</li>
-        <li class="pop-scroll">How much time do I need each week?</li>
-      </ul>
+<!-- DM QUESTIONS VIDEO -->
+<section class="dmq" id="dm-questions">
+  <div class="wrap">
+    <div class="dmq-grid">
+      <div class="dmq-video reveal">
+        <div class="dmq-ph" id="dmqPh">
+          <iframe id="dmqFrame"
+            src="https://player.vimeo.com/video/1245025341?background=1&amp;autoplay=1&amp;muted=1&amp;loop=1&amp;autopause=0&amp;badge=0&amp;player_id=0&amp;app_id=58479"
+            frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            title="WMHQ common questions, answered"></iframe>
+          <div class="dmq-cover" id="dmqCover" role="button" tabindex="0" aria-label="Play video with sound">
+            <div class="dmq-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div>
+            <div class="dmq-muted">Tap to play with sound</div>
+          </div>
+        </div>
+
+        <div class="dmq-controls" id="dmqControls">
+          <button class="dmq-btn" id="dmqToggle" type="button" aria-label="Pause">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg>
+          </button>
+          <div class="dmq-track" id="dmqTrack" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <div class="dmq-fill" id="dmqFill"></div>
+          </div>
+          <div class="dmq-time" id="dmqTime">0:00 / 0:00</div>
+          <button class="dmq-speed" id="dmqSpeed" type="button" aria-label="Playback speed">1x</button>
+        </div>
+      </div>
+
+      <div class="dmq-copy reveal">
+        <h2 class="dmq-type">A <em>three minute video</em> on the questions I get most in my DMs</h2>
+        <ul class="dmq-list">
+          <li>When are the calls?</li>
+          <li>Are replays available?</li>
+          <li>How do weekly audits work?</li>
+          <li>Is there a program to follow?</li>
+          <li>Who can join?</li>
+          <li>How much time do I need each week?</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
@@ -2217,71 +2269,26 @@ src="https://www.facebook.com/tr?id=1200253916991669&ev=PageView&noscript=1"
   </div>
 </section>
 
-<!-- TLDR ACCORDION -->
-<section class="tldr" id="tldr">
-  <div class="wrap-narrow">
-    <details class="tldr-acc">
-      <summary><span class="tldr-sum">Too long, didn't read.</span> <span class="tldr-open">Open me.</span></summary>
-      <div class="tldr-body">
-        <p class="tldr-head">TL;DR: the simple version</p>
-        <ul class="tldr-list">
-          <li><strong>WMHQ is an online business + mindset membership.</strong></li>
-          <li><strong>Calls are in Brisbane time (AEST).</strong> Wednesday PM or Thursday AM.</li>
-          <li><strong>Can't make a call? No problem.</strong> Replays are uploaded within 48 hours.</li>
-          <li><strong>You can submit your question before the call.</strong> If you attend live, pre-submitting also puts you first in line for a hot seat.</li>
-          <li><strong>Ask JP is where you get your weekly personalised audits.</strong></li>
-          <li><strong>You can submit as many Ask JP posts as you need.</strong></li>
-          <li><strong>Audits can cover:</strong>
-            <ul>
-              <li>Messaging + positioning</li>
-              <li>Content + marketing</li>
-              <li>Offers + sales</li>
-              <li>Your business systems + sales ecosystem</li>
-              <li>Mindset, identity + subconscious patterns</li>
-            </ul>
-          </li>
-          <li><strong>I reply with written or video feedback within 1 to 3 business days.</strong></li>
-          <li><strong>The WMHQ Vault holds all trainings, tools + resources.</strong></li>
-          <li><strong>You do NOT need to complete the WMHQ Vault from start to finish.</strong> I'll point you to the right training or tool when you need it.</li>
-          <li><strong>You can consume the Vault at your own pace, at any time.</strong></li>
-          <li><strong>Allow at least 2 to 4 hours per week</strong> to work on your business.</li>
-          <li><strong>This is hands-on support,</strong> not "JP builds my business for me."</li>
-          <li><strong>I will give you strategy, feedback, direction, audits and support.</strong> You still need to make decisions and do the work.</li>
-          <li><strong>The women who get the most from WMHQ show up, ask questions and implement.</strong></li>
-          <li><strong>You need to be willing to:</strong>
-            <ul>
-              <li>Learn</li>
-              <li>Be challenged</li>
-              <li>Take feedback</li>
-              <li>Make decisions</li>
-              <li>Implement</li>
-              <li>Ask for support when you need it</li>
-            </ul>
-          </li>
-          <li><strong>WMHQ is built on proven business fundamentals.</strong> Sales psychology, messaging, content, marketing, offers, sales systems, business structure and subconscious mastery.</li>
-          <li><strong>We build the foundations before chasing more tactics.</strong> Clear message. Strong content. Simple sales process. Stable business. Capacity to handle growth.</li>
-          <li><strong>WMHQ can support different stages of business.</strong> From women with a validated offer making their first consistent $1K+ months to established founders making $100K+ months.</li>
-          <li><strong>Want more 1:1 access? Choose VIP.</strong></li>
-          <li><strong>VIP includes WMHQ + 2 x 90-minute private calls every month.</strong></li>
-          <li><strong>VIP also includes the JP Hotline Monday to Thursday.</strong></li>
-          <li><strong>The Hotline is async voice + message support for quicker decisions.</strong> Think: "Can you check this hook?", "Which option would you choose?" or "Am I overcomplicating this?"</li>
-          <li><strong>The Hotline is NOT for full audits.</strong> Bigger messaging, content, funnel, sales or business reviews go through Ask JP.</li>
-        </ul>
-        <p class="tldr-last"><span class="tldr-last-hl">You will be supported. You will also be challenged. The goal is not to make you dependent on me. It is to make you a stronger business owner.</span></p>
-      </div>
-    </details>
-  </div>
-</section>
-
 <!-- FOOTER -->
 <footer>
   <div class="wrap">
     <div class="f-logo">Jessica Pinili</div>
     <div class="f-links">
-      <a href="https://womanmasteryhq.com">Home</a>
-      <a href="https://www.instagram.com/jesspinili">Instagram</a>
+      <a href="https://jessicapinili.com">Home</a>
       <a href="https://jessicapinili.com/jpinili-privacy-statement">Privacy Policy</a>
       <a href="https://jessicapinili.com/jpinili-terms-conditions">Terms &amp; Conditions</a>
+    </div>
+
+    <div class="f-social">
+      <a href="https://www.instagram.com/jesspinili" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.71-2.13 1.38C1.34 2.68.93 3.35.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.71 1.46 1.38 2.13.67.67 1.34 1.08 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.3 1.46-.71 2.13-1.38.67-.67 1.08-1.34 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.3-.79-.71-1.46-1.38-2.13C21.32 1.34 20.65.93 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0z"/><path d="M12 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84zM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4z"/><circle cx="18.41" cy="5.59" r="1.44"/></svg>
+      </a>
+      <a href="https://www.tiktok.com/@jesspinili" target="_blank" rel="noopener" aria-label="TikTok">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5 2.59 2.59 0 1 1 .77-5.06V9.69a5.67 5.67 0 0 0-.77-.05A5.68 5.68 0 1 0 15.54 15.4V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3a4.28 4.28 0 0 1-3.24-1.48z"/></svg>
+      </a>
+      <a href="https://www.youtube.com/@jesspinili" target="_blank" rel="noopener" aria-label="YouTube">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.08 0 12 0 12s0 3.92.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.92 24 12 24 12s0-3.92-.5-5.81zM9.55 15.57V8.43L15.82 12l-6.27 3.57z"/></svg>
+      </a>
     </div>
     <div class="f-copy">&copy; 2026 Jessica Marie Holdings Pty Ltd. All rights reserved.</div>
   </div>
@@ -2725,5 +2732,126 @@ document.querySelectorAll('.faq-list details').forEach(function(d){
 });
 </script>
 
+
+<script>
+(function(){
+  var h = document.querySelector('.dmq-type');
+  if(!h) return;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var chars = [];
+  (function walk(node){
+    Array.prototype.slice.call(node.childNodes).forEach(function(n){
+      if(n.nodeType === 3){
+        var frag = document.createDocumentFragment();
+        n.nodeValue.split('').forEach(function(c){
+          var sp = document.createElement('span');
+          sp.className = 'ch'; sp.textContent = c;
+          chars.push(sp); frag.appendChild(sp);
+        });
+        node.replaceChild(frag, n);
+      } else if(n.nodeType === 1){ walk(n); }
+    });
+  })(h);
+  if(reduce || !('IntersectionObserver' in window)){ h.classList.add('done'); return; }
+  var obs = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting) return;
+      obs.unobserve(e.target);
+      h.classList.add('typing');
+      var i = 0;
+      (function tick(){
+        if(i >= chars.length){ h.classList.remove('typing'); h.classList.add('done'); return; }
+        chars[i].classList.add('on'); i++;
+        setTimeout(tick, 22);
+      })();
+    });
+  }, {threshold:0.4});
+  obs.observe(h);
+})();
+</script>
+
+<script src="https://player.vimeo.com/api/player.js"></script>
+<script>
+(function(){
+  var frame = document.getElementById('dmqFrame');
+  if(!frame || typeof Vimeo === 'undefined') return;
+  var ph = document.getElementById('dmqPh'),
+      cover = document.getElementById('dmqCover'),
+      toggle = document.getElementById('dmqToggle'),
+      track = document.getElementById('dmqTrack'),
+      fill = document.getElementById('dmqFill'),
+      timeEl = document.getElementById('dmqTime'),
+      speedBtn = document.getElementById('dmqSpeed');
+  var player = new Vimeo.Player(frame);
+  var started = false, duration = 0, rates = [1, 1.5, 2], ri = 0;
+  var PLAY = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>';
+  var PAUSE = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg>';
+
+  function fmt(s){
+    s = Math.max(0, Math.floor(s || 0));
+    return Math.floor(s/60) + ':' + ('0' + (s%60)).slice(-2);
+  }
+  function render(sec){
+    var pct = duration ? (sec / duration) * 100 : 0;
+    fill.style.width = pct + '%';
+    track.setAttribute('aria-valuenow', Math.round(pct));
+    timeEl.textContent = fmt(sec) + ' / ' + fmt(duration);
+  }
+
+  player.getDuration().then(function(d){ duration = d; render(0); }).catch(function(){});
+
+  function start(){
+    if(started) return;
+    started = true;
+    ph.classList.add('playing');
+    player.setLoop(false).catch(function(){});
+    player.setVolume(1).catch(function(){});
+    player.setCurrentTime(0).then(function(){ return player.play(); }).catch(function(){
+      player.play().catch(function(){});
+    });
+  }
+  cover.addEventListener('click', start);
+  cover.addEventListener('keydown', function(e){
+    if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); start(); }
+  });
+
+  toggle.addEventListener('click', function(){
+    player.getPaused().then(function(p){ return p ? player.play() : player.pause(); }).catch(function(){});
+  });
+  player.on('play', function(){ toggle.innerHTML = PAUSE; toggle.setAttribute('aria-label','Pause'); });
+  player.on('pause', function(){ toggle.innerHTML = PLAY; toggle.setAttribute('aria-label','Play'); });
+  player.on('timeupdate', function(d){
+    if(!started) return;
+    if(d.duration) duration = d.duration;
+    render(d.seconds);
+  });
+  player.on('ended', function(){
+    toggle.innerHTML = PLAY;
+    render(duration);
+  });
+
+  function seek(clientX){
+    var r = track.getBoundingClientRect();
+    var pct = Math.min(1, Math.max(0, (clientX - r.left) / r.width));
+    if(!started) start();
+    if(duration) player.setCurrentTime(pct * duration).catch(function(){});
+  }
+  track.addEventListener('click', function(e){ seek(e.clientX); });
+  track.addEventListener('keydown', function(e){
+    if(e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+    e.preventDefault();
+    player.getCurrentTime().then(function(t){
+      player.setCurrentTime(Math.min(duration, Math.max(0, t + (e.key === 'ArrowRight' ? 5 : -5))));
+    }).catch(function(){});
+  });
+
+  speedBtn.addEventListener('click', function(){
+    ri = (ri + 1) % rates.length;
+    var r = rates[ri];
+    player.setPlaybackRate(r).catch(function(){});
+    speedBtn.textContent = r + 'x';
+  });
+})();
+</script>
 </body>
 </html>

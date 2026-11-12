@@ -429,8 +429,8 @@ details a{color:var(--bright-red)}
 </footer>
 <div class="side-pop" id="sidePop" role="status">
   <button class="side-x" id="sideX" aria-label="Close">&times;</button>
-  <strong id="sideHrs">48</strong>
-  <span id="sideTxt">hours to go</span>
+  <strong>30</strong>
+  <span>Spots only!!</span>
   <a href="#offer">Grab a spot</a>
 </div>
 <div class="timer-bar" id="timerBar">
@@ -450,9 +450,6 @@ details a{color:var(--bright-red)}
     document.getElementById('tH').innerHTML = pad(h)+'<i>h</i>';
     document.getElementById('tM').innerHTML = pad(m)+'<i>m</i>';
     document.getElementById('tS').innerHTML = pad(s)+'<i>s</i>';
-    var hl = Math.ceil(d/3600000);
-    document.getElementById('sideHrs').textContent = d === 0 ? '0' : (hl <= 1 ? '<1' : hl);
-    document.getElementById('sideTxt').textContent = d === 0 ? 'Offer closed' : (hl === 1 || hl <= 1 ? 'hour to go' : 'hours to go');
     if (fuse) fuse.style.width = Math.min(100, d/total*100) + '%';
     if (d === 0) { document.querySelector('#timerBar p').textContent = 'This offer has closed'; clearInterval(t); }
   }

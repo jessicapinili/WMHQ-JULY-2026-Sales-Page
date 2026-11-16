@@ -108,6 +108,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bright-red);outline
 .tag.business{background:#E6EFE7;color:#2f4d31}
 .tag.subconscious{background:#EDE8F4;color:#43366a}
 .tag.combined{background:#FBE3E9;color:var(--deep-red)}
+.cal .tag{display:inline-block}
 .tag.masterclass{background:#EED3DD;color:#6E2E48}
 .date{font-size:17px;color:var(--muted)}
 .card h2{font-size:clamp(24px,2.6vw,34px);font-weight:800;letter-spacing:-.02em;line-height:1.15;margin:10px 0 8px}
@@ -227,6 +228,58 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bright-red);outline
 .card{position:relative}
 .newbadge{position:absolute;top:0;left:32px;transform:translateY(-50%);font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;background:#FBF1C7;border:1px solid rgba(200,170,40,.35);color:#5a4a10;padding:6px 12px;border-radius:6px}
 @media(max-width:700px){.newbadge{left:18px}}
+.cal{margin-top:44px;background:var(--white);border:1px solid var(--border);border-radius:28px;padding:28px}
+.cal-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:18px}
+.cal-eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--deep-red)}
+.cal-title{font-size:30px;font-weight:800;letter-spacing:-.02em}
+.cal-nav{display:flex;gap:8px}
+.cal-nav button{font-family:var(--mono);font-size:13px;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--border-strong);background:var(--white);border-radius:100px;padding:9px 16px;color:var(--ink)}
+.cal-nav button:hover{border-color:var(--bright-red)}
+.cal-next{display:flex;align-items:center;gap:16px;flex-wrap:wrap;background:#240709;color:var(--stone);border-radius:18px;padding:18px 22px;margin-bottom:18px}
+.cal-next .nl{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--pill)}
+.cal-next .nt{font-size:18px;font-weight:800}
+.cal-next .nw{font-size:14px;color:rgba(241,235,235,.7)}
+.cal-next .cd{margin-left:auto;font-family:var(--mono);font-size:13px;letter-spacing:.1em;background:rgba(241,235,235,.1);padding:8px 14px;border-radius:100px}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);border-top:1px solid var(--border);border-left:1px solid var(--border)}
+.cal-dow{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);padding:10px;border-right:1px solid var(--border);border-bottom:1px solid var(--border);background:#fbf6f6}
+.cal-day{min-height:96px;padding:8px;border-right:1px solid var(--border);border-bottom:1px solid var(--border);display:flex;flex-direction:column;gap:4px}
+.cal-day.out{background:#faf8f8;color:#c9b9b9}
+.cal-day .dn{font-size:13px;font-weight:700}
+.cal-day.today .dn{background:var(--bright-red);color:#fff;border-radius:100px;width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center}
+.ev{border:0;text-align:left;font-size:12px;line-height:1.3;padding:6px 8px;border-radius:8px;font-weight:600;color:#240709;width:100%}
+.ev small{display:block;font-family:var(--mono);font-weight:400;font-size:10px;letter-spacing:.06em;opacity:.8}
+.ev.business{background:#CFE3D1}.ev.subconscious{background:#DCD3EC}.ev.combined{background:#F2C6D0}.ev.masterclass{background:#E3BACB}
+.cal-empty{grid-column:1/-1;text-align:center;padding:28px 16px;font-family:var(--mono);font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);border-right:1px solid var(--border);border-bottom:1px solid var(--border);background:#fbf6f6}
+.ev.workshop{background:#FBE7A1}
+.ev.past{opacity:.45}
+.cal-day .evs{display:flex;flex-direction:column;gap:8px}
+.cal-detail{margin-top:18px;border:1px solid var(--border);border-radius:18px;padding:20px 22px;position:relative}
+.cal-detail h4{font-size:20px;font-weight:800;margin:6px 0 4px}
+.cal-detail p{font-size:14px;color:var(--muted)}
+.cal-detail .acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.cal-detail .acts a{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;padding:11px 18px;border-radius:100px;border:1px solid var(--border-strong);color:var(--ink)}
+.cal-detail .acts a.primary{background:#240709;color:var(--stone);border-color:#240709}
+.cal-detail .x{position:absolute;top:10px;right:14px;background:none;border:0;font-size:22px;color:var(--muted)}
+.cal-sub{margin-top:20px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.cal-sub-lbl{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.cal-sub-btns{display:flex;gap:8px;flex-wrap:wrap}
+.cal-sub-btns a{font-size:13px;font-weight:700;text-decoration:none;color:#240709;padding:8px 14px;border-radius:100px}
+@media(max-width:700px){
+  .cal{padding:16px;border-radius:20px}
+  .cal-grid{display:block;border:0}
+  .cal-dow,.cal-day.out,.cal-day.empty{display:none}
+  .cal-day{min-height:0;flex-direction:row;flex-wrap:wrap;align-items:flex-start;border:0;border-bottom:1px solid var(--border);padding:12px 4px}
+  .cal-day .dn{width:64px;flex:none}
+  .cal-day .evs{flex:1;display:flex;flex-direction:column;gap:6px}
+  .cal-next .cd{margin-left:0}
+}
+
+html{scroll-behavior:smooth}
+.cal{scroll-margin-top:110px}
+.cal-jump{font-family:var(--mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--bright-red);text-decoration:none;border-bottom:1px solid var(--border-strong);padding-bottom:2px}
+.cal-jump:hover{border-color:var(--bright-red)}
+.cal-note{font-size:14px;color:var(--ink-light);background:#fbf6f6;border-radius:12px;padding:12px 16px;margin-bottom:16px}
+.cal-note a{color:var(--bright-red);font-weight:700;text-decoration:none;margin-left:6px}
 .wmhq-footer{background:var(--dark-red);color:rgba(241,235,235,.55);padding:32px 24px 36px;text-align:center;border-top:1px solid rgba(241,235,235,.08)}
 .wmhq-footer-inner{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:12px;align-items:center}
 .wmhq-footer-copy{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(241,235,235,.7)}
@@ -354,9 +407,32 @@ h1 em{font-style:normal;color:#F2C6D0}
 <!-- SCREEN 1: call type covers -->
 <section class="covers" id="coverScreen">
   <h2>Choose your <em>call type.</em></h2>
-  <p>Each call type has its own replays, sorted by quarter.</p>
-  <div class="notice"><b>Heads up:</b> replays only stay up for the current quarter. Watch them before the quarter ends.</div>
+  <p><a href="#cal" class="cal-jump">View the call calendar &darr;</a></p>
+  <div class="notice"><b>Heads up:</b> call replays are slowly moving over to this page. Each replay only stays up for the quarter it was hosted in, so watch it before the quarter ends.</div>
   <div class="cover-grid" id="coverGrid"></div>
+
+  <section class="cal" id="cal" aria-label="Call calendar">
+    <div class="cal-head">
+      <div>
+        <div class="cal-eyebrow">Call calendar</div>
+        <h3 class="cal-title" id="calTitle"></h3>
+      </div>
+      <div class="cal-nav">
+        <button id="calPrev" aria-label="Previous month">&larr;</button>
+        <button id="calToday">Today</button>
+        <button id="calNext" aria-label="Next month">&rarr;</button>
+      </div>
+    </div>
+    <p class="cal-note">These calls are also on the WMHQ Community under <b>Meetups</b>. <a href="https://www.jessicapinili.com/products/communities/v2/womanmasteryhq/access-group/e1cd04bf-d341-4176-aab2-a9c187f708f9/meetups" target="_blank" rel="noopener">Open Meetups &#8599;</a></p>
+    <div class="cal-next" id="calNextCall"></div>
+    <div class="cal-grid" id="calGrid"></div>
+    <div class="cal-detail" id="calDetail" hidden></div>
+    <div class="cal-sub">
+      <span class="cal-sub-lbl">Add every call to your calendar</span>
+      <div class="cal-sub-btns" id="calSubs"></div>
+    </div>
+  </section>
+
 </section>
 
 <!-- SCREEN 2: replays by quarter -->
@@ -724,7 +800,91 @@ function set(o){p.hidden=!o;t.setAttribute("aria-expanded",o);}
 t.onclick=()=>set(p.hidden);document.getElementById("askClose").onclick=()=>set(false);
 document.addEventListener("click",e=>{if(!document.getElementById("ask").contains(e.target))set(false);});})();
 document.getElementById("footerYear").textContent=new Date().getFullYear();
+
+/* ===== CALL CALENDAR =====
+   MOCK-UP: these are a snapshot of your real calendar events.
+   Once the four calendars are public and an API key is added, this list fills itself from Google Calendar. */
+const JOIN_URL = "https://www.jessicapinili.com/products/communities/v2/womanmasteryhq/access-group/e1cd04bf-d341-4176-aab2-a9c187f708f9/meetups"; /* Kajabi meetups */
+const GCAL_KEY = "AIzaSyAJG_VzPCL0dZtPhu2BlB4NcXd6in2u8z4";
+let callEvents = [
+  { type:"subconscious", title:"Subconscious Mastery Call", start:"2026-11-11T18:00:00+10:00", end:"2026-11-11T19:00:00+10:00" },
+  { type:"masterclass",  title:"Bi-Annual Session 01: Review + Diagnose", highlight:"workshop", start:"2026-11-17T06:00:00+10:00", end:"2026-11-17T08:00:00+10:00" },
+  { type:"masterclass",  title:"Bi-Annual Session 02: Decide + Build", highlight:"workshop", start:"2026-11-17T18:00:00+10:00", end:"2026-11-17T20:00:00+10:00" },
+  { type:"business",     title:"Business Mastermind Call", start:"2026-11-26T06:30:00+10:00", end:"2026-11-26T07:30:00+10:00" }
+];
+const evColour={business:"#CFE3D1",subconscious:"#DCD3EC",combined:"#F2C6D0",masterclass:"#E3BACB"};
+let calMonth=(()=>{const d=new Date();return new Date(d.getFullYear(),d.getMonth(),1);})();
+let calFilter=null;
+const tFmt=d=>d.toLocaleTimeString("en-AU",{hour:"numeric",minute:"2-digit"}).replace(" ","").toLowerCase();
+const bneFmt=d=>d.toLocaleTimeString("en-AU",{hour:"numeric",minute:"2-digit",timeZone:"Australia/Brisbane"}).replace(" ","").toLowerCase();
+const gStamp=d=>d.toISOString().replace(/[-:]/g,"").replace(/\.\d{3}/,"");
+function gcalLink(e){return "https://calendar.google.com/calendar/render?action=TEMPLATE&text="+encodeURIComponent("WMHQ: "+e.title)+"&dates="+gStamp(new Date(e.start))+"/"+gStamp(new Date(e.end))+"&details="+encodeURIComponent("Join via Kajabi Meetups: "+JOIN_URL);}
+function icsLink(e){const b=["BEGIN:VCALENDAR","VERSION:2.0","BEGIN:VEVENT","DTSTART:"+gStamp(new Date(e.start)),"DTEND:"+gStamp(new Date(e.end)),"SUMMARY:WMHQ: "+e.title,"DESCRIPTION:Join via Kajabi Meetups: "+JOIN_URL,"END:VEVENT","END:VCALENDAR"].join("\r\n");return "data:text/calendar;charset=utf-8,"+encodeURIComponent(b);}
+function evList(){return callEvents.filter(e=>!calFilter||e.type===calFilter).sort((a,b)=>a.start.localeCompare(b.start));}
+function showDetail(e){
+  const d=new Date(e.start),en=new Date(e.end),el=document.getElementById("calDetail");
+  const local=Intl.DateTimeFormat().resolvedOptions().timeZone;
+  el.hidden=false;
+  el.innerHTML=`<button class="x" aria-label="Close">&times;</button><span class="tag ${e.type}">${covers[e.type].name}</span>
+    <h4>${e.title}</h4>
+    <p>${d.toLocaleDateString("en-AU",{weekday:"long",day:"numeric",month:"long"})}, ${bneFmt(d)} to ${bneFmt(en)} Brisbane time${local!=="Australia/Brisbane"?` (${tFmt(d)} your time)`:""}</p>
+    <div class="acts"><a class="primary" href="${JOIN_URL}" target="_blank" rel="noopener">Join via Kajabi Meetups</a>
+    <a href="${gcalLink(e)}" target="_blank" rel="noopener">Add to Google</a>
+    <a href="${icsLink(e)}" download="wmhq-call.ics">Add to Apple / Outlook</a></div>`;
+  el.querySelector(".x").onclick=()=>el.hidden=true;
+}
+function renderCal(){
+  const y=calMonth.getFullYear(),m=calMonth.getMonth(),now=new Date();
+  document.getElementById("calTitle").textContent=calMonth.toLocaleDateString("en-AU",{month:"long",year:"numeric"});
+  const evs=evList();
+  const next=evs.find(e=>new Date(e.end)>now);
+  const nc=document.getElementById("calNextCall");
+  if(next){const d=new Date(next.start),ms=d-now;
+    const cd=ms>0?(()=>{const dd=Math.floor(ms/864e5),hh=Math.floor(ms%864e5/36e5),mm=Math.floor(ms%36e5/6e4);return "In "+(dd?dd+"d ":"")+hh+"h "+mm+"m";})():"Live now";
+    nc.innerHTML=`<span class="nl">Next call</span><span class="nt">${next.title}</span><span class="nw">${d.toLocaleDateString("en-AU",{weekday:"short",day:"numeric",month:"short"})}, ${bneFmt(d)} AEST</span><span class="cd">${cd}</span>`;
+    nc.style.display="";nc.style.cursor="pointer";nc.onclick=()=>showDetail(next);}
+  else nc.style.display="none";
+  const first=new Date(y,m,1),startDow=(first.getDay()+6)%7,days=new Date(y,m+1,0).getDate();
+  let h=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"].map(d=>`<div class="cal-dow">${d}</div>`).join("");
+  for(let i=0;i<startDow;i++)h+=`<div class="cal-day out empty"></div>`;
+  for(let dn=1;dn<=days;dn++){
+    const ds=`${y}-${String(m+1).padStart(2,"0")}-${String(dn).padStart(2,"0")}`;
+    const de=evs.filter(e=>new Date(e.start).toLocaleDateString("en-CA",{timeZone:"Australia/Brisbane"})===ds);
+    const isT=now.getFullYear()===y&&now.getMonth()===m&&now.getDate()===dn;
+    if(!de.length&&window.innerWidth<=700&&!isT){h+=`<div class="cal-day empty"></div>`;continue;}
+    const label=window.innerWidth<=700?new Date(y,m,dn).toLocaleDateString("en-AU",{weekday:"short",day:"numeric"}):dn;
+    h+=`<div class="cal-day${isT?" today":""}"><span class="dn">${label}</span><div class="evs">${de.map(e=>`<button class="ev ${e.type}${e.highlight?" "+e.highlight:""}${new Date(e.end)<now?" past":""}" data-i="${callEvents.indexOf(e)}">${e.title}<small>${bneFmt(new Date(e.start))}</small></button>`).join("")}</div></div>`;
+  }
+  const monthHas=evs.some(e=>{const d=new Date(e.start);return d.getFullYear()===y&&d.getMonth()===m;});
+  if(!monthHas)h+=`<div class="cal-empty">No scheduled calls yet. Check back soon.</div>`;
+  document.getElementById("calGrid").innerHTML=h;
+  document.querySelectorAll(".ev").forEach(b=>b.onclick=()=>showDetail(callEvents[+b.dataset.i]));
+  document.getElementById("calSubs").innerHTML=Object.entries(calendars).map(([k,id])=>`<a href="https://calendar.google.com/calendar/u/0/r?cid=${encodeURIComponent(id)}" target="_blank" rel="noopener" style="background:${evColour[k]}">+ ${covers[k].name}</a>`).join("");
+}
+document.getElementById("calPrev").onclick=()=>{calMonth=new Date(calMonth.getFullYear(),calMonth.getMonth()-1,1);renderCal();};
+document.getElementById("calNext").onclick=()=>{calMonth=new Date(calMonth.getFullYear(),calMonth.getMonth()+1,1);renderCal();};
+document.getElementById("calToday").onclick=()=>{const d=new Date();calMonth=new Date(d.getFullYear(),d.getMonth(),1);renderCal();};
+window.addEventListener("resize",()=>{clearTimeout(window._rc);window._rc=setTimeout(renderCal,200);});
+setInterval(renderCal,60000);
+/* Live sync: replaces the snapshot with your Google Calendars when they are public */
+async function loadLiveCalls(){
+  const now=new Date(), from=new Date(now.getFullYear(),now.getMonth()-2,1).toISOString(), to=new Date(now.getFullYear(),now.getMonth()+7,1).toISOString();
+  const clean=t=>(t||"").replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}\u{200D}\u{1F1E6}-\u{1F1FF}]/gu,"").replace(/^WMHQ:?\s*/i,"").replace(/\s+/g," ").trim();
+  try{
+    const res=await Promise.all(Object.entries(calendars).map(async([type,id])=>{
+      const u=`https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(id)}/events?key=${GCAL_KEY}&singleEvents=true&orderBy=startTime&timeMin=${from}&timeMax=${to}&maxResults=100`;
+      const r=await fetch(u); if(!r.ok) throw new Error(type+" "+r.status);
+      const j=await r.json();
+      return (j.items||[]).filter(e=>e.status!=="cancelled"&&e.start&&e.start.dateTime).map(e=>({
+        type, title:clean(e.summary)||covers[type].name, start:e.start.dateTime, end:e.end.dateTime,
+        highlight:/bi-?annual/i.test(e.summary||"")?"workshop":undefined }));
+    }));
+    callEvents=res.flat(); renderCal();
+  }catch(err){ console.log("Calendar sync not available yet, showing snapshot:",err.message); }
+}
+loadLiveCalls();
 renderCovers();
+renderCal();
 </script>
 </body>
 </html>

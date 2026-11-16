@@ -620,13 +620,14 @@ function mediaFor(p){
   v.onclick=()=>p.querySelector(".big-play").click();
   return m;
 }
-const allMedia=[];
+const allMedia=[];let activeM=null,activeP=null;
 function wirePlayers(){
   allMedia.length=0;
   document.querySelectorAll(".player").forEach(p=>{
     const m=mediaFor(p); allMedia.push(m);
     const seek=p.querySelector(".c-seek"),time=p.querySelector(".c-time"),sp=p.querySelector(".c-speed");
     const toggle=()=>{
+      activeM=m;activeP=p;
       if(!p.dataset.src){alert("Video coming soon.");return;}
       if(m.paused){allMedia.forEach(o=>{if(o!==m&&!o.paused)o.pause();});p.classList.add("started");m.play();}else m.pause();
     };
@@ -661,6 +662,17 @@ const store={get(k,d){try{const v=localStorage.getItem(k);return v===null?d:JSON
 const keyOf=r=>r.date+"-"+r.type;
 const NEW_TYPES=["business","subconscious","combined"];
 const isNewest=r=>NEW_TYPES.includes(r.type)&&!live().some(o=>o.type===r.type&&o.date>r.date);
+document.addEventListener("keydown",e=>{
+  if(document.getElementById("gate")||!activeM)return;
+  const tg=e.target.tagName; if(tg==="INPUT"||tg==="SELECT"||tg==="TEXTAREA")return;
+  if(!document.body.contains(activeP))return;
+  if(e.code==="Space"){e.preventDefault();activeP.querySelector(".c-play").click();}
+  else if(e.key==="ArrowRight"||e.key==="ArrowLeft"){
+    e.preventDefault();
+    const d=e.key==="ArrowRight"?10:-10, t=Math.max(0,Math.min((activeM.duration||1e9)-1,activeM.currentTime+d));
+    activeM.currentTime=t;
+  }
+});
 function renderCovers(){
   document.getElementById("coverGrid").innerHTML = Object.entries(covers).map(([k,c])=>{
     const n = live().filter(r=>r.type===k).length;

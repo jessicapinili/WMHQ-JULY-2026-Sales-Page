@@ -251,6 +251,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bright-red);outline
 .ev.business{background:#CFE3D1}.ev.subconscious{background:#DCD3EC}.ev.combined{background:#F2C6D0}.ev.masterclass{background:#E3BACB}
 .cal-empty{grid-column:1/-1;text-align:center;padding:28px 16px;font-family:var(--mono);font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);border-right:1px solid var(--border);border-bottom:1px solid var(--border);background:#fbf6f6}
 .ev.workshop{background:#FBE7A1}
+.tag.workshop{background:#FBE7A1;color:#5a4a10}
 .ev.past{opacity:.45}
 .cal-day .evs{display:flex;flex-direction:column;gap:8px}
 .cal-detail{margin-top:18px;border:1px solid var(--border);border-radius:18px;padding:20px 22px;position:relative}
@@ -323,62 +324,6 @@ h1 em{font-style:normal;color:#F2C6D0}
 </style>
 </head>
 <body>
-<div id="gate">
-<main><div class="gate">
-  <div class="mark">Woman Mastery HQ&trade;</div>
-  <h1>Membership Call <em>Replays</em></h1>
-  <p>Enter your member access code to watch. It is on the module in the WMHQ Vault where you clicked this link.</p>
-  <form id="f" autocomplete="off">
-    <input id="code" type="password" placeholder="Access code" aria-label="Access code" autocomplete="off" autocapitalize="off" spellcheck="false" required>
-    <button type="submit">Enter</button>
-    <div class="err" id="err" role="alert"></div>
-  </form>
-</div></main>
-<footer class="wmhq-footer">
-  <div class="wmhq-footer-inner">
-    <p class="wmhq-footer-copy">&copy; <span class="fy"></span> Jessica Marie Holdings Pty Ltd. All rights reserved.</p>
-    <div class="wmhq-footer-links">
-      <a href="https://www.jessicapinili.com/jpinili-terms-conditions" target="_blank" rel="noopener">Terms &amp; Conditions</a>
-      <a href="https://www.jessicapinili.com/jpinili-privacy-statement" target="_blank" rel="noopener">Privacy</a>
-    </div>
-    <div class="wmhq-footer-social">
-      <a href="https://www.instagram.com/jesspinili/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
-      <a href="https://www.tiktok.com/@jesspinili" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 3c.4 2.3 1.9 3.8 4.2 4v3.1c-1.6 0-3-.5-4.2-1.3v6.6c0 3.4-2.7 5.6-5.7 5.6-3.1 0-5.6-2.4-5.6-5.5 0-3.4 3-5.9 6.5-5.4v3.2c-1.6-.4-3.2.6-3.2 2.2 0 1.3 1 2.3 2.3 2.3 1.4 0 2.4-1 2.4-2.6V3h3.3z"/></svg></a>
-      <a href="https://www.youtube.com/@jesspinili" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 8.2c-.2-1.5-1-2.5-2.5-2.7C17.3 5.2 12 5.2 12 5.2s-5.3 0-7.5.3C3 5.7 2.2 6.7 2 8.2 1.8 9.4 1.8 12 1.8 12s0 2.6.2 3.8c.2 1.5 1 2.5 2.5 2.7 2.2.3 7.5.3 7.5.3s5.3 0 7.5-.3c1.5-.2 2.3-1.2 2.5-2.7.2-1.2.2-3.8.2-3.8s0-2.6-.2-3.8zM10 15.1V8.9l5.2 3.1-5.2 3.1z"/></svg></a>
-      <a href="https://open.spotify.com/show/0dVGnR2Yoh3BhNO1CE7umD?si=a6a687b3bacf4e69" target="_blank" rel="noopener" aria-label="Podcast"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v4"/></svg></a>
-      <a href="https://substack.com/@jessicapinili" target="_blank" rel="noopener" aria-label="Substack"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 3h16v2.4H4zM4 7.6h16V10H4zM4 12.2h16V21l-8-4.4L4 21z"/></svg></a>
-    </div>
-  </div>
-</footer>
-</div>
-<script>
-(function(){
-  const HASH="54ad1b5879bf40d572ead1e3afa19d5c7044f849515f352c2701b834351d75e8", g=document.getElementById("gate");
-  const open=()=>{g.remove();document.body.classList.remove("locked");};
-  let ok=false;try{ok=localStorage.getItem("wmhqReplaysAccess")===HASH;}catch(_){}
-  if(ok){open();return;}
-  document.body.classList.add("locked");
-  document.querySelectorAll(".fy").forEach(e=>e.textContent=new Date().getFullYear());
-  function sha(m){m=unescape(encodeURIComponent(m));const K=[],H=[];let p=2,c=0;
-    const f=x=>(x-(x|0))*4294967296|0;
-    while(c<64){let pr=1;for(let i=2;i*i<=p;i++)if(p%i==0){pr=0;break;}if(pr){if(c<8)H[c]=f(Math.pow(p,1/2));K[c++]=f(Math.pow(p,1/3));}p++;}
-    const w=[],l=m.length*8;m+="\x80";while(m.length%64-56)m+="\x00";
-    for(let i=0;i<m.length;i++)w[i>>2]|=m.charCodeAt(i)<<((3-i%4)*8);w.push(0,l);
-    const r=(x,n)=>x>>>n|x<<32-n;
-    for(let j=0;j<w.length;j+=16){const W=w.slice(j,j+16);let [a,b,cc,d,e,ff,g,h]=H;
-      for(let i=0;i<64;i++){if(i>15){const x=W[i-15],y=W[i-2];W[i]=W[i-16]+(r(x,7)^r(x,18)^x>>>3)+W[i-7]+(r(y,17)^r(y,19)^y>>>10)|0;}
-        const t1=h+(r(e,6)^r(e,11)^r(e,25))+(e&ff^~e&g)+K[i]+W[i]|0,t2=(r(a,2)^r(a,13)^r(a,22))+(a&b^a&cc^b&cc)|0;
-        h=g;g=ff;ff=e;e=d+t1|0;d=cc;cc=b;b=a;a=t1+t2|0;}
-      [a,b,cc,d,e,ff,g,h].forEach((v,i)=>H[i]=H[i]+v|0);}
-    return H.map(v=>(v>>>0).toString(16).padStart(8,"0")).join("");}
-  document.getElementById("f").addEventListener("submit",e=>{
-    e.preventDefault();
-    const v=document.getElementById("code").value.trim().toLowerCase();
-    if(sha(v)===HASH){try{localStorage.setItem("wmhqReplaysAccess",HASH);}catch(_){} open();window.scrollTo(0,0);}
-    else{const x=g.querySelector(".gate");x.classList.remove("shake");void x.offsetWidth;x.classList.add("shake");document.getElementById("err").textContent="That code is not right. Try again.";}
-  });
-})();
-</script>
 
 <header class="hero">
   <div class="logins">
@@ -825,13 +770,14 @@ function showDetail(e){
   const d=new Date(e.start),en=new Date(e.end),el=document.getElementById("calDetail");
   const local=Intl.DateTimeFormat().resolvedOptions().timeZone;
   el.hidden=false;
-  el.innerHTML=`<button class="x" aria-label="Close">&times;</button><span class="tag ${e.type}">${covers[e.type].name}</span>
+  el.innerHTML=`<button class="x" aria-label="Close">&times;</button>${e.highlight==="workshop"?`<span class="tag workshop">Bi-Annual Workshop</span>`:`<span class="tag ${e.type}">${covers[e.type].name}</span>`}
     <h4>${e.title}</h4>
     <p>${d.toLocaleDateString("en-AU",{weekday:"long",day:"numeric",month:"long"})}, ${bneFmt(d)} to ${bneFmt(en)} Brisbane time${local!=="Australia/Brisbane"?` (${tFmt(d)} your time)`:""}</p>
     <div class="acts"><a class="primary" href="${JOIN_URL}" target="_blank" rel="noopener">Join via Kajabi Meetups</a>
     <a href="${gcalLink(e)}" target="_blank" rel="noopener">Add to Google</a>
     <a href="${icsLink(e)}" download="wmhq-call.ics">Add to Apple / Outlook</a></div>`;
   el.querySelector(".x").onclick=()=>el.hidden=true;
+  el.scrollIntoView({behavior:"smooth",block:"center"});
 }
 function renderCal(){
   const y=calMonth.getFullYear(),m=calMonth.getMonth(),now=new Date();

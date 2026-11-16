@@ -251,6 +251,15 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bright-red);outline
 .ev.business{background:#CFE3D1}.ev.subconscious{background:#DCD3EC}.ev.combined{background:#F2C6D0}.ev.masterclass{background:#E3BACB}
 .cal-empty{grid-column:1/-1;text-align:center;padding:28px 16px;font-family:var(--mono);font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);border-right:1px solid var(--border);border-bottom:1px solid var(--border);background:#fbf6f6}
 .ev.workshop{background:#FBE7A1}
+.cal-tz{display:inline-block;font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#5a4a10;background:rgba(250,232,140,.45);border-radius:6px;padding:6px 12px;margin-bottom:12px}
+.cal-tz span{color:#5a4a10;text-transform:none;letter-spacing:.04em}
+.cinfo{margin-top:14px;font-size:15px;line-height:1.6}
+.cinfo p{color:var(--ink-light);margin-bottom:6px}
+.cinfo a{color:var(--bright-red);font-weight:700}
+.tz{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px}
+.tz div{background:#fbf6f6;border-radius:12px;padding:12px 14px;font-size:14px;color:var(--ink)}
+.tz span{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+@media(max-width:700px){.tz{grid-template-columns:1fr}}
 .tag.workshop{background:#FBE7A1;color:#5a4a10}
 .ev.past{opacity:.45}
 .cal-day .evs{display:flex;flex-direction:column;gap:8px}
@@ -352,14 +361,14 @@ h1 em{font-style:normal;color:#F2C6D0}
 <!-- SCREEN 1: call type covers -->
 <section class="covers" id="coverScreen">
   <h2>Choose your <em>call type.</em></h2>
-  <p><a href="#cal" class="cal-jump">View the call calendar &darr;</a></p>
+  <p><a href="#cal" class="cal-jump">View the WMHQ Call Calendar &darr;</a></p>
   <div class="notice"><b>Heads up:</b> call replays are slowly moving over to this page. Each replay only stays up for the quarter it was hosted in, so watch it before the quarter ends.</div>
   <div class="cover-grid" id="coverGrid"></div>
 
   <section class="cal" id="cal" aria-label="Call calendar">
     <div class="cal-head">
       <div>
-        <div class="cal-eyebrow">Call calendar</div>
+        <div class="cal-eyebrow">WMHQ Call Calendar</div>
         <h3 class="cal-title" id="calTitle"></h3>
       </div>
       <div class="cal-nav">
@@ -369,6 +378,7 @@ h1 em{font-style:normal;color:#F2C6D0}
       </div>
     </div>
     <p class="cal-note">These calls are also on the WMHQ Community under <b>Meetups</b>. <a href="https://www.jessicapinili.com/products/communities/v2/womanmasteryhq/access-group/e1cd04bf-d341-4176-aab2-a9c187f708f9/meetups" target="_blank" rel="noopener">Open Meetups &#8599;</a></p>
+    <p class="cal-tz" id="calTz"></p>
     <div class="cal-next" id="calNextCall"></div>
     <div class="cal-grid" id="calGrid"></div>
     <div class="cal-detail" id="calDetail" hidden></div>
@@ -766,13 +776,20 @@ const gStamp=d=>d.toISOString().replace(/[-:]/g,"").replace(/\.\d{3}/,"");
 function gcalLink(e){return "https://calendar.google.com/calendar/render?action=TEMPLATE&text="+encodeURIComponent("WMHQ: "+e.title)+"&dates="+gStamp(new Date(e.start))+"/"+gStamp(new Date(e.end))+"&details="+encodeURIComponent("Join via Kajabi Meetups: "+JOIN_URL);}
 function icsLink(e){const b=["BEGIN:VCALENDAR","VERSION:2.0","BEGIN:VEVENT","DTSTART:"+gStamp(new Date(e.start)),"DTEND:"+gStamp(new Date(e.end)),"SUMMARY:WMHQ: "+e.title,"DESCRIPTION:Join via Kajabi Meetups: "+JOIN_URL,"END:VEVENT","END:VCALENDAR"].join("\r\n");return "data:text/calendar;charset=utf-8,"+encodeURIComponent(b);}
 function evList(){return callEvents.filter(e=>!calFilter||e.type===calFilter).sort((a,b)=>a.start.localeCompare(b.start));}
+const callInfo = {
+  business: `<p><b>Focus:</b> Strategy, sales, offers, content, visibility and business structure.</p><p><b>Please note:</b> Pre-submit your questions <a href="https://businessquestion.womanmasteryhq.com/" target="_blank" rel="noopener">HERE</a> ahead of time so we can dive straight in! But of course, whatever comes up live on the call, we’ll get to.</p>`,
+  subconscious: `<p><b>Focus:</b> Beliefs, identity, fears, limitations and nervous system capacity.</p><p><b>Before the call:</b> Pre-submit your questions <a href="https://subconsciousquestion.womanmasteryhq.com/" target="_blank" rel="noopener">HERE</a> ahead of time. Anything comes up live? Bring that too.</p>`,
+  combined: `<p><b>Focus:</b> Case studies, the Fear Process and strategy check-ins.</p><p><b>Please note:</b> Pre-submit your questions ahead of time (<a href="https://businessquestion.womanmasteryhq.com/" target="_blank" rel="noopener">business questions</a> or <a href="https://subconsciousquestion.womanmasteryhq.com/" target="_blank" rel="noopener">subconscious questions</a>) so we can hit the ground running! But of course, whatever comes up live on the call, we’ll get to.</p>`
+};
 function showDetail(e){
   const d=new Date(e.start),en=new Date(e.end),el=document.getElementById("calDetail");
   const local=Intl.DateTimeFormat().resolvedOptions().timeZone;
   el.hidden=false;
   el.innerHTML=`<button class="x" aria-label="Close">&times;</button>${e.highlight==="workshop"?`<span class="tag workshop">Bi-Annual Workshop</span>`:`<span class="tag ${e.type}">${covers[e.type].name}</span>`}
     <h4>${e.title}</h4>
-    <p>${d.toLocaleDateString("en-AU",{weekday:"long",day:"numeric",month:"long"})}, ${bneFmt(d)} to ${bneFmt(en)} Brisbane time${local!=="Australia/Brisbane"?` (${tFmt(d)} your time)`:""}</p>
+    <div class="tz"><div><span>Your time</span>${d.toLocaleDateString("en-AU",{weekday:"long",day:"numeric",month:"long"})}, ${tFmt(d)} to ${tFmt(en)}</div>
+    <div><span>Jess's time (Brisbane)</span>${d.toLocaleDateString("en-AU",{weekday:"long",day:"numeric",month:"long",timeZone:"Australia/Brisbane"})}, ${bneFmt(d)} to ${bneFmt(en)}</div></div>
+    ${!e.highlight&&callInfo[e.type]?`<div class="cinfo">${callInfo[e.type]}</div>`:""}
     <div class="acts"><a class="primary" href="${JOIN_URL}" target="_blank" rel="noopener">Join via Kajabi Meetups</a>
     <a href="${gcalLink(e)}" target="_blank" rel="noopener">Add to Google</a>
     <a href="${icsLink(e)}" download="wmhq-call.ics">Add to Apple / Outlook</a></div>`;
@@ -780,6 +797,8 @@ function showDetail(e){
   el.scrollIntoView({behavior:"smooth",block:"center"});
 }
 function renderCal(){
+  const tzn=Intl.DateTimeFormat().resolvedOptions().timeZone||"";
+  document.getElementById("calTz").innerHTML=`These calls show in your time zone${tzn?` <span>(${tzn.replace(/_/g," ")})</span>`:""}`;
   const y=calMonth.getFullYear(),m=calMonth.getMonth(),now=new Date();
   document.getElementById("calTitle").textContent=calMonth.toLocaleDateString("en-AU",{month:"long",year:"numeric"});
   const evs=evList();
@@ -787,7 +806,7 @@ function renderCal(){
   const nc=document.getElementById("calNextCall");
   if(next){const d=new Date(next.start),ms=d-now;
     const cd=ms>0?(()=>{const dd=Math.floor(ms/864e5),hh=Math.floor(ms%864e5/36e5),mm=Math.floor(ms%36e5/6e4);return "In "+(dd?dd+"d ":"")+hh+"h "+mm+"m";})():"Live now";
-    nc.innerHTML=`<span class="nl">Next call</span><span class="nt">${next.title}</span><span class="nw">${d.toLocaleDateString("en-AU",{weekday:"short",day:"numeric",month:"short"})}, ${bneFmt(d)} AEST</span><span class="cd">${cd}</span>`;
+    nc.innerHTML=`<span class="nl">Next call</span><span class="nt">${next.title}</span><span class="nw">${d.toLocaleDateString("en-AU",{weekday:"short",day:"numeric",month:"short"})}, ${tFmt(d)} your time</span><span class="cd">${cd}</span>`;
     nc.style.display="";nc.style.cursor="pointer";nc.onclick=()=>showDetail(next);}
   else nc.style.display="none";
   const first=new Date(y,m,1),startDow=(first.getDay()+6)%7,days=new Date(y,m+1,0).getDate();
@@ -795,11 +814,11 @@ function renderCal(){
   for(let i=0;i<startDow;i++)h+=`<div class="cal-day out empty"></div>`;
   for(let dn=1;dn<=days;dn++){
     const ds=`${y}-${String(m+1).padStart(2,"0")}-${String(dn).padStart(2,"0")}`;
-    const de=evs.filter(e=>new Date(e.start).toLocaleDateString("en-CA",{timeZone:"Australia/Brisbane"})===ds);
+    const de=evs.filter(e=>(d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`)(new Date(e.start))===ds);
     const isT=now.getFullYear()===y&&now.getMonth()===m&&now.getDate()===dn;
     if(!de.length&&window.innerWidth<=700&&!isT){h+=`<div class="cal-day empty"></div>`;continue;}
     const label=window.innerWidth<=700?new Date(y,m,dn).toLocaleDateString("en-AU",{weekday:"short",day:"numeric"}):dn;
-    h+=`<div class="cal-day${isT?" today":""}"><span class="dn">${label}</span><div class="evs">${de.map(e=>`<button class="ev ${e.type}${e.highlight?" "+e.highlight:""}${new Date(e.end)<now?" past":""}" data-i="${callEvents.indexOf(e)}">${e.title}<small>${bneFmt(new Date(e.start))}</small></button>`).join("")}</div></div>`;
+    h+=`<div class="cal-day${isT?" today":""}"><span class="dn">${label}</span><div class="evs">${de.map(e=>`<button class="ev ${e.type}${e.highlight?" "+e.highlight:""}${new Date(e.end)<now?" past":""}" data-i="${callEvents.indexOf(e)}">${e.title}<small>${tFmt(new Date(e.start))}</small></button>`).join("")}</div></div>`;
   }
   const monthHas=evs.some(e=>{const d=new Date(e.start);return d.getFullYear()===y&&d.getMonth()===m;});
   if(!monthHas)h+=`<div class="cal-empty">No scheduled calls yet. Check back soon.</div>`;

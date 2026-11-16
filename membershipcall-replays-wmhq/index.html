@@ -274,6 +274,25 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bright-red);outline
 .cal-sub-lbl{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
 .cal-sub-btns{display:flex;gap:8px;flex-wrap:wrap}
 .cal-sub-btns a{font-size:13px;font-weight:700;text-decoration:none;color:#240709;padding:8px 14px;border-radius:100px}
+.cal-hint{display:flex;align-items:center;gap:12px;background:#FBE3E9;border:1px solid rgba(141,0,4,.18);border-radius:14px;padding:14px 18px;margin-bottom:16px;font-size:15px;color:var(--ink)}
+.cal-hint svg{flex:none;color:var(--bright-red)}
+.cal-hint b{color:var(--bright-red)}
+.cal-head .cal-tz{margin:12px 0 0}
+/* roomier layout for the dedicated calendar page */
+.cal{padding:40px;margin-top:56px}
+.cal-head{margin-bottom:26px}
+.cal-note{margin-bottom:22px;padding:16px 20px;line-height:1.6}
+.cal-tz{margin-bottom:20px}
+.cal-next{margin-bottom:28px;padding:22px 26px}
+.cal-detail{margin-top:28px;padding:30px 32px}
+.cal-detail h4{font-size:24px;margin:12px 0 6px}
+.tz{gap:16px;margin-top:18px}
+.tz div{padding:16px 18px}
+.cinfo{margin-top:22px;padding-top:20px;border-top:1px solid var(--border)}
+.cinfo p{margin-bottom:12px;line-height:1.7}
+.cal-detail .acts{margin-top:24px;gap:12px}
+.cal-sub{margin-top:30px;padding-top:24px;border-top:1px solid var(--border)}
+@media(max-width:700px){.cal{padding:20px}.cal-detail{padding:22px 20px}}
 @media(max-width:700px){
   .cal{padding:16px;border-radius:20px}
   .cal-grid{display:block;border:0}
@@ -330,11 +349,90 @@ h1 em{font-style:normal;color:#F2C6D0}
 #gate .wmhq-footer-social a{color:#F2C6D0;display:inline-flex;width:22px;height:22px;opacity:.85}
 #gate .wmhq-footer-social a svg{width:100%;height:100%}
 #gate .wmhq-footer-social a:hover{opacity:1}
+
+@media(max-width:700px){
+  .cal-day.today .dn{background:none;color:var(--bright-red);width:72px;height:auto;border-radius:0;display:block}
+  .cal-day.today .dn::after{content:"Today";display:inline-block;margin-top:4px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;background:var(--bright-red);color:#fff;padding:2px 8px;border-radius:100px}
+  .cal-day.today{background:#fdf3f5;border-radius:12px}
+  .cal-day .dn{width:72px;font-size:14px;line-height:1.3}
+  .cal-day .evs{min-width:0}
+  .ev{font-size:14px;padding:10px 12px}
+  .ev small{font-size:11px;margin-top:2px}
+  .cal-head{align-items:flex-start}
+  .cal-title{font-size:26px}
+  .cal-nav button{padding:8px 12px}
+  .cal-next{gap:6px 12px;padding:16px 18px}
+  .cal-next .nt{font-size:16px;width:100%}
+  .cal-hint{font-size:14px;padding:12px 14px}
+  .cal-sub-btns a{font-size:12px}
+}
+
+@media(max-width:700px){
+  .cal{display:flex;flex-direction:column}
+  .cal-head{display:contents}
+  .cal-head > div:first-child{order:1;margin-bottom:16px}
+  .cal-next{order:2}
+  .cal-hint{order:3}
+  .cal-nav{order:4;display:grid;grid-template-columns:44px 1fr 44px;gap:8px;margin:4px 0 10px}
+  .cal-nav button{padding:10px 0;text-align:center}
+  .cal-grid{order:5}
+  .cal-detail{order:6}
+  .cal-sub{order:7}
+  .cal-head .cal-tz{font-size:10px;letter-spacing:.12em;padding:5px 10px;margin-top:10px}
+  .cal-next{display:grid;grid-template-columns:1fr auto;align-items:center;gap:4px 12px;padding:16px 18px;margin-bottom:14px;border-radius:16px}
+  .cal-next .nl{grid-column:1/-1;font-size:10px}
+  .cal-next .nt{font-size:15px;line-height:1.3;grid-column:1/2;width:auto}
+  .cal-next .nw{grid-column:1/2;font-size:13px}
+  .cal-next .cd{grid-column:2;grid-row:2/4;align-self:center;font-size:12px;padding:6px 10px;white-space:nowrap}
+  .cal-hint{font-size:13px;padding:10px 12px;margin-bottom:12px;gap:10px;border-radius:12px}
+  .cal-hint svg{width:18px;height:18px}
+}
+
+.cal-next{position:relative;padding-right:150px}
+.cal-next .cd{position:absolute;top:16px;right:18px;margin:0}
+.cal-next .nh{width:100%;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--pill);opacity:.85}
+.cal-tz span{font-weight:700}
+@media(max-width:700px){
+  .cal-next{display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding:16px 18px;padding-right:18px}
+  .cal-next .cd{top:12px;right:12px;font-size:11px;padding:5px 9px}
+  .cal-next .nl{padding-right:110px}
+  .cal-next .nh{font-size:10px;margin-top:4px}
+  .cal-hint{white-space:nowrap;font-size:clamp(10.5px,3.3vw,13px);letter-spacing:-.01em;padding:10px 12px;justify-content:center}
+  .cal-hint svg{display:none}
+}
+
+.cal-grid{background:#F8EEF0;border:1px solid var(--border)!important;border-radius:18px;padding:14px;gap:6px}
+.cal-dow{background:none;border:0;padding:4px 8px 8px;text-align:left}
+.cal-day{background:var(--white);border:0;border-radius:10px}
+.cal-day.out{background:rgba(255,255,255,.45)}
+.cal-empty{border:0;border-radius:10px;background:var(--white)}
+@media(max-width:700px){
+  .cal-grid{padding:8px;display:flex;flex-direction:column;gap:6px}
+  .cal-day{border-bottom:0;padding:12px 10px}
+  .cal-day.today{background:#fdf3f5;box-shadow:inset 0 0 0 1px rgba(141,0,4,.25)}
+}
+
+@media(max-width:700px){
+  .cal-next{display:grid!important;grid-template-columns:1fr auto;align-items:center;gap:6px 10px;padding:14px 16px!important}
+  .cal-next .nl{grid-column:1;grid-row:1;padding-right:0}
+  .cal-next .cd{position:static;grid-column:2;grid-row:1;justify-self:end}
+  .cal-next .nt,.cal-next .nw,.cal-next .nh{grid-column:1/-1;width:auto}
+  .cal-next .nt{grid-row:2}.cal-next .nw{grid-row:3}.cal-next .nh{grid-row:4;margin-top:2px}
+}
+.hero{position:relative}
+.hero-logo{position:absolute;top:20px;left:28px;height:36px;width:auto;opacity:.9}
+@media(max-width:700px){.hero-logo{display:none}}
+.cal{box-shadow:0 18px 50px rgba(36,7,9,.12),0 2px 8px rgba(36,7,9,.06)}
+.ev{box-shadow:inset 0 0 0 1px rgba(36,7,9,.08)}
+.ev.sel{box-shadow:inset 0 0 0 2px #240709}
+.cal-detail{border-width:2px;border-color:var(--border-strong)}
+.tz div:first-child{background:#F3E2E6}
 </style>
 </head>
 <body>
 
 <header class="hero">
+  <img class="hero-logo" src="data:image/png;base64,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" alt="Woman Mastery HQ">
   <div class="logins">
     <a href="https://www.jessicapinili.com/login" target="_blank" rel="noopener">WMHQ Vault <span aria-hidden="true">&#8599;</span></a>
     <span class="sep" aria-hidden="true">|</span>
@@ -370,6 +468,7 @@ h1 em{font-style:normal;color:#F2C6D0}
       <div>
         <div class="cal-eyebrow">WMHQ Call Calendar</div>
         <h3 class="cal-title" id="calTitle"></h3>
+        <p class="cal-tz" id="calTz"></p>
       </div>
       <div class="cal-nav">
         <button id="calPrev" aria-label="Previous month">&larr;</button>
@@ -378,8 +477,8 @@ h1 em{font-style:normal;color:#F2C6D0}
       </div>
     </div>
     <p class="cal-note">These calls are also on the WMHQ Community under <b>Meetups</b>. <a href="https://www.jessicapinili.com/products/communities/v2/womanmasteryhq/access-group/e1cd04bf-d341-4176-aab2-a9c187f708f9/meetups" target="_blank" rel="noopener">Open Meetups &#8599;</a></p>
-    <p class="cal-tz" id="calTz"></p>
     <div class="cal-next" id="calNextCall"></div>
+    <div class="cal-hint"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11V5a2 2 0 0 1 4 0v6"/><path d="M13 9a2 2 0 0 1 4 0v3"/><path d="M17 11a2 2 0 0 1 4 0v4a6 6 0 0 1-6 6h-2a6 6 0 0 1-5.2-3L5 14.5a2 2 0 0 1 3.4-2L9 13"/></svg><span><b>Click any call</b> to join it or add it to your calendar.</span></div>
     <div class="cal-grid" id="calGrid"></div>
     <div class="cal-detail" id="calDetail" hidden></div>
     <div class="cal-sub">
@@ -762,10 +861,10 @@ document.getElementById("footerYear").textContent=new Date().getFullYear();
 const JOIN_URL = "https://www.jessicapinili.com/products/communities/v2/womanmasteryhq/access-group/e1cd04bf-d341-4176-aab2-a9c187f708f9/meetups"; /* Kajabi meetups */
 const GCAL_KEY = "AIzaSyAJG_VzPCL0dZtPhu2BlB4NcXd6in2u8z4";
 let callEvents = [
-  { type:"subconscious", title:"Subconscious Mastery Call", start:"2026-11-11T18:00:00+10:00", end:"2026-11-11T19:00:00+10:00" },
-  { type:"masterclass",  title:"Bi-Annual Session 01: Review + Diagnose", highlight:"workshop", start:"2026-11-17T06:00:00+10:00", end:"2026-11-17T08:00:00+10:00" },
-  { type:"masterclass",  title:"Bi-Annual Session 02: Decide + Build", highlight:"workshop", start:"2026-11-17T18:00:00+10:00", end:"2026-11-17T20:00:00+10:00" },
-  { type:"business",     title:"Business Mastermind Call", start:"2026-11-26T06:30:00+10:00", end:"2026-11-26T07:30:00+10:00" }
+  { type:"subconscious", title:"WMHQ Subconscious Mastery Call", start:"2026-11-11T18:00:00+10:00", end:"2026-11-11T19:00:00+10:00" },
+  { type:"masterclass",  title:"WMHQ Bi-Annual Session 01: Review + Diagnose", highlight:"workshop", start:"2026-11-17T06:00:00+10:00", end:"2026-11-17T08:00:00+10:00" },
+  { type:"masterclass",  title:"WMHQ Bi-Annual Session 02: Decide + Build", highlight:"workshop", start:"2026-11-17T18:00:00+10:00", end:"2026-11-17T20:00:00+10:00" },
+  { type:"business",     title:"WMHQ Business Mastermind Call", start:"2026-11-26T06:30:00+10:00", end:"2026-11-26T07:30:00+10:00" }
 ];
 const evColour={business:"#CFE3D1",subconscious:"#DCD3EC",combined:"#F2C6D0",masterclass:"#E3BACB"};
 let calMonth=(()=>{const d=new Date();return new Date(d.getFullYear(),d.getMonth(),1);})();
@@ -773,15 +872,18 @@ let calFilter=null;
 const tFmt=d=>d.toLocaleTimeString("en-AU",{hour:"numeric",minute:"2-digit"}).replace(" ","").toLowerCase();
 const bneFmt=d=>d.toLocaleTimeString("en-AU",{hour:"numeric",minute:"2-digit",timeZone:"Australia/Brisbane"}).replace(" ","").toLowerCase();
 const gStamp=d=>d.toISOString().replace(/[-:]/g,"").replace(/\.\d{3}/,"");
-function gcalLink(e){return "https://calendar.google.com/calendar/render?action=TEMPLATE&text="+encodeURIComponent("WMHQ: "+e.title)+"&dates="+gStamp(new Date(e.start))+"/"+gStamp(new Date(e.end))+"&details="+encodeURIComponent("Join via Kajabi Meetups: "+JOIN_URL);}
-function icsLink(e){const b=["BEGIN:VCALENDAR","VERSION:2.0","BEGIN:VEVENT","DTSTART:"+gStamp(new Date(e.start)),"DTEND:"+gStamp(new Date(e.end)),"SUMMARY:WMHQ: "+e.title,"DESCRIPTION:Join via Kajabi Meetups: "+JOIN_URL,"END:VEVENT","END:VCALENDAR"].join("\r\n");return "data:text/calendar;charset=utf-8,"+encodeURIComponent(b);}
+function gcalLink(e){return "https://calendar.google.com/calendar/render?action=TEMPLATE&text="+encodeURIComponent(e.title)+"&dates="+gStamp(new Date(e.start))+"/"+gStamp(new Date(e.end))+"&details="+encodeURIComponent("Join via Kajabi Meetups: "+JOIN_URL);}
+function icsLink(e){const b=["BEGIN:VCALENDAR","VERSION:2.0","BEGIN:VEVENT","DTSTART:"+gStamp(new Date(e.start)),"DTEND:"+gStamp(new Date(e.end)),"SUMMARY:"+e.title,"DESCRIPTION:Join via Kajabi Meetups: "+JOIN_URL,"END:VEVENT","END:VCALENDAR"].join("\r\n");return "data:text/calendar;charset=utf-8,"+encodeURIComponent(b);}
 function evList(){return callEvents.filter(e=>!calFilter||e.type===calFilter).sort((a,b)=>a.start.localeCompare(b.start));}
 const callInfo = {
   business: `<p><b>Focus:</b> Strategy, sales, offers, content, visibility and business structure.</p><p><b>Please note:</b> Pre-submit your questions <a href="https://businessquestion.womanmasteryhq.com/" target="_blank" rel="noopener">HERE</a> ahead of time so we can dive straight in! But of course, whatever comes up live on the call, we’ll get to.</p>`,
   subconscious: `<p><b>Focus:</b> Beliefs, identity, fears, limitations and nervous system capacity.</p><p><b>Before the call:</b> Pre-submit your questions <a href="https://subconsciousquestion.womanmasteryhq.com/" target="_blank" rel="noopener">HERE</a> ahead of time. Anything comes up live? Bring that too.</p>`,
   combined: `<p><b>Focus:</b> Case studies, the Fear Process and strategy check-ins.</p><p><b>Please note:</b> Pre-submit your questions ahead of time (<a href="https://businessquestion.womanmasteryhq.com/" target="_blank" rel="noopener">business questions</a> or <a href="https://subconsciousquestion.womanmasteryhq.com/" target="_blank" rel="noopener">subconscious questions</a>) so we can hit the ground running! But of course, whatever comes up live on the call, we’ll get to.</p>`
 };
+let selIdx=-1;
 function showDetail(e){
+  selIdx=callEvents.indexOf(e);
+  document.querySelectorAll(".ev").forEach(b=>b.classList.toggle("sel",+b.dataset.i===selIdx));
   const d=new Date(e.start),en=new Date(e.end),el=document.getElementById("calDetail");
   const local=Intl.DateTimeFormat().resolvedOptions().timeZone;
   el.hidden=false;
@@ -793,7 +895,7 @@ function showDetail(e){
     <div class="acts"><a class="primary" href="${JOIN_URL}" target="_blank" rel="noopener">Join via Kajabi Meetups</a>
     <a href="${gcalLink(e)}" target="_blank" rel="noopener">Add to Google</a>
     <a href="${icsLink(e)}" download="wmhq-call.ics">Add to Apple / Outlook</a></div>`;
-  el.querySelector(".x").onclick=()=>el.hidden=true;
+  el.querySelector(".x").onclick=()=>{el.hidden=true;selIdx=-1;document.querySelectorAll(".ev.sel").forEach(b=>b.classList.remove("sel"));};
   el.scrollIntoView({behavior:"smooth",block:"center"});
 }
 function renderCal(){
@@ -806,7 +908,7 @@ function renderCal(){
   const nc=document.getElementById("calNextCall");
   if(next){const d=new Date(next.start),ms=d-now;
     const cd=ms>0?(()=>{const dd=Math.floor(ms/864e5),hh=Math.floor(ms%864e5/36e5),mm=Math.floor(ms%36e5/6e4);return "In "+(dd?dd+"d ":"")+hh+"h "+mm+"m";})():"Live now";
-    nc.innerHTML=`<span class="nl">Next call</span><span class="nt">${next.title}</span><span class="nw">${d.toLocaleDateString("en-AU",{weekday:"short",day:"numeric",month:"short"})}, ${tFmt(d)} your time</span><span class="cd">${cd}</span>`;
+    nc.innerHTML=`<span class="nl">Next call</span><span class="nt">${next.title}</span><span class="nw">${d.toLocaleDateString("en-AU",{weekday:"short",day:"numeric",month:"short"})}, ${tFmt(d)} your time</span><span class="cd">${cd}</span><span class="nh">Click to join or add to your calendar</span>`;
     nc.style.display="";nc.style.cursor="pointer";nc.onclick=()=>showDetail(next);}
   else nc.style.display="none";
   const first=new Date(y,m,1),startDow=(first.getDay()+6)%7,days=new Date(y,m+1,0).getDate();
@@ -818,7 +920,7 @@ function renderCal(){
     const isT=now.getFullYear()===y&&now.getMonth()===m&&now.getDate()===dn;
     if(!de.length&&window.innerWidth<=700&&!isT){h+=`<div class="cal-day empty"></div>`;continue;}
     const label=window.innerWidth<=700?new Date(y,m,dn).toLocaleDateString("en-AU",{weekday:"short",day:"numeric"}):dn;
-    h+=`<div class="cal-day${isT?" today":""}"><span class="dn">${label}</span><div class="evs">${de.map(e=>`<button class="ev ${e.type}${e.highlight?" "+e.highlight:""}${new Date(e.end)<now?" past":""}" data-i="${callEvents.indexOf(e)}">${e.title}<small>${tFmt(new Date(e.start))}</small></button>`).join("")}</div></div>`;
+    h+=`<div class="cal-day${isT?" today":""}"><span class="dn">${label}</span><div class="evs">${de.map(e=>`<button class="ev ${e.type}${e.highlight?" "+e.highlight:""}${callEvents.indexOf(e)===selIdx?" sel":""}${new Date(e.end)<now?" past":""}" data-i="${callEvents.indexOf(e)}">${e.title}<small>${tFmt(new Date(e.start))}</small></button>`).join("")}</div></div>`;
   }
   const monthHas=evs.some(e=>{const d=new Date(e.start);return d.getFullYear()===y&&d.getMonth()===m;});
   if(!monthHas)h+=`<div class="cal-empty">No scheduled calls yet. Check back soon.</div>`;
@@ -841,7 +943,7 @@ async function loadLiveCalls(){
       const r=await fetch(u); if(!r.ok) throw new Error(type+" "+r.status);
       const j=await r.json();
       return (j.items||[]).filter(e=>e.status!=="cancelled"&&e.start&&e.start.dateTime).map(e=>({
-        type, title:clean(e.summary)||covers[type].name, start:e.start.dateTime, end:e.end.dateTime,
+        type, title:"WMHQ "+(clean(e.summary)||covers[type].name), start:e.start.dateTime, end:e.end.dateTime,
         highlight:/bi-?annual/i.test(e.summary||"")?"workshop":undefined }));
     }));
     callEvents=res.flat(); renderCal();

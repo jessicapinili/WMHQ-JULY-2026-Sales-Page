@@ -461,6 +461,8 @@ h1 em{font-style:normal;color:#F2C6D0}
 .cover .info i{font-size:12px!important}
 @media(max-width:1100px){.cover-grid{grid-template-columns:repeat(2,1fr)!important}}
 @media(max-width:600px){.cover-grid{grid-template-columns:1fr!important}}
+.bar a.cal-link{text-decoration:none}
+.bar #newTab{margin-top:0;border-top:0}
 .bar .cal-link{display:flex;align-items:center;gap:10px;background:transparent;border:0;color:var(--pill);font-family:var(--mono);letter-spacing:.12em;cursor:pointer}
 @media(min-width:901px){.bar .cal-link{width:100%;text-align:left;font-size:13px;padding:13px 16px;border-radius:12px;margin-top:10px;border-top:1px solid rgba(235,199,205,.15);border-radius:0 0 12px 12px}.bar .cal-link:hover{background:rgba(235,199,205,.08)}}
 @media(max-width:700px){.bar .cal-link{width:100%;font-size:14px;padding:14px 20px}}
@@ -497,6 +499,7 @@ h1 em{font-style:normal;color:#F2C6D0}
     <button data-t="masterclass" aria-pressed="false">Signature Masterclass</button>
     <button data-t="biannual" aria-pressed="false">Biannual Workshop</button>
     <button class="cal-link" id="calLink"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Call Calendar</button>
+    <a class="cal-link" id="newTab" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>Open in New Tab</a>
   </div>
 </nav>
 
@@ -1029,6 +1032,7 @@ async function loadLiveCalls(){
   }catch(err){ console.log("Calendar sync not available yet, showing snapshot:",err.message); }
 }
 loadLiveCalls();
+document.getElementById("newTab").href=location.href.split("#")[0];
 document.getElementById("calLink").onclick=()=>{setType(null);setTimeout(()=>{const c=document.getElementById("cal");if(c)c.scrollIntoView({behavior:"smooth",block:"start"});},350);};
 renderCovers();
 renderCal();

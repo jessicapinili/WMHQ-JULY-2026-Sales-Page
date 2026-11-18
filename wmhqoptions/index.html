@@ -290,7 +290,7 @@ h1 em::after{content:"";position:absolute;left:-2%;right:-2%;bottom:.04em;height
   var p=new Vimeo.Player(document.getElementById('vimeo')),box=document.getElementById('vid'),dur=0,playing=false,preview=true;
   var PLAY='<path d="M7 4l14 8-14 8z"/>',PAUSE='<path d="M6 4h4v16H6zM14 4h4v16h-4z"/>';
   function fmt(t){t=Math.floor(t||0);return Math.floor(t/60)+':'+('0'+t%60).slice(-2)}
-  function start(){preview=false;muted=false;icon(1);p.setLoop(false);p.setMuted(false);p.setVolume(1);p.setCurrentTime(0).then(function(){return p.play()});try{fbq('trackCustom','FAQVideoPlay')}catch(e){}}
+  function start(){preview=false;playing=true;box.classList.add('playing');document.getElementById('ppIcon').innerHTML=PAUSE;muted=false;icon(1);p.setLoop(false);p.setMuted(false);p.setVolume(1);p.setCurrentTime(0).then(function(){return p.play()});try{fbq('trackCustom','FAQVideoPlay')}catch(e){}}
   function toggle(){if(preview)return start();playing?p.pause():p.play()}
   document.getElementById('tap').onclick=toggle;document.getElementById('pp').onclick=toggle;
   p.getDuration().then(function(d){dur=d;document.getElementById('time').textContent=fmt(d)});

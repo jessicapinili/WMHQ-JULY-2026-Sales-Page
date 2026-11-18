@@ -134,6 +134,10 @@ h1 em::after{content:"";position:absolute;left:-2%;right:-2%;bottom:.04em;height
 @media(max-width:768px){.tw{height:560px}.tw-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:480px){.tw{height:520px;max-width:340px}.tw-grid{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){.tw{height:auto;-webkit-mask-image:none;mask-image:none}.tw-col{animation:none}.tw-dup{display:none}}
+.breakdown{display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-size:14px;font-weight:700;color:var(--deep-red);text-decoration:none;border-bottom:1.5px solid var(--blush);padding-bottom:2px;transition:border-color .2s}
+.breakdown span{transition:transform .2s}
+.breakdown:hover{border-color:var(--bright-red)}
+.breakdown:hover span{transform:translate(2px,-2px)}
 .price{display:flex;align-items:baseline;gap:6px;margin:20px 0 4px}
 .price b{font-size:46px;font-weight:900;letter-spacing:-.04em;line-height:1;color:var(--ink)}
 .price span{font-size:15px;font-weight:600;color:var(--ink-light)}
@@ -190,7 +194,8 @@ h1 em::after{content:"";position:absolute;left:-2%;right:-2%;bottom:.04em;height
 
   <div class="hello">
     <span class="pill">So good to chat</span>
-    <h1>WMHQ <em>Options</em></h1>  </div>
+    <h1>WMHQ <em>Options</em></h1>
+    <a class="breakdown" href="https://womanmasteryhq.com/joinmembership" target="_blank" rel="noopener">Read full membership breakdown <span aria-hidden="true">&#8599;</span></a>  </div>
 
   <div class="cards">
     <!-- MEMBERSHIP -->

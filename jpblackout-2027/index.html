@@ -785,68 +785,6 @@ form.wl { margin-top: 32px; display: grid; gap: 12px; }
 
 </style>
 
-<style id="prelaunch-lock">
-/* ===== PRE-LAUNCH: CTAs blacked out, checkout locked until 20 Nov ===== */
-.pl-dim,
-a.pl-dim,
-.pl-dim:link, .pl-dim:visited, .pl-dim:hover, .pl-dim:focus {
-  background: #0e0b0c !important;
-  background-image: none !important;
-  color: #F2C4D2 !important;
-  border: 1.5px dotted rgba(242,196,210,0.45) !important;
-  box-shadow: none !important;
-  animation: none !important;
-  text-shadow: none !important;
-  -webkit-text-fill-color: #F2C4D2 !important;
-}
-.pl-dim:hover { border-color: rgba(242,196,210,0.85) !important; }
-.pl-dim svg { stroke: #F2C4D2 !important; }
-
-.pl-locked {
-  display: block;
-  width: 100%;
-  box-sizing: border-box;
-  text-align: center;
-  background: #0e0b0c !important;
-  color: #F2C4D2 !important;
-  border: 2px dotted rgba(242,196,210,0.5) !important;
-  border-radius: 999px;
-  padding: 17px 22px 15px;
-  font-family: 'DM Sans', sans-serif !important;
-  font-weight: 800;
-  font-size: 0.82rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  line-height: 1.3;
-  cursor: default;
-  box-shadow: none !important;
-  animation: pl-breathe 3.4s ease-in-out infinite;
-}
-.pl-locked span {
-  display: block;
-  margin-top: 7px;
-  font-size: 0.66rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  color: rgba(242,196,210,0.62);
-}
-@keyframes pl-breathe {
-  0%, 100% { border-color: rgba(242,196,210,0.5); }
-  50%      { border-color: rgba(242,196,210,0.9); }
-}
-@media (prefers-reduced-motion: reduce) {
-  .pl-locked { animation: none; }
-}
-.pl-dim-link,
-.pl-dim-link:link, .pl-dim-link:visited, .pl-dim-link:hover, .pl-dim-link:focus {
-  color: #161214 !important;
-  -webkit-text-fill-color: #161214 !important;
-  border-bottom-color: rgba(22,18,20,0.45) !important;
-  animation: none !important;
-}
-.pl-dim-link svg { stroke: #161214 !important; }
-</style>
-
 <style id="jpv-player">
 /* ===== JP VSL player ===== */
 .jpv{position:relative;overflow:hidden;padding:0 !important;gap:0 !important;background:#000 !important;}
@@ -936,6 +874,39 @@ a.pl-dim,
 .jpv.loom-mode .jpv-bar,
 .jpv.loom-mode .jpv-controls{display:none !important;}
 </style>
+
+<style id="peek-link">
+/* "see the full experience" link in the WMHQ membership block */
+.found .peek,
+.found a.peek:link,
+.found a.peek:visited {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin: 15px 0 4px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #B8446F !important;
+  -webkit-text-fill-color: #B8446F;
+  text-decoration: none !important;
+  border-bottom: 1.5px dotted rgba(184,68,111,0.45);
+  padding-bottom: 3px;
+  transition: border-color .2s ease, gap .2s ease;
+}
+.found .peek b { font-weight: 800; }
+.found .peek svg { width: 11px; height: 11px; flex: 0 0 auto; }
+.found a.peek:hover,
+.found a.peek:focus {
+  color: #B8446F !important;
+  border-bottom-color: #B8446F;
+  gap: 11px;
+}
+@media (max-width: 560px) {
+  .found .peek { font-size: 0.86rem; }
+}
+</style>
 </head>
 <body class="jp-locked">
 
@@ -1002,7 +973,7 @@ a.pl-dim,
   <div class="wrap nav-inner">
     <p class="nav-cd"><span id="navLabel">Doors open in</span> <b id="n-d">00</b><small>d</small> <b id="n-h">00</b><small>h</small> <b id="n-m">00</b><small>m</small> <b id="n-s">00</b><small>s</small></p>
     <p class="nav-spots">5 spots only</p>
-    <a href="#options" class="nav-cta pl-dim">Claim my spot</a>
+    <a href="#options" class="nav-cta">Claim my spot</a>
   </div>
 </nav>
 
@@ -1016,7 +987,7 @@ a.pl-dim,
     </h1>
     <div class="hero-lower">
       <p class="hero-sub">One year. One package. <strong>Business strategy, mindset support and private access to me</strong>, ready for the exact moments you need it most. WMHQ is the foundation. The private support is what makes it different.</p>
-      <a href="#options" class="btn-primary pl-dim">Claim my spot</a>
+      <a href="#options" class="btn-primary jiggle cycle">Claim my spot</a>
     </div>
   </div>
 </header>
@@ -1054,7 +1025,7 @@ a.pl-dim,
     <div class="vsl-copy">
       <p>Most Black Friday offers do one thing: cut the price of what already exists, then hope you don't ask why it was worth full price last week.</p>
       <p>I wasn't willing to do that to WMHQ, or to the women already paying full price to be inside it. So I built something else instead: <strong class="hl">a package that will only open this year</strong>, with WMHQ as the base and a stack of private support on top.</p>
-      <a href="#options" class="btn-solid btn-long pl-dim">Claim my spot</a>
+      <a href="#options" class="btn-solid btn-long jiggle">Claim my spot</a>
     </div>
   </div>
 </section>
@@ -1082,6 +1053,10 @@ a.pl-dim,
             <li>The WMHQ personal portal</li>
           </ul>
         </details>
+        <a class="peek" href="https://womanmasteryhq.com/inside-wmhqmembership/" target="_blank" rel="noopener">
+          Want to see the full experience? <b>Take a look inside</b>
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 10L10 2M4 2h6v6"/></svg>
+        </a>
         <p class="val">$5,400 value</p>
       </div>
     </div>
@@ -1108,7 +1083,7 @@ a.pl-dim,
     <div class="cmp-col">
       <p class="cmp-lab"><span class="hl hl-lab">The JP Blackout Package price</span></p>
       <p class="cmp-now"><span class="shade">$5,000</span></p>
-      <a href="#options" class="cmp-cta pl-dim-link">Claim my spot <svg viewBox="0 0 12 24" aria-hidden="true"><path d="M6 0v21M1 16l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
+      <a href="#options" class="cmp-cta">Claim my spot <svg viewBox="0 0 12 24" aria-hidden="true"><path d="M6 0v21M1 16l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
     </div>
   </div>
   </div>
@@ -1151,8 +1126,8 @@ a.pl-dim,
           <p class="card-save" id="bSave">Save $3,384 on the full stack</p>
           <p class="card-best">For the woman who wants the full year of support, plus private access to me when she needs it most.</p>
           <div class="spacer"></div>
-          <div class="pl-locked" role="status" id="blackoutCta">Opens Nov 20th<span>For waitlisters only!</span></div>
-          <p class="card-fine">All prices in AUD. Doors open 20 November and close 1 December at midnight AEST.<br>After your 12 months, WMHQ continues at $450 a month unless you give 30 days&rsquo; notice.</p>
+          <a id="blackoutCta" href="https://www.jessicapinili.com/offers/AJibFzi8/checkout" target="_blank" rel="noopener" class="btn-bougie jiggle" data-track="blackout">Claim my spot</a>
+          <p class="card-fine">All prices in AUD. Secure checkout. Closes 1 December at midnight AEST.<br>After your 12 months, WMHQ continues at $450 a month unless you give 30 days&rsquo; notice.</p>
         </div>
         <div class="card-right">
           <h3><span class="hl-pink">Your year includes</span></h3>
@@ -1191,7 +1166,7 @@ a.pl-dim,
           <div class="alt-pay">
             <div class="alt-sum"><span>Due today</span><b data-aud="450">$450</b></div>
             <div class="alt-sum"><span>Then monthly</span><b><span data-aud="450">$450</span> × 11</b></div>
-            <div class="pl-locked" role="status">Opens Nov 20th<span>For waitlisters only!</span></div>
+            <a href="https://www.jessicapinili.com/offers/AJibFzi8/checkout" target="_blank" rel="noopener" class="btn-bougie" data-track="membership">Continue to checkout</a>
             <p class="card-fine">All prices in AUD. Secure checkout.</p>
             <details class="terms">
               <summary>This is a 12-month commitment</summary>
@@ -1242,7 +1217,7 @@ a.pl-dim,
       <p class="about-role">Business Strategist and Mindset Coach, Founder of Woman Mastery HQ</p>
       <p>I work with female founders who have hit a ceiling that more hours won't fix. My work combines business strategy with subconscious identity work, because the numbers rarely move until the woman running the business does.</p>
       <p>Inside WMHQ, that means building a profitable, sustainable business through every season of life, and getting properly visible while you do it.</p>
-      <a href="#options" class="cmp-cta up pl-dim-link">Claim my spot <svg viewBox="0 0 12 24" aria-hidden="true"><path d="M6 24V3M1 8l5-5 5 5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
+      <a href="#options" class="cmp-cta up">Claim my spot <svg viewBox="0 0 12 24" aria-hidden="true"><path d="M6 24V3M1 8l5-5 5 5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
     </div>
   </div>
 </section>
@@ -1275,7 +1250,7 @@ a.pl-dim,
   <div class="wrap">
     <h2>Lights out<br>on <span class="pinks">1 December.</span></h2>
     <p><strong class="hl-dark">5 spots only. Nine days. Once a year.</strong> If you want next year with me in your corner, this is the way in.</p>
-    <a href="#options" class="btn-primary btn-dotted pl-dim">Claim my spot</a>
+    <a href="#options" class="btn-primary btn-dotted jiggle">Claim my spot</a>
   </div>
 </section>
 
